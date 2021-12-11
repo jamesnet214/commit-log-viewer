@@ -7,8 +7,9 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type units:CommitLogView}">
                     <Border Background="{TemplateBinding Background}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            BorderThickness="{TemplateBinding BorderThickness}">
+                            BorderBrush="#D2D7DD"
+                            BorderThickness="1"
+                            CornerRadius="6">
                         <ItemsPresenter/>
                     </Border>
                 </ControlTemplate>

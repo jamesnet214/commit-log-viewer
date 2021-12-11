@@ -9,5 +9,10 @@ namespace CommitLogViewer.UI.Units
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(CommitLogView), new FrameworkPropertyMetadata(typeof(CommitLogView)));
         }
+
+        protected override DependencyObject GetContainerForItemOverride()
+        {
+            return new CommitLogItem();
+        }
     }
 }

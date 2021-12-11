@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:units="clr-namespace:CommitLogViewer.UI.Units"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="1080" Width="1920">
     <Grid>
-        <units:CommitLogView ItemsSource="{Binding CommitLogs}"/>
+        <units:CommitLogView ItemsSource="{Binding CommitLogs}" Margin="40"/>
     </Grid>
 </Window>
