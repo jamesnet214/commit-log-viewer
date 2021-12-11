@@ -22,6 +22,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Page Update="Themes\Units\FilterTextBox.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Themes\Units\CommitLogItem.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>

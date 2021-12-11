@@ -1,9 +1,11 @@
-﻿using System;
+﻿using CommitLogViewer.Local.Mvvm;
+using System;
+using System.Windows;
 
 namespace CommitLogViewer.Local.Data
 {
 
-    public class CommitLog
+    public class CommitLog : ObservableObject
     {
         DateTime date = DateTime.Now;
         public string CommitId { get; set; }
@@ -13,14 +15,20 @@ namespace CommitLogViewer.Local.Data
         public string CommitComment { get; set; }
         public string StrDate { get; set; }
 
+        private Visibility _visibility;
+        public Visibility Visibility
+        {
+            get => _visibility;
+            set { _visibility = value; OnPropertyChanged(); }
+        }
+
         public CommitLog(string line)
         {
-
-            CommitId = line.Split(',')[0];
-            CommitName = line.Split(',')[1];
-            CommitEmail = line.Split(',')[2];
+            CommitId = line.Split(',')[0].Trim();
+            CommitName = line.Split(',')[1].Trim();
+            CommitEmail = line.Split(',')[2].Trim();
             CommitDate = DateTime.Parse(line.Split(',')[3]);
-            CommitComment = GetLastAttach(line, 3);
+            CommitComment = GetLastAttach(line, 3).Trim();
             TimeSpan timeDiff = date - CommitDate;
             int diffDays = timeDiff.Days; 
             int diffHoures = timeDiff.Hours; 

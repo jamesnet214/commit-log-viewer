@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="1080" Width="1920">
     <Grid>
-        <units:CommitLogView ItemsSource="{Binding CommitLogs}" Margin="40"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <units:FilterTextBox/>
+        <units:CommitLogView Grid.Row="1" ItemsSource="{Binding CommitLogs}" Margin="40"/>
     </Grid>
 </Window>

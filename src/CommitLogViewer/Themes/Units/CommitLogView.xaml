@@ -10,7 +10,9 @@
                             BorderBrush="#D2D7DD"
                             BorderThickness="1"
                             CornerRadius="6">
-                        <ItemsPresenter/>
+                        <ScrollViewer>
+                            <ItemsPresenter/>
+                        </ScrollViewer>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
