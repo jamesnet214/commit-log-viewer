@@ -1,6 +1,7 @@
 ﻿using CommitLogViewer.Local.Data;
 using CommitLogViewer.Local.FileStream;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
 
@@ -18,16 +19,29 @@ namespace CommitLogViewer.Local.Mvvm
         }
 
         public List<CommitLog> CommitLogs { get; set; }
+        public ObservableCollection<KeywordModel> Keywords { get; set; }
 
         public MainViewModel()
         {
             CommitLogs = CsvStreamBuilder.Instance.LoadCsv();
             KeyDownCommand = new RelayCommand<object>(KeydownChanged);
+            Keywords = new ObservableCollection<KeywordModel>();
         }
 
         private void KeydownChanged(object obj)
         {
-            //
+            string[] keywords = Keyword.Split(';');
+
+            foreach (string keword in keywords)
+            {
+                if (string.IsNullOrWhiteSpace(keword))
+                {
+                    continue;
+                }
+                Keywords.Add(new KeywordModel { Keyword = keword});
+            }
+
+            Keyword = "";
         }
 
         private void KeywordChanged(string value)

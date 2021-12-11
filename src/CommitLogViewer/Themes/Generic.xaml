@@ -2,6 +2,8 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/CommitLogViewer;component/Themes/Units/KeywordItem.xaml"/>
+        <ResourceDictionary Source="/CommitLogViewer;component/Themes/Units/KeywordView.xaml"/>
         <ResourceDictionary Source="/CommitLogViewer;component/Themes/Units/FilterTextBox.xaml"/>
         <ResourceDictionary Source="/CommitLogViewer;component/Themes/Units/CommitLogView.xaml"/>
         <ResourceDictionary Source="/CommitLogViewer;component/Themes/Units/CommitLogItem.xaml"/>

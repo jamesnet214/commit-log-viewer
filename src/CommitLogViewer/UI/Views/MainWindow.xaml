@@ -9,9 +9,11 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <units:FilterTextBox/>
-        <units:CommitLogView Grid.Row="1" ItemsSource="{Binding CommitLogs}" Margin="40"/>
+        <units:KeywordView Grid.Row="1" Margin="0 10 0 0" ItemsSource="{Binding Keywords}" Background="Red"/>
+        <units:CommitLogView Grid.Row="2" ItemsSource="{Binding CommitLogs}" Margin="40"/>
     </Grid>
 </Window>
