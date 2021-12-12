@@ -1,0 +1,210 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:ctrls="clr-namespace:CommitLogView.Local.Controls"
+    xmlns:units="clr-namespace:CommitLogView.UI.Units"
+    xmlns:cnvts="clr-namespace:CommitLogView.Local.Converter">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/CommitLogView;component/Themes/Units/Geometries.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <cnvts:TreeViewObjectLevelConverter x:Key="TreeViewObjectLevelConverter"/>
+
+    <Style TargetType="{x:Type ctrls:PathIcon}" x:Key="ICON.ARROW" BasedOn="{StaticResource ICON}">
+        <Setter Property="Data" Value="{StaticResource GEO.MENU.RIGHT}"/>
+        <Setter Property="Fill" Value="#5b95e4"/>
+        <Setter Property="Width" Value="20"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Margin" Value="8 0 0 0"/>
+    </Style>
+
+    <Style TargetType="{x:Type ToggleButton}" x:Key="IN.EXPAND">
+        <Setter Property="IsChecked" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsExpanded}"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Focusable" Value="False"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <ctrls:PathIcon x:Name="icon" Style="{StaticResource ICON.ARROW}"/>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="icon" Property="Data" Value="{StaticResource GEO.MENU.DOWN}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <DataTemplate x:Key="DATA.DAY">
+        <DataTemplate.Resources>
+            <Style TargetType="{x:Type Grid}" x:Key="IN.GRID">
+                <Setter Property="Margin" Value="4"/>
+            </Style>
+            <Style TargetType="{x:Type TextBlock}" x:Key="IN.HEADER">
+                <Setter Property="Text" Value="{Binding Name}"/>
+                <Setter Property="Foreground" Value="#ffffff"/>
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="Margin" Value="20 0 20 0"/>
+            </Style>
+        </DataTemplate.Resources>
+        <Grid Style="{StaticResource IN.GRID}">
+            <ctrls:PathIcon Style="{StaticResource ICON}" Data="{StaticResource GEO.HISTORY}" Fill="#88FFFFFF" Width="14" Height="14"/>
+            <TextBlock Style="{StaticResource IN.HEADER}"/>
+        </Grid>
+    </DataTemplate>
+
+    <DataTemplate x:Key="DATA.REPO">
+        <DataTemplate.Resources>
+            <Style TargetType="{x:Type Grid}" x:Key="IN.GRID">
+                <Setter Property="Margin" Value="4"/>
+            </Style>
+            <Style TargetType="{x:Type TextBlock}" x:Key="IN.HEADER">
+                <Setter Property="Text" Value="{Binding Name}"/>
+                <Setter Property="Foreground" Value="#FFFFFF"/>
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="Margin" Value="20 0 20 0"/>
+            </Style>
+            <Style TargetType="{x:Type TextBlock}" x:Key="IN.PATH">
+                <Setter Property="Grid.Row" Value="1"/>
+                <Setter Property="Text" Value="{Binding RepositoryPath}"/>
+                <Setter Property="Foreground" Value="#cccccc"/>
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="Margin" Value="20 2 20 0"/>
+                <Setter Property="Visibility" Value="Collapsed"/>
+            </Style>
+        </DataTemplate.Resources>
+        <Grid Style="{StaticResource IN.GRID}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <ctrls:PathIcon Style="{StaticResource ICON}" Data="{StaticResource GEO.GIT}" Fill="#77FFFFFF" Width="14" Height="14"/>
+            <TextBlock Style="{StaticResource IN.HEADER}"/>
+            <TextBlock Style="{StaticResource IN.PATH}"/>
+        </Grid>
+    </DataTemplate>
+
+    <Style TargetType="{x:Type ListBoxItem}" x:Key="LBXI.MARKDOWN">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                    <Border Background="{TemplateBinding Background}">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <ctrls:PathIcon Style="{StaticResource ICON}" Data="{StaticResource GEO.LANGUAGE.MARKDOWN.OUTLINE}" Fill="#AAFFFFFF" Width="18" Height="18" Margin="15 0 6 0"/>
+                            <TextBlock Text="{Binding FileName}" Margin="0 4 15 4"/>
+                        </StackPanel>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#252525"/>
+                        </Trigger>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="#303030"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type units:NcoreListBox}" x:Key="LBX.MARKDOWN">
+        <Setter Property="DoubleClickCommand" Value="{Binding RelativeSource={RelativeSource AncestorType=units:NcoreView}, Path=DataContext.MarkdownClickCommand}"/>
+        <Setter Property="ItemContainerStyle" Value="{StaticResource LBXI.MARKDOWN}"/>
+        <Setter Property="ItemsSource" Value="{Binding Markdowns}"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="#FFFFFF"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type units:NcoreListBox}">
+                    <ScrollViewer Padding="1 1 0 1">
+                        <ItemsPresenter/>
+                    </ScrollViewer>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type TreeViewItem}" x:Key="TRVI.REPO">
+        <Setter Property="IsExpanded" Value="True"/>
+        <Setter Property="ItemsSource" Value="{Binding Children}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TreeViewItem}">
+                    <ControlTemplate.Resources>
+                        <Style TargetType="{x:Type Border}" x:Key="IN.BORDER">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="BorderThickness" Value="0 0 0 1"/>
+                            <Setter Property="BorderBrush" Value="#292929"/>
+                            <Setter Property="Padding" Value="0 0 0 3"/>
+                        </Style>
+                        <Style TargetType="{x:Type Grid}" x:Key="IN.GRID">
+                            <Setter Property="Margin" Value="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource TreeViewObjectLevelConverter}}"/>
+                        </Style>
+                        <Style TargetType="{x:Type ContentPresenter}" x:Key="IN.CONTENT">
+                            <Setter Property="ContentTemplate" Value="{StaticResource DATA.REPO}"/>
+                            <Setter Property="Content" Value="{Binding RelativeSource={RelativeSource AncestorType=TreeViewItem}, Path=Header}"/>
+                            <Setter Property="Margin" Value="26 0 0 0"/>
+                        </Style>
+                    </ControlTemplate.Resources>
+                    <StackPanel>
+                        <Border x:Name="border" Style="{StaticResource IN.BORDER}">
+                            <Grid Style="{StaticResource IN.GRID}">
+                                <ToggleButton x:Name="check" Style="{StaticResource IN.EXPAND}"/>
+                                <ContentPresenter x:Name="content" Style="{StaticResource IN.CONTENT}"/>
+                            </Grid>
+                        </Border>
+                        <ItemsPresenter x:Name="items"/>
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="#97488b"/>
+                        </Trigger>
+                        <DataTrigger Binding="{Binding IsGroupHeader}" Value="True">
+                            <Setter TargetName="content" Property="ContentTemplate" Value="{StaticResource DATA.DAY}"/>
+                            <Setter TargetName="border" Property="BorderThickness" Value="0 0 0 1"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="#151515"/>
+                            <Setter TargetName="border" Property="Background" Value="#212121"/>
+                        </DataTrigger>
+                        <Trigger Property="IsExpanded" Value="False">
+                            <Setter TargetName="items" Property="Visibility" Value="Collapsed"/>
+                        </Trigger>
+                        <Trigger Property="HasItems" Value="False">
+                            <Setter TargetName="check" Property="Visibility" Value="Collapsed"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type units:NcoreTreeView}">
+        <Setter Property="ItemsSource" Value="{Binding Repositories}"/>
+        <Setter Property="ItemContainerStyle" Value="{StaticResource TRVI.REPO}"/>
+        <Setter Property="DoubleClickCommand" Value="{Binding RepoDoubleClickCommand}"/>
+        <Setter Property="Command" Value="{Binding RepoClickCommand}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type units:NcoreTreeView}">
+                    <ControlTemplate.Resources>
+                        <Style TargetType="{x:Type Border}" x:Key="IN.BORDER">
+                            <Setter Property="DockPanel.Dock" Value="Left"/>
+                            <Setter Property="BorderThickness" Value="0 0 1 0"/>
+                            <Setter Property="BorderBrush" Value="#292929"/>
+                        </Style>
+                    </ControlTemplate.Resources>
+                    <DockPanel>
+                        <Border Style="{StaticResource IN.BORDER}">
+                            <ScrollViewer>
+                                <ItemsPresenter/>
+                            </ScrollViewer>
+                        </Border>
+                        <units:NcoreListBox Style="{StaticResource LBX.MARKDOWN}"/>
+                    </DockPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

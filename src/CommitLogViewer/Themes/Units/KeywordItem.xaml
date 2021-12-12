@@ -9,7 +9,7 @@
                 <ControlTemplate TargetType="{x:Type units:KeywordItem}">
                     <Border BorderBrush="#cccccc" Padding="8 4 8 4" BorderThickness="1" Margin="0 0 6 0">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock Text="{Binding KeyWord}" VerticalAlignment="Center"/>
+                            <TextBlock Text="{Binding Keyword}" VerticalAlignment="Center"/>
                             <Button Margin="4 0 0 0" Content="x" VerticalAlignment="Center"/>
                         </StackPanel>
                     </Border>

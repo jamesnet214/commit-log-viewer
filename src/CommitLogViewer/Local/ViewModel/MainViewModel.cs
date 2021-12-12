@@ -15,7 +15,7 @@ namespace CommitLogViewer.Local.Mvvm
         public string Keyword
         {
             get => _keyword;
-            set { _keyword = value; KeywordChanged(value); OnPropertyChanged(); }
+            set { _keyword = value; OnPropertyChanged(); }
         }
 
         public List<CommitLog> CommitLogs { get; set; }
@@ -38,27 +38,30 @@ namespace CommitLogViewer.Local.Mvvm
                 {
                     continue;
                 }
-                Keywords.Add(new KeywordModel { Keyword = keword});
+                if (Keywords.FirstOrDefault(x => x.Keyword.Trim().ToLower() == Keyword.Trim().ToLower()) == null)
+                {
+                    Keywords.Add(new KeywordModel { Keyword = keword });
+                }
             }
 
             Keyword = "";
+            KeywordChanged();
         }
 
-        private void KeywordChanged(string value)
+        private void KeywordChanged()
         {
-            string[] keywords = value.Split(';');
             CommitLogs.ForEach(x => x.Visibility = System.Windows.Visibility.Visible);
 
-            foreach (var keyword in keywords)
+            foreach (var keyword in Keywords)
             {
-                if (keyword.Contains('%'))
+                if (keyword.Keyword.Contains('%'))
                 {
-                    CommitLogs.Where(x => x.CommitComment.ToLower().Contains(keyword.ToLower().Replace("%", "")))
+                    CommitLogs.Where(x => x.CommitComment.ToLower().Contains(keyword.Keyword.ToLower().Replace("%", "")))
                         .ToList().ForEach(x => x.Visibility = System.Windows.Visibility.Collapsed);
                 }
                 else
                 {
-                    CommitLogs.Where(x => x.CommitComment.ToLower().Equals(keyword.ToLower()))
+                    CommitLogs.Where(x => x.CommitComment.ToLower().Equals(keyword.Keyword.ToLower()))
                         .ToList().ForEach(x => x.Visibility = System.Windows.Visibility.Collapsed);
                 }
             }
