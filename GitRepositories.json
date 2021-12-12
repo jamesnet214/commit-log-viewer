@@ -1,0 +1,22 @@
+{
+  "Repositories": [
+    {
+      "Name": "leagueoflegends",
+      "RepositoryPath": "c:/devncore/leagueoflegends",
+      "LastAccessTime": "2021-12-12T22:30:39.6362543+09:00",
+      "Created": "2021-12-11T00:00:00"
+    },
+    {
+      "Name": "ncore-api",
+      "RepositoryPath": "c:/devncore/ncore-api",
+      "LastAccessTime": "2021-12-12T22:34:37.6755872+09:00",
+      "Created": "2021-12-11T00:00:00"
+    },
+    {
+      "Name": "cbt",
+      "RepositoryPath": "c:/devncore/cbt",
+      "LastAccessTime": "2021-12-12T22:34:41.9179396+09:00",
+      "Created": "2021-12-11T00:00:00"
+    }
+  ]
+}
