@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
 namespace DevNcore.WPF.Controls
 {
-    internal class NcoreIcon : Control
+    public class NcoreIcon : Control
     {
         public static readonly DependencyProperty DataProperty =
             DependencyProperty.Register(
