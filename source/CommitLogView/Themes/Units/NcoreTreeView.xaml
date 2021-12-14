@@ -50,7 +50,11 @@
             </Style>
         </DataTemplate.Resources>
         <Grid Style="{StaticResource IN.GRID}">
-            <ctrls:PathIcon Style="{StaticResource ICON}" Data="{StaticResource GEO.HISTORY}" Fill="#88FFFFFF" Width="14" Height="14"/>
+            <ctrls:PathIcon Style="{StaticResource ICON}" 
+                            Data="{StaticResource GEO.HISTORY}" 
+                            Fill="#88FFFFFF" 
+                            Width="14" 
+                            Height="14"/>
             <TextBlock Style="{StaticResource IN.HEADER}"/>
         </Grid>
     </DataTemplate>
@@ -80,7 +84,11 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <ctrls:PathIcon Style="{StaticResource ICON}" Data="{StaticResource GEO.GIT}" Fill="#77FFFFFF" Width="14" Height="14"/>
+            <ctrls:PathIcon Style="{StaticResource ICON}" 
+                            Data="{StaticResource GEO.GIT}" 
+                            Fill="#77FFFFFF" 
+                            Width="14" 
+                            Height="14"/>
             <TextBlock Style="{StaticResource IN.HEADER}"/>
             <TextBlock Style="{StaticResource IN.PATH}"/>
         </Grid>
@@ -92,7 +100,12 @@
                 <ControlTemplate TargetType="{x:Type ListBoxItem}">
                     <Border Background="{TemplateBinding Background}">
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                            <ctrls:PathIcon Style="{StaticResource ICON}" Data="{StaticResource GEO.LANGUAGE.MARKDOWN.OUTLINE}" Fill="#AAFFFFFF" Width="18" Height="18" Margin="15 0 6 0"/>
+                            <ctrls:PathIcon Style="{StaticResource ICON}" 
+                                            Data="{StaticResource GEO.LANGUAGE.MARKDOWN.OUTLINE}"
+                                            Margin="15 0 6 0"
+                                            Fill="#AAFFFFFF" 
+                                            Width="18" 
+                                            Height="18"/>
                             <TextBlock Text="{Binding FileName}" Margin="0 4 15 4"/>
                         </StackPanel>
                     </Border>
@@ -150,10 +163,13 @@
                         </Style>
                     </ControlTemplate.Resources>
                     <StackPanel>
-                        <Border x:Name="border" Style="{StaticResource IN.BORDER}">
+                        <Border x:Name="border" 
+                                Style="{StaticResource IN.BORDER}">
                             <Grid Style="{StaticResource IN.GRID}">
-                                <ToggleButton x:Name="check" Style="{StaticResource IN.EXPAND}"/>
-                                <ContentPresenter x:Name="content" Style="{StaticResource IN.CONTENT}"/>
+                                <ToggleButton x:Name="check" 
+                                              Style="{StaticResource IN.EXPAND}"/>
+                                <ContentPresenter x:Name="content" 
+                                                  Style="{StaticResource IN.CONTENT}"/>
                             </Grid>
                         </Border>
                         <ItemsPresenter x:Name="items"/>
