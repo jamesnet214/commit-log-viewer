@@ -1,10 +1,8 @@
 ﻿using CommitLogView.Local.Data;
 using DevNcore.UI.Foundation.Mvvm;
 using LibGit2Sharp;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
