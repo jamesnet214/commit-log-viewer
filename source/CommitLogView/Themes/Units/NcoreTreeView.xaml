@@ -1,7 +1,7 @@
 <ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:ctrls="clr-namespace:CommitLogView.Local.Controls"
+    xmlns:icons="clr-namespace:DevNcore.UI.Design.Controls;assembly=DevNcore.UI.Design"
     xmlns:units="clr-namespace:CommitLogView.UI.Units"
     xmlns:cnvts="clr-namespace:CommitLogView.Local.Converter">
 
@@ -11,8 +11,8 @@
 
     <cnvts:TreeViewObjectLevelConverter x:Key="TreeViewObjectLevelConverter"/>
 
-    <Style TargetType="{x:Type ctrls:PathIcon}" x:Key="ICON.ARROW" BasedOn="{StaticResource ICON}">
-        <Setter Property="Data" Value="{StaticResource GEO.MENU.RIGHT}"/>
+    <Style TargetType="{x:Type icons:MenuRightIcon}" x:Key="MenuRightIcon">
+        <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="Fill" Value="#5b95e4"/>
         <Setter Property="Width" Value="20"/>
         <Setter Property="Height" Value="20"/>
@@ -26,7 +26,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ToggleButton}">
-                    <ctrls:PathIcon x:Name="icon" Style="{StaticResource ICON.ARROW}"/>
+                    <icons:MenuRightIcon x:Name="icon" Style="{StaticResource MenuRightIcon}"/>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="True">
                             <Setter TargetName="icon" Property="Data" Value="{StaticResource GEO.MENU.DOWN}"/>
@@ -50,11 +50,10 @@
             </Style>
         </DataTemplate.Resources>
         <Grid Style="{StaticResource IN.GRID}">
-            <ctrls:PathIcon Style="{StaticResource ICON}" 
-                            Data="{StaticResource GEO.HISTORY}" 
-                            Fill="#88FFFFFF" 
-                            Width="14" 
-                            Height="14"/>
+            <icons:HistoryIcon HorizontalAlignment="Left"
+                               Fill="#88FFFFFF" 
+                               Width="14" 
+                               Height="14"/>
             <TextBlock Style="{StaticResource IN.HEADER}"/>
         </Grid>
     </DataTemplate>
@@ -84,11 +83,10 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <ctrls:PathIcon Style="{StaticResource ICON}" 
-                            Data="{StaticResource GEO.GIT}" 
-                            Fill="#77FFFFFF" 
-                            Width="14" 
-                            Height="14"/>
+            <icons:GitIcon HorizontalAlignment="Left"
+                           Fill="#77FFFFFF" 
+                           Width="14" 
+                           Height="14"/>
             <TextBlock Style="{StaticResource IN.HEADER}"/>
             <TextBlock Style="{StaticResource IN.PATH}"/>
         </Grid>
@@ -100,12 +98,10 @@
                 <ControlTemplate TargetType="{x:Type ListBoxItem}">
                     <Border Background="{TemplateBinding Background}">
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                            <ctrls:PathIcon Style="{StaticResource ICON}" 
-                                            Data="{StaticResource GEO.LANGUAGE.MARKDOWN.OUTLINE}"
-                                            Margin="15 0 6 0"
-                                            Fill="#AAFFFFFF" 
-                                            Width="18" 
-                                            Height="18"/>
+                            <icons:LanguageMarkdownOutlineIcon Margin="15 0 6 0"
+                                                               Fill="#AAFFFFFF" 
+                                                               Width="18" 
+                                                               Height="18"/>
                             <TextBlock Text="{Binding FileName}" Margin="0 4 15 4"/>
                         </StackPanel>
                     </Border>
