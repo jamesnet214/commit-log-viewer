@@ -13,7 +13,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DevNcore.UI.Design.Geometry\DevNcore.UI.Design.Geometry.csproj" />
+    <ProjectReference Include="..\DevNcore.UI.Design\DevNcore.UI.Design.csproj" />
     <ProjectReference Include="..\DevNcore.UI.Foundation\DevNcore.UI.Foundation.csproj" />
+    <ProjectReference Include="..\DevNcore.WPF\DevNcore.WPF.csproj" />
   </ItemGroup>
 
   <ItemGroup>
