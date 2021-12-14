@@ -25,6 +25,7 @@ namespace CommitLogView.UI.Units
             get { return (ICommand)this.GetValue(CommandProperty); }
             set { this.SetValue(CommandProperty, value); }
         }
+
         public ICommand DoubleClickCommand
         {
             get { return (ICommand)this.GetValue(DoubleClickCommandProperty); }
