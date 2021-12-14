@@ -22,9 +22,22 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
-                            <ctrls:PathIcon x:Name="icon" Style="{StaticResource ICON}" Data="{StaticResource GEO.GIT}" Fill="#AAAAAA" Width="14" Height="14" Margin="0 0 5 0"/>
-                            <ContentPresenter Grid.Column="1" ContentSource="Header"/>
-                            <ctrls:PathIcon x:Name="close" Grid.Column="2" Data="{StaticResource G.CLOSE}" Style="{StaticResource ICON}" Fill="#30FFFFFF" Width="12" Height="12" Margin="12 2 -4 0"/>
+                            <ctrls:PathIcon x:Name="icon" Style="{StaticResource ICON}" 
+                                            Data="{StaticResource GEO.GIT}" 
+                                            Fill="#AAAAAA" 
+                                            Width="14"
+                                            Height="14"
+                                            Margin="0 0 5 0"/>
+                            <ContentPresenter Grid.Column="1"
+                                              ContentSource="Header"/>
+                            <ctrls:PathIcon x:Name="close"
+                                            Grid.Column="2" 
+                                            Data="{StaticResource G.CLOSE}" 
+                                            Style="{StaticResource ICON}" 
+                                            Fill="#30FFFFFF"
+                                            Width="12"
+                                            Height="12"
+                                            Margin="12 2 -4 0"/>
                         </Grid>
 
                     </Border>
@@ -55,7 +68,9 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TabControl}">
-                    <Grid x:Name="templateRoot" ClipToBounds="true" SnapsToDevicePixels="true" KeyboardNavigation.TabNavigation="Local"
+                    <Grid x:Name="templateRoot" ClipToBounds="true" 
+                          SnapsToDevicePixels="true"
+                          KeyboardNavigation.TabNavigation="Local"
                           Background="#1c191d">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition x:Name="ColumnDefinition0"/>
@@ -65,11 +80,26 @@
                             <RowDefinition x:Name="RowDefinition0" Height="Auto"/>
                             <RowDefinition x:Name="RowDefinition1" Height="*"/>
                         </Grid.RowDefinitions>
-                        <TabPanel x:Name="headerPanel" Background="Transparent" Grid.Column="0" IsItemsHost="true" Margin="0" Grid.Row="0" KeyboardNavigation.TabIndex="1" Panel.ZIndex="1"/>
-                        <Border x:Name="contentPanel" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" 
-                                Background="{TemplateBinding Background}" Grid.Column="0" KeyboardNavigation.DirectionalNavigation="Contained" Grid.Row="1"
-                                KeyboardNavigation.TabIndex="2" KeyboardNavigation.TabNavigation="Local">
-                            <ContentPresenter x:Name="PART_SelectedContentHost" ContentSource="SelectedContent" Margin="0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                        <TabPanel x:Name="headerPanel" Background="Transparent"
+                                  Grid.Column="0"
+                                  IsItemsHost="true" 
+                                  Margin="0"
+                                  Grid.Row="0" 
+                                  KeyboardNavigation.TabIndex="1" 
+                                  Panel.ZIndex="1"/>
+                        <Border x:Name="contentPanel" 
+                                BorderBrush="{TemplateBinding BorderBrush}" 
+                                BorderThickness="{TemplateBinding BorderThickness}" 
+                                Background="{TemplateBinding Background}"
+                                Grid.Column="0" 
+                                KeyboardNavigation.DirectionalNavigation="Contained"
+                                Grid.Row="1"
+                                KeyboardNavigation.TabIndex="2" 
+                                KeyboardNavigation.TabNavigation="Local">
+                            <ContentPresenter x:Name="PART_SelectedContentHost" 
+                                              ContentSource="SelectedContent" 
+                                              Margin="0" 
+                                              SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                         </Border>
                     </Grid>
                     <ControlTemplate.Triggers>
@@ -231,7 +261,6 @@
                             </Grid>
 
                             <Grid Style="{StaticResource IN.BODY}">
-                                <!--<ContentPresenter Style="{StaticResource IN.CONTENT}"/>-->
                                 <Grid>
                                     <TabControl Style="{StaticResource TAB.GIT}" Background="Transparent" ItemsSource="{Binding Repositories}"/>
                                 </Grid>
@@ -239,19 +268,6 @@
                         </DockPanel>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="border" Property="BorderBrush" Value="#66FFFFFF"/>
-                        </Trigger>
-                        <!--<Trigger Property="IsPrevieMouseDown" Value="True">
-                            <Setter TargetName="border" Property="BorderBrush" Value="#22FFFFFF"/>
-                            <Setter Property="Opacity" Value="1"/>
-                        </Trigger>
-                        <Trigger Property="IsPrevieMouseDown" Value="False">
-                            <Setter TargetName="border" Property="BorderBrush" Value="#000000"/>
-                            <Setter TargetName="header" Property="Foreground" Value="#44FFFFFF"/>
-                            <Setter TargetName="PART_Close" Property="Opacity" Value="0.3"/>
-                            <Setter Property="Opacity" Value="1"/>
-                        </Trigger>-->
                         <Trigger Property="Seq" Value="0">
                             <Setter TargetName="icon" Property="Data" Value="{StaticResource G.GITHUB}"/>
                         </Trigger>
