@@ -49,7 +49,7 @@
                             <Setter TargetName="close" Property="Fill" Value="#FFFFFF"/>
                         </Trigger>
                         <Trigger Property="Tag" Value="REPOSITORY">
-                            <Setter TargetName="icon" Property="Data" Value="{StaticResource GEO.SHAPE.CIRCLE.PLUS}"/>
+                            <Setter TargetName="icon" Property="Data" Value="{DynamicResource ShapeCirclePlus}"/>
                             <Setter TargetName="close" Property="Visibility" Value="Collapsed"/>
                         </Trigger>
                     </ControlTemplate.Triggers>

@@ -27,7 +27,7 @@
                     <icons:MenuRightIcon x:Name="icon" Style="{StaticResource MenuRightIcon}"/>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="True">
-                            <Setter TargetName="icon" Property="Data" Value="{StaticResource GEO.MENU.DOWN}"/>
+                            <Setter TargetName="icon" Property="Data" Value="{DynamicResource MenuDown}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
