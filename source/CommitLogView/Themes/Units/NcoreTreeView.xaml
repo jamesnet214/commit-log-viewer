@@ -9,8 +9,6 @@
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/Geometries.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <cnvts:TreeViewObjectLevelConverter x:Key="TreeViewObjectLevelConverter"/>
-
     <Style TargetType="{x:Type icons:MenuRightIcon}" x:Key="MenuRightIcon">
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="Fill" Value="#5b95e4"/>
@@ -150,7 +148,7 @@
                             <Setter Property="Padding" Value="0 0 0 3"/>
                         </Style>
                         <Style TargetType="{x:Type Grid}" x:Key="IN.GRID">
-                            <Setter Property="Margin" Value="{Binding RelativeSource={RelativeSource Self}, Converter={StaticResource TreeViewObjectLevelConverter}}"/>
+                            <Setter Property="Margin" Value="{Binding RelativeSource={RelativeSource Self}, Converter={cnvts:TreeViewObjectLevelConverter}}"/>
                         </Style>
                         <Style TargetType="{x:Type ContentPresenter}" x:Key="IN.CONTENT">
                             <Setter Property="ContentTemplate" Value="{StaticResource DATA.REPO}"/>

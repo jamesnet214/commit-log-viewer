@@ -1,14 +1,15 @@
-﻿using CommitLogView.UI.Units;
-using System;
+﻿using System;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using System.Windows.Markup;
 using System.Windows.Media;
+using CommitLogView.UI.Units;
 
 namespace CommitLogView.Local.Converter
 {
-    public class TreeViewObjectLevelConverter : IValueConverter
+    public class TreeViewObjectLevelConverter : MarkupExtension, IValueConverter
     {
         public int Length { get; set; }
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
@@ -35,6 +36,11 @@ namespace CommitLogView.Local.Converter
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
+        }
+
+        public override object ProvideValue(IServiceProvider serviceProvider)
+        {
+            return this;
         }
     }
 }

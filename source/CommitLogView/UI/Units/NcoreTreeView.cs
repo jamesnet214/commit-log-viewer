@@ -4,7 +4,6 @@ using System.Windows.Input;
 
 namespace CommitLogView.UI.Units
 {
-    /// </summary>
     public class NcoreTreeView : TreeView
     {
         static NcoreTreeView()
