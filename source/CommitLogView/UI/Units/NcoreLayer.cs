@@ -1,5 +1,5 @@
-﻿using DevNcore.UI.Foundation.Mvvm;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
+using DevNcore.UI.Foundation.Mvvm;
 
 namespace CommitLogView.UI.Units
 {

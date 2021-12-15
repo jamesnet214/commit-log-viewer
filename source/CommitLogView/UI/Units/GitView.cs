@@ -1,21 +1,13 @@
-﻿using CommitLogView.Local.Mvvm;
-using DevNcore.UI.Foundation.Mvvm;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using CommitLogView.Local.Mvvm;
+using DevNcore.UI.Foundation.Mvvm;
 
 namespace CommitLogView.UI.Units
 {
     public class GitView : NcoreView
     {
-        public static readonly DependencyProperty SeqProperty = DependencyProperty.Register("Seq", typeof(int), typeof(GitView), new PropertyMetadata(0));
-
-        public int Seq
-        {
-            get { return (int)this.GetValue(SeqProperty); }
-            set { this.SetValue(SeqProperty, value); }
-        }
-
         static GitView()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(GitView), new FrameworkPropertyMetadata(typeof(GitView)));
@@ -25,6 +17,14 @@ namespace CommitLogView.UI.Units
         {
             DataContext = new GitViewModel();
             Loaded += GitView_Loaded;
+        }
+
+        public static readonly DependencyProperty SeqProperty = DependencyProperty.Register("Seq", typeof(int), typeof(GitView), new PropertyMetadata(0));
+
+        public int Seq
+        {
+            get { return (int)this.GetValue(SeqProperty); }
+            set { this.SetValue(SeqProperty, value); }
         }
 
         public override void OnApplyTemplate()

@@ -1,5 +1,5 @@
-﻿using CommitLogView.Local.Mvvm;
-using System.Windows;
+﻿using System.Windows;
+using CommitLogView.Local.Mvvm;
 
 namespace CommitLogView.UI.Units
 {
