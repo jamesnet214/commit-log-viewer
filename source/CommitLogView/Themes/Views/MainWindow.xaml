@@ -1,7 +1,6 @@
 <ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:ctrls="clr-namespace:CommitLogView.Local.Controls"
     xmlns:units="clr-namespace:CommitLogView.UI.Units"
     xmlns:views="clr-namespace:CommitLogView.UI.Views">
 
@@ -14,7 +13,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate>
-                    <units:GitView/>
+                    <units:MainContent/>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

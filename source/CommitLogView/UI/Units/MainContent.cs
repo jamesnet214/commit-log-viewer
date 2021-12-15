@@ -6,20 +6,20 @@ using DevNcore.UI.Foundation.Mvvm;
 
 namespace CommitLogView.UI.Units
 {
-    public class GitView : NcoreView
+    public class MainContent : NcoreView
     {
-        static GitView()
+        static MainContent()
         {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(GitView), new FrameworkPropertyMetadata(typeof(GitView)));
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(MainContent), new FrameworkPropertyMetadata(typeof(MainContent)));
         }
 
-        public GitView()
+        public MainContent()
         {
             DataContext = new GitViewModel();
             Loaded += GitView_Loaded;
         }
 
-        public static readonly DependencyProperty SeqProperty = DependencyProperty.Register("Seq", typeof(int), typeof(GitView), new PropertyMetadata(0));
+        public static readonly DependencyProperty SeqProperty = DependencyProperty.Register("Seq", typeof(int), typeof(MainContent), new PropertyMetadata(0));
 
         public int Seq
         {
@@ -31,7 +31,7 @@ namespace CommitLogView.UI.Units
         {
             base.OnApplyTemplate();
 
-            if (GetTemplateChild("PART_Taskline") is Grid taskBar)
+            if (GetTemplateChild("PART_Taskline") is StackPanel taskBar)
             {
                 taskBar.MouseLeftButtonDown += TaskBar_MouseLeftButtonDown;
             }

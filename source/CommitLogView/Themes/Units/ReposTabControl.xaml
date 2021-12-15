@@ -53,7 +53,7 @@
         </Setter>
     </Style>
 
-    <Style TargetType="{x:Type units:RepositoryTabControl}">
+    <Style TargetType="{x:Type units:ReposTabControl}">
         <Setter Property="ItemContainerStyle" Value="{StaticResource TABI.GIT}"/>
         <Setter Property="ItemsSource" Value="{Binding Repositories}"/>
         <Setter Property="Background" Value="Transparent"/>
@@ -62,7 +62,7 @@
         <Setter Property="Padding" Value="0"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type units:RepositoryTabControl}">
+                <ControlTemplate TargetType="{x:Type units:ReposTabControl}">
                     <Grid x:Name="templateRoot" ClipToBounds="true" 
                           SnapsToDevicePixels="true"
                           KeyboardNavigation.TabNavigation="Local"
