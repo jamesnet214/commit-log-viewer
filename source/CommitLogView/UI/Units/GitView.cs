@@ -31,7 +31,7 @@ namespace CommitLogView.UI.Units
         {
             base.OnApplyTemplate();
 
-            if (GetTemplateChild("PART_TaskBar") is Grid taskBar)
+            if (GetTemplateChild("PART_Taskline") is Grid taskBar)
             {
                 taskBar.MouseLeftButtonDown += TaskBar_MouseLeftButtonDown;
             }

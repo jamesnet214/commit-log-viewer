@@ -6,6 +6,7 @@
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/CommitView.xaml"/>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/NcoreTreeView.xaml"/>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/RepoView.xaml"/>
+        <ResourceDictionary Source="/CommitLogView;component/Themes/Units/RepositoryTabControl.xaml"/>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/GitView.xaml"/>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Views/MainWindow.xaml"/>
     </ResourceDictionary.MergedDictionaries>
