@@ -4,20 +4,23 @@ using System.Windows.Input;
 
 namespace CommitLogView.UI.Units
 {
-    public class NcoreTreeView : TreeView
+    public class RepoTreeView : TreeView
     {
-        static NcoreTreeView()
-        {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(NcoreTreeView), new FrameworkPropertyMetadata(typeof(NcoreTreeView)));
-        }
+        #region DefaultStyleKey
 
-        public NcoreTreeView()
+        static RepoTreeView()
+        {
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(RepoTreeView), new FrameworkPropertyMetadata(typeof(RepoTreeView)));
+        }
+        #endregion
+
+        public RepoTreeView()
         { 
         
         }
 
-        public static readonly DependencyProperty CommandProperty = DependencyProperty.Register("Command", typeof(ICommand), typeof(NcoreTreeView));
-        public static readonly DependencyProperty DoubleClickCommandProperty = DependencyProperty.Register("DoubleClickCommand", typeof(ICommand), typeof(NcoreTreeView));
+        public static readonly DependencyProperty CommandProperty = DependencyProperty.Register("Command", typeof(ICommand), typeof(RepoTreeView));
+        public static readonly DependencyProperty DoubleClickCommandProperty = DependencyProperty.Register("DoubleClickCommand", typeof(ICommand), typeof(RepoTreeView));
 
         public ICommand Command
         {
@@ -45,6 +48,11 @@ namespace CommitLogView.UI.Units
             {
                 DoubleClickCommand?.Execute(SelectedItem);
             }
+        }
+
+        protected override DependencyObject GetContainerForItemOverride()
+        {
+            return new RepoTreeItem();
         }
     }
 }

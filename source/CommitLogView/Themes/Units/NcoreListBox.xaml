@@ -116,7 +116,7 @@
         </Setter>
     </Style>
 
-    <Style TargetType="{x:Type units:NcoreListBox}" x:Key="LBX.MARKDOWN">
+    <Style TargetType="{x:Type units:NcoreListBox}">
         <Setter Property="DoubleClickCommand" Value="{Binding RelativeSource={RelativeSource AncestorType=units:NcoreView}, Path=DataContext.MarkdownClickCommand}"/>
         <Setter Property="ItemContainerStyle" Value="{StaticResource LBXI.MARKDOWN}"/>
         <Setter Property="ItemsSource" Value="{Binding Markdowns}"/>
@@ -129,90 +129,6 @@
                     <ScrollViewer Padding="1 1 0 1">
                         <ItemsPresenter/>
                     </ScrollViewer>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
-    <Style TargetType="{x:Type TreeViewItem}" x:Key="TRVI.REPO">
-        <Setter Property="IsExpanded" Value="True"/>
-        <Setter Property="ItemsSource" Value="{Binding Children}"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type TreeViewItem}">
-                    <ControlTemplate.Resources>
-                        <Style TargetType="{x:Type Border}" x:Key="IN.BORDER">
-                            <Setter Property="Background" Value="Transparent"/>
-                            <Setter Property="BorderThickness" Value="0 0 0 1"/>
-                            <Setter Property="BorderBrush" Value="#292929"/>
-                            <Setter Property="Padding" Value="0 0 0 3"/>
-                        </Style>
-                        <Style TargetType="{x:Type Grid}" x:Key="IN.GRID">
-                            <Setter Property="Margin" Value="{Binding RelativeSource={RelativeSource Self}, Converter={cnvts:TreeViewObjectLevelConverter}}"/>
-                        </Style>
-                        <Style TargetType="{x:Type ContentPresenter}" x:Key="IN.CONTENT">
-                            <Setter Property="ContentTemplate" Value="{StaticResource DATA.REPO}"/>
-                            <Setter Property="Content" Value="{Binding RelativeSource={RelativeSource AncestorType=TreeViewItem}, Path=Header}"/>
-                            <Setter Property="Margin" Value="26 0 0 0"/>
-                        </Style>
-                    </ControlTemplate.Resources>
-                    <StackPanel>
-                        <Border x:Name="border" 
-                                Style="{StaticResource IN.BORDER}">
-                            <Grid Style="{StaticResource IN.GRID}">
-                                <ToggleButton x:Name="check" 
-                                              Style="{StaticResource IN.EXPAND}"/>
-                                <ContentPresenter x:Name="content" 
-                                                  Style="{StaticResource IN.CONTENT}"/>
-                            </Grid>
-                        </Border>
-                        <ItemsPresenter x:Name="items"/>
-                    </StackPanel>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="border" Property="Background" Value="#97488b"/>
-                        </Trigger>
-                        <DataTrigger Binding="{Binding IsGroupHeader}" Value="True">
-                            <Setter TargetName="content" Property="ContentTemplate" Value="{StaticResource DATA.DAY}"/>
-                            <Setter TargetName="border" Property="BorderThickness" Value="0 0 0 1"/>
-                            <Setter TargetName="border" Property="BorderBrush" Value="#151515"/>
-                            <Setter TargetName="border" Property="Background" Value="#212121"/>
-                        </DataTrigger>
-                        <Trigger Property="IsExpanded" Value="False">
-                            <Setter TargetName="items" Property="Visibility" Value="Collapsed"/>
-                        </Trigger>
-                        <Trigger Property="HasItems" Value="False">
-                            <Setter TargetName="check" Property="Visibility" Value="Collapsed"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
-    <Style TargetType="{x:Type units:NcoreTreeView}">
-        <Setter Property="ItemsSource" Value="{Binding Repositories}"/>
-        <Setter Property="ItemContainerStyle" Value="{StaticResource TRVI.REPO}"/>
-        <Setter Property="DoubleClickCommand" Value="{Binding RepoDoubleClickCommand}"/>
-        <Setter Property="Command" Value="{Binding RepoClickCommand}"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type units:NcoreTreeView}">
-                    <ControlTemplate.Resources>
-                        <Style TargetType="{x:Type Border}" x:Key="IN.BORDER">
-                            <Setter Property="DockPanel.Dock" Value="Left"/>
-                            <Setter Property="BorderThickness" Value="0 0 1 0"/>
-                            <Setter Property="BorderBrush" Value="#292929"/>
-                        </Style>
-                    </ControlTemplate.Resources>
-                    <DockPanel>
-                        <Border Style="{StaticResource IN.BORDER}">
-                            <ScrollViewer>
-                                <ItemsPresenter/>
-                            </ScrollViewer>
-                        </Border>
-                        <units:NcoreListBox Style="{StaticResource LBX.MARKDOWN}"/>
-                    </DockPanel>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

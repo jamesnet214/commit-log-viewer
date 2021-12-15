@@ -6,6 +6,13 @@ namespace CommitLogView.UI.Units
 {
     public class NcoreListBox : ListBox
     {
+        #region DefaultStyleKey
+        static NcoreListBox()
+        {
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(NcoreListBox), new FrameworkPropertyMetadata(typeof(NcoreListBox)));
+        }
+        #endregion
+
         public static readonly DependencyProperty ClickCommandProperty = DependencyProperty.Register("ClickCommand", typeof(ICommand), typeof(NcoreListBox));
         public static readonly DependencyProperty DoubleClickCommandProperty = DependencyProperty.Register("DoubleClickCommand", typeof(ICommand), typeof(NcoreListBox));
 
