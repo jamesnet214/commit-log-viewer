@@ -56,7 +56,9 @@
     <Style TargetType="{x:Type icons:MenuRightIcon}" BasedOn="{StaticResource {x:Type prims:Icon}}">
         <Setter Property="Data" Value="{StaticResource MenuRight}"/>
     </Style>
-
+    <Style TargetType="{x:Type icons:MenuDownIcon}" BasedOn="{StaticResource {x:Type prims:Icon}}">
+        <Setter Property="Data" Value="{StaticResource MenuDown}"/>
+    </Style>
     <Style TargetType="{x:Type icons:GitIcon}" BasedOn="{StaticResource {x:Type prims:Icon}}">
         <Setter Property="Data" Value="{StaticResource Git}"/>
     </Style>
