@@ -26,7 +26,7 @@ namespace CommitLogView.Local.Data
         {
             get
             {
-                if (Author.Email.Contains("+"))
+                if (Author.Email.Contains('+'))
                 {
                     var bitmapImage = new BitmapImage();
                     bitmapImage.BeginInit();

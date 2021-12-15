@@ -8,10 +8,13 @@ namespace CommitLogView.UI.Units
 {
     public class MainContent : NcoreView
     {
+        #region DefaultStyleKey
+
         static MainContent()
         {
             DefaultStyleKeyProperty.OverrideMetadata(typeof(MainContent), new FrameworkPropertyMetadata(typeof(MainContent)));
         }
+        #endregion
 
         public MainContent()
         {

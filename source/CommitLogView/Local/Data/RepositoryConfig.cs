@@ -8,9 +8,9 @@ namespace CommitLogView.Local.Data
 {
     public class RepositoryConfig
     {
-        private string SYS_PATH = "";
-        private string CFG_PATH = "";
-        private string GIT_PATH = "";
+        private readonly string SYS_PATH = "";
+        private readonly string CFG_PATH = "";
+        private readonly string GIT_PATH = "";
 
         internal static RepositoryConfig Access { get; private set; }
         internal IsolateGitRepository Config { get; private set; }
@@ -38,8 +38,10 @@ namespace CommitLogView.Local.Data
 
             if (!File.Exists(GIT_PATH))
             {
-                IsolateGitRepository repoInfo = new IsolateGitRepository();
-                repoInfo.Repositories = new List<IsolateGitRepositoryItem>();
+                IsolateGitRepository repoInfo = new()
+                {
+                    Repositories = new List<IsolateGitRepositoryItem>()
+                };
                 string json = JsonConvert.SerializeObject(repoInfo);
 
                 File.WriteAllText(GIT_PATH, json);

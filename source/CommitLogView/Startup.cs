@@ -5,9 +5,9 @@ namespace CommitLogView
     public class Startup
     {
         [STAThread]
-        public static void Main(string[] args) 
+        public static void Main(string[] args)
         {
-            App app = new App();
+            App app = new();
             app.Run();
         }
     }

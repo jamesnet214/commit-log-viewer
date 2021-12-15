@@ -12,7 +12,7 @@ namespace CommitLogView.Local.Converter
             string word = value.ToString().ToUpper();
             int length = int.Parse(parameter.ToString());
             length = word.Length < length ? word.Length : length;
-            return value.ToString().ToUpper().Substring(0, length);
+            return value.ToString().ToUpper()[..length];
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

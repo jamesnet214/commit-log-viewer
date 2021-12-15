@@ -4,8 +4,6 @@ namespace CommitLogView.Local.Data
 {
     public class RevisionFileInfo
     {
-        private string x;
-
         public RevisionFileInfo()
         {
 
