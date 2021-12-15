@@ -1,7 +1,7 @@
 ﻿using LibGit2Sharp;
 using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Collections.Generic;
 using System.Windows.Media.Imaging;
 
 namespace CommitLogView.Local.Data
@@ -43,7 +43,7 @@ namespace CommitLogView.Local.Data
             get { return Parents.FirstOrDefault(); }
         }
 
-        public bool ParentContains(ObjectId id)
+        public bool ContainsParent(ObjectId id)
         {
             return Parents.Select(x => x.Id).Contains(id);
         }

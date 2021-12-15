@@ -1,32 +1,19 @@
 ﻿using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace CommitLogView.Local.Data
 {
-
     public class RepositoryConfig
     {
-        #region Singleton Instance
-
-        internal static RepositoryConfig Access { get; private set; }
-        #endregion
-
-        #region Variables 
-
         private string SYS_PATH = "";
         private string CFG_PATH = "";
         private string GIT_PATH = "";
-        #endregion
 
-        #region Config
-
+        internal static RepositoryConfig Access { get; private set; }
         internal IsolateGitRepository Config { get; private set; }
-        #endregion
-
-        #region Constructors
 
         static RepositoryConfig()
         {
@@ -41,13 +28,9 @@ namespace CommitLogView.Local.Data
 
             LoadConfigFile();
         }
-        #endregion
-
-        #region LoadConfigFile
 
         private void LoadConfigFile()
         {
-
             if (!Directory.Exists(CFG_PATH))
             {
                 Directory.CreateDirectory(CFG_PATH);
@@ -64,29 +47,21 @@ namespace CommitLogView.Local.Data
 
             Config = JsonConvert.DeserializeObject<IsolateGitRepository>(File.ReadAllText(GIT_PATH));
         }
-        #endregion
-
-        #region internal Add
 
         internal void Add(string dir)
         {
             var name = Path.GetFileNameWithoutExtension(dir);
             var date = DateTime.Now;
 
-
             Config.Repositories = Config.Repositories ?? new List<IsolateGitRepositoryItem>();
             Config.Repositories.Add(new IsolateGitRepositoryItem { Name = name, RepositoryPath = dir, LastAccessTime = date, Created = date });
         }
-        #endregion
-
-        #region internal Save
 
         internal void Save()
         {
             string json = JsonConvert.SerializeObject(Config);
             File.WriteAllText(GIT_PATH, json);
         }
-        #endregion
 
         internal void Visit(string v)
         {

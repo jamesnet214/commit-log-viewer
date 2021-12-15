@@ -1,65 +1,49 @@
-﻿using CommitLogView.Local.Data;
-using DevNcore.UI.Foundation.Mvvm;
-using LibGit2Sharp;
-using System.Collections.Generic;
+﻿using LibGit2Sharp;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using DevNcore.UI.Foundation.Mvvm;
+using CommitLogView.Local.Data;
 
 namespace CommitLogView.Local.Mvvm
 {
     public class CommitViewModel : ObservableObject
     {
-        #region Commands
+        private RevisionInfo _commit;
+        private List<RevisionInfo> _commits;
+        private List<RevisionFileInfo> _changedFiles;
 
         public ICommand ClickCommand { get; set; }
-        #endregion
 
-        #region Commits
-
-        private List<RevisionInfo> _commits;
         public List<RevisionInfo> Commits
         {
-            get { return _commits; }
+            get => _commits;
             set { _commits = value; OnPropertyChanged(); }
         }
 
-        private RevisionInfo _commit;
         public RevisionInfo Commit
         {
-            get { return _commit; }
+            get => _commit;
             set { _commit = value; OnPropertyChanged(); CommitChanged(value); }
         }
-        #endregion
 
-        #region ChangedFiles
-
-        private List<RevisionFileInfo> _changedFiles;
         public List<RevisionFileInfo> ChangedFiles
         {
-            get { return _changedFiles; }
+            get => _changedFiles;
             set { _changedFiles = value; OnPropertyChanged(); }
         }
-        #endregion
-
-        #region Constructor
 
         public CommitViewModel()
         {
             ClickCommand = new RelayCommand<ParentInfo>(RevisionClick);
         }
-        #endregion
-
-        #region OnInitializedComponent
 
         protected override void OnInitializedComponent()
         {
             Load();
             RepositoryConfig.Access.Visit(View.Tag.ToString());
         }
-        #endregion
-
-        #region Load
 
         private async void Load()
         {
@@ -81,7 +65,6 @@ namespace CommitLogView.Local.Mvvm
                         };
 
             var commits = query.ToList();
-
             commits.Where(x => x.Parents.Count == 0).ToList().ForEach(x => x.IsFirst = true);
 
             RevisionInfo lst = null;
@@ -163,9 +146,6 @@ namespace CommitLogView.Local.Mvvm
             }
             Commits = commits;
         }
-        #endregion
-
-        #region CommitChanged
 
         private void CommitChanged(RevisionInfo value)
         {
@@ -175,9 +155,7 @@ namespace CommitLogView.Local.Mvvm
             }
 
             var repo = new Repository(View.Tag.ToString());
-
             var source = new List<RevisionFileInfo>();
-
 
             Tree commitTree = repo.Commits.Single(x => x.Sha == value.Sha).Tree; // Main Tree
             Tree parentCommitTree = repo.Commits.Single(x => x.Sha == value.Parent.Id.Sha).Tree; // Secondary Tree
@@ -186,21 +164,19 @@ namespace CommitLogView.Local.Mvvm
 
             foreach (var ptc in patch)
             {
-                var finfo = new RevisionFileInfo();
-                finfo.Status = ptc.Status;
-                finfo.Path = ptc.Path;
+                var finfo = new RevisionFileInfo
+                {
+                    Status = ptc.Status,
+                    Path = ptc.Path
+                };
                 source.Add(finfo);
             }
             ChangedFiles = source;
         }
-        #endregion
-
-        #region RevisonClick
 
         private void RevisionClick(ParentInfo obj)
         {
             Commit = Commits.Single(x => x.Sha == obj.Id.Sha);
         }
-        #endregion
     }
 }

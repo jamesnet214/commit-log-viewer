@@ -1,43 +1,33 @@
-﻿using CommitLogView.Local.Data;
-using DevNcore.UI.Foundation.Mvvm;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using CommitLogView.Local.Data;
+using DevNcore.UI.Foundation.Mvvm;
 
 namespace CommitLogView.Local.Mvvm
 {
     public class RepoViewModel : ObservableObject
     {
-        #region . Commands .
+        private ObservableCollection<RepoHistoricalModel> _repositories;
+        private List<RevisionFileInfo> _markdowns;
 
         public ICommand RepoClickCommand { get; set; }
         public ICommand RepoDoubleClickCommand { get; set; }
-        #endregion
 
-        #region . Repositories .
-
-        private ObservableCollection<RepoHistoricalModel> _repositories;
         public ObservableCollection<RepoHistoricalModel> Repositories
         {
-            get { return _repositories; }
+            get => _repositories;
             set { _repositories = value; OnPropertyChanged(); }
         }
-        #endregion
 
-        #region . Markdowns .
-
-        private List<RevisionFileInfo> _markdowns;
         public List<RevisionFileInfo> Markdowns
         {
-            get { return _markdowns; }
+            get => _markdowns;
             set { _markdowns = value; OnPropertyChanged(); }
         }
-        #endregion
-
-        #region . Constructor .
 
         public RepoViewModel()
          {
@@ -45,14 +35,11 @@ namespace CommitLogView.Local.Mvvm
             RepoDoubleClickCommand = new RelayCommand<object>(RepoDoubleClick);
             Repositories = new ObservableCollection<RepoHistoricalModel>();
         }
-        #endregion
 
         protected override void OnInitializedComponent()
         {
             LoadRepositories();
         }
-
-        #region . View_DragEnter .
 
         private void View_DragEnter(object sender, DragEventArgs e)
         {
@@ -65,9 +52,6 @@ namespace CommitLogView.Local.Mvvm
                 e.Effects = DragDropEffects.None;
             }
         }
-        #endregion
-
-        #region . View_Drop .
 
         private void View_Drop(object sender, DragEventArgs e)
         {
@@ -75,7 +59,7 @@ namespace CommitLogView.Local.Mvvm
 
             foreach (var dir in files)
             {
-                if (View.Parent is FrameworkElement fe && fe.DataContext is GitViewModel vm)
+                if (View.Parent is FrameworkElement fe && fe.DataContext is GitViewModel)
                 {
                     RepositoryConfig.Access.Add(dir);
                 }
@@ -83,9 +67,6 @@ namespace CommitLogView.Local.Mvvm
             RepositoryConfig.Access.Save();
             LoadRepositories();
         }
-        #endregion
-
-        #region . LoadRepositories .
 
         private void LoadRepositories()
         {
@@ -93,18 +74,17 @@ namespace CommitLogView.Local.Mvvm
             var repos = new ObservableCollection<RepoHistoricalModel>();
             foreach (var item in source.OrderByDescending(x => x.LastAccessTime).GroupBy(x => x.LastAccessTime.ToString("yyyy-MM-dd")))
             {
-                var date = new RepoHistoricalModel();
-                date.IsGroupHeader = true;
-                date.Name = item.Key;
-                date.Children = new ObservableCollection<IsolateGitRepositoryItem>();
+                var date = new RepoHistoricalModel
+                {
+                    IsGroupHeader = true,
+                    Name = item.Key,
+                    Children = new ObservableCollection<IsolateGitRepositoryItem>()
+                };
                 item.OrderByDescending(x => x.LastAccessTime).ToList().ForEach(x => date.Children.Add(x));
                 repos.Add(date);
             }
             Repositories = repos;
         }
-        #endregion
-
-        #region . RepoDoubleClick .
 
         private void RepoDoubleClick(object obj)
         {
@@ -119,22 +99,16 @@ namespace CommitLogView.Local.Mvvm
                 }
             }
         }
-        #endregion
-
-        #region . RepoClick .
 
         private void RepoClick(object obj)
         {
             if (obj is IsolateGitRepositoryItem repo)
             {
-                List<RevisionFileInfo> markdowns = new List<RevisionFileInfo>();
+                List<RevisionFileInfo> markdowns = new();
                 RecrusiveSearchMarkdown(repo.RepositoryPath, markdowns);
                 Markdowns = markdowns;
             }
         }
-        #endregion
-
-        #region . RecrusiveSearchMarkdown .
 
         private void RecrusiveSearchMarkdown(string repositoryPath, List<RevisionFileInfo> markdowns)
         {
@@ -144,6 +118,5 @@ namespace CommitLogView.Local.Mvvm
 
             dirs.ToList().ForEach(x => RecrusiveSearchMarkdown(x, markdowns));
         }
-        #endregion
     }
 }

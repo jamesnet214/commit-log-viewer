@@ -1,37 +1,31 @@
-﻿using CommitLogView.UI.Units;
-using DevNcore.UI.Foundation.Mvvm;
+﻿using System.IO;
+using System.Linq;
+using System.Windows.Input;
+using System.Windows.Controls;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.IO;
-using System.Linq;
-using System.Windows.Controls;
-using System.Windows.Input;
+using CommitLogView.UI.Units;
+using DevNcore.UI.Foundation.Mvvm;
 
 namespace CommitLogView.Local.Mvvm
 {
     internal class GitViewModel : ObservableObject
     {
         private Dictionary<string, NcoreLayer> LayerItems;
-        public ICommand MarkdownClickCommand { get; set; }
-
-        #region . Repositories . 
-
         public ObservableCollection<TabItem> Repositories { get; private set; }
-        #endregion
 
-        #region . Constructor .
+        public ICommand MarkdownClickCommand { get; set; }
 
         public GitViewModel()
         {
             //MarkdownClickCommand = new RelayCommand<object>(MarkdownClick);
 
             LayerItems = new Dictionary<string, NcoreLayer>();
-            Repositories = new ObservableCollection<TabItem>();
-            Repositories.Add(new TabItem { Header = "New", Tag = "REPOSITORY", Content = new RepoView() });
+            Repositories = new ObservableCollection<TabItem>
+            {
+                new TabItem { Header = "New", Tag = "REPOSITORY", Content = new RepoView() }
+            };
         }
-        #endregion
-
-        #region . internal AddNewRepository .
 
         internal void Add(string dir)
         {
@@ -39,19 +33,19 @@ namespace CommitLogView.Local.Mvvm
             {
                 var name = Path.GetFileNameWithoutExtension(dir);
                 var layer = new CommitView { Tag = dir };
-                var tabitem = new TabItem { Header = name, Content = layer };
+                var tabItem = new TabItem { Header = name, Content = layer };
+
                 LayerItems.Add(dir, layer);
-                Repositories.Add(tabitem);
-                tabitem.IsSelected = true;
+                Repositories.Add(tabItem);
+                tabItem.IsSelected = true;
             }
             else
             {
                 Repositories.Single(x => x.Content.Equals(LayerItems[dir])).IsSelected = true;
             }
         }
-        #endregion
 
-        //#region . MarkdownClick .
+        #region [UnUsed] MarkdownClick
 
         //private void MarkdownClick(object obj)
         //{
@@ -70,6 +64,6 @@ namespace CommitLogView.Local.Mvvm
         //        view.IsSelected = true;
         //    }
         //}
-        //#endregion
+        #endregion
     }
 }
