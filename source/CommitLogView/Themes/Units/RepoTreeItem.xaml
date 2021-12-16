@@ -4,91 +4,92 @@
     xmlns:icons="clr-namespace:DevNcore.UI.Design.Controls;assembly=DevNcore.UI.Design"
     xmlns:units="clr-namespace:CommitLogView.UI.Units"
     xmlns:cnvts="clr-namespace:CommitLogView.Local.Converter">
-
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/Geometries.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <Style TargetType="{x:Type icons:MenuRightIcon}" x:Key="MenuRightIcon">
-        <Setter Property="HorizontalAlignment" Value="Left"/>
-        <Setter Property="Fill" Value="#5b95e4"/>
-        <Setter Property="Width" Value="20"/>
-        <Setter Property="Height" Value="20"/>
-        <Setter Property="Margin" Value="8 0 0 0"/>
+    <Style TargetType="{x:Type TextBlock}" x:Key="DayTextBlockStyle">
+        <Setter Property="Text" Value="{Binding Name}"/>
+        <Setter Property="Margin" Value="20 0 20 0"/>
+        <Setter Property="Foreground" Value="#ffffff"/>
+        <Setter Property="FontSize" Value="12"/>
     </Style>
 
-    <Style TargetType="{x:Type ToggleButton}" x:Key="IN.EXPAND">
-        <Setter Property="IsChecked" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsExpanded}"/>
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Focusable" Value="False"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type ToggleButton}">
-                    <icons:MenuRightIcon x:Name="icon" Style="{StaticResource MenuRightIcon}"/>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsChecked" Value="True">
-                            <Setter TargetName="icon" Property="Data" Value="{DynamicResource MenuDown}"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
+    <Style TargetType="{x:Type icons:HistoryIcon}" x:Key="HistoryIconStyle">
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Fill" Value="#88FFFFFF"/>
+        <Setter Property="Width" Value="14"/>
+        <Setter Property="Height" Value="14"/>
+    </Style>
+    
+    <Style TargetType="{x:Type Grid}" x:Key="DayGridStyle">
+        <Setter Property="Margin" Value="4"/>
     </Style>
 
     <DataTemplate x:Key="DayStyleDataTemplate">
-        <DataTemplate.Resources>
-            <Style TargetType="{x:Type Grid}" x:Key="IN.GRID">
-                <Setter Property="Margin" Value="4"/>
-            </Style>
-            <Style TargetType="{x:Type TextBlock}" x:Key="IN.HEADER">
-                <Setter Property="Text" Value="{Binding Name}"/>
-                <Setter Property="Foreground" Value="#ffffff"/>
-                <Setter Property="FontSize" Value="12"/>
-                <Setter Property="Margin" Value="20 0 20 0"/>
-            </Style>
-        </DataTemplate.Resources>
-        <Grid Style="{StaticResource IN.GRID}">
-            <icons:HistoryIcon HorizontalAlignment="Left"
-                               Fill="#88FFFFFF" 
-                               Width="14" 
-                               Height="14"/>
-            <TextBlock Style="{StaticResource IN.HEADER}"/>
+        <Grid Style="{StaticResource DayGridStyle}">
+            <icons:HistoryIcon Style="{StaticResource HistoryIconStyle}"/>
+            <TextBlock Style="{StaticResource DayTextBlockStyle}"/>
         </Grid>
     </DataTemplate>
 
+    <Style TargetType="{x:Type Grid}" x:Key="RepositoryGridStyle">
+        <Setter Property="Margin" Value="4"/>
+    </Style>
+
+    <Style TargetType="{x:Type TextBlock}" x:Key="RepositoryTextBlockStyle">
+        <Setter Property="Text" Value="{Binding Name}"/>
+        <Setter Property="Foreground" Value="#FFFFFF"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Margin" Value="20 0 20 0"/>
+    </Style>
+    
+    <Style TargetType="{x:Type TextBlock}" x:Key="PathTextBlockStyle">
+        <Setter Property="Grid.Row" Value="1"/>
+        <Setter Property="Text" Value="{Binding RepositoryPath}"/>
+        <Setter Property="Foreground" Value="#cccccc"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="Margin" Value="20 2 20 0"/>
+        <Setter Property="Visibility" Value="Collapsed"/>
+    </Style>
+    
+    <Style TargetType="{x:Type icons:GitIcon}" x:Key="GitIconStyle">
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Fill" Value="#77FFFFFF"/>
+        <Setter Property="Width" Value="14"/>
+        <Setter Property="Height" Value="14"/>
+    </Style>
+
     <DataTemplate x:Key="RepositoryStyleDataTemplate">
         <DataTemplate.Resources>
-            <Style TargetType="{x:Type Grid}" x:Key="IN.GRID">
-                <Setter Property="Margin" Value="4"/>
-            </Style>
-            <Style TargetType="{x:Type TextBlock}" x:Key="IN.HEADER">
-                <Setter Property="Text" Value="{Binding Name}"/>
-                <Setter Property="Foreground" Value="#FFFFFF"/>
-                <Setter Property="FontSize" Value="12"/>
-                <Setter Property="Margin" Value="20 0 20 0"/>
-            </Style>
-            <Style TargetType="{x:Type TextBlock}" x:Key="IN.PATH">
-                <Setter Property="Grid.Row" Value="1"/>
-                <Setter Property="Text" Value="{Binding RepositoryPath}"/>
-                <Setter Property="Foreground" Value="#cccccc"/>
-                <Setter Property="FontSize" Value="12"/>
-                <Setter Property="Margin" Value="20 2 20 0"/>
-                <Setter Property="Visibility" Value="Collapsed"/>
-            </Style>
         </DataTemplate.Resources>
-        <Grid Style="{StaticResource IN.GRID}">
+        <Grid Style="{StaticResource RepositoryGridStyle}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <icons:GitIcon HorizontalAlignment="Left"
-                           Fill="#77FFFFFF" 
-                           Width="14" 
-                           Height="14"/>
-            <TextBlock Style="{StaticResource IN.HEADER}"/>
-            <TextBlock Style="{StaticResource IN.PATH}"/>
+            <icons:GitIcon Style="{StaticResource GitIconStyle}"/>
+            <TextBlock Style="{StaticResource RepositoryTextBlockStyle}"/>
+            <TextBlock Style="{StaticResource PathTextBlockStyle}"/>
         </Grid>
     </DataTemplate>
+
+    <Style TargetType="{x:Type Border}" x:Key="ItemBorderStyle">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0 0 0 1"/>
+        <Setter Property="BorderBrush" Value="#292929"/>
+        <Setter Property="Padding" Value="0 0 0 3"/>
+    </Style>
+    
+    <Style TargetType="{x:Type Grid}" x:Key="ItemGridStyle">
+        <Setter Property="Margin" Value="{Binding RelativeSource={RelativeSource Self}, Converter={cnvts:TreeViewObjectLevelConverter}}"/>
+    </Style>
+
+    <Style TargetType="{x:Type ContentPresenter}" x:Key="ItemContentPresenterStyle">
+        <Setter Property="ContentTemplate" Value="{StaticResource RepositoryStyleDataTemplate}"/>
+        <Setter Property="Content" Value="{Binding RelativeSource={RelativeSource AncestorType=units:RepoTreeItem}, Path=Header}"/>
+        <Setter Property="Margin" Value="26 0 0 0"/>
+    </Style>
 
     <Style TargetType="{x:Type units:RepoTreeItem}">
         <Setter Property="IsExpanded" Value="True"/>
@@ -96,30 +97,11 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type units:RepoTreeItem}">
-                    <ControlTemplate.Resources>
-                        <Style TargetType="{x:Type Border}" x:Key="IN.BORDER">
-                            <Setter Property="Background" Value="Transparent"/>
-                            <Setter Property="BorderThickness" Value="0 0 0 1"/>
-                            <Setter Property="BorderBrush" Value="#292929"/>
-                            <Setter Property="Padding" Value="0 0 0 3"/>
-                        </Style>
-                        <Style TargetType="{x:Type Grid}" x:Key="IN.GRID">
-                            <Setter Property="Margin" Value="{Binding RelativeSource={RelativeSource Self}, Converter={cnvts:TreeViewObjectLevelConverter}}"/>
-                        </Style>
-                        <Style TargetType="{x:Type ContentPresenter}" x:Key="IN.CONTENT">
-                            <Setter Property="ContentTemplate" Value="{StaticResource RepositoryStyleDataTemplate}"/>
-                            <Setter Property="Content" Value="{Binding RelativeSource={RelativeSource AncestorType=units:RepoTreeItem}, Path=Header}"/>
-                            <Setter Property="Margin" Value="26 0 0 0"/>
-                        </Style>
-                    </ControlTemplate.Resources>
                     <StackPanel>
-                        <Border x:Name="border" 
-                                Style="{StaticResource IN.BORDER}">
-                            <Grid Style="{StaticResource IN.GRID}">
-                                <ToggleButton x:Name="check" 
-                                              Style="{StaticResource IN.EXPAND}"/>
-                                <ContentPresenter x:Name="content" 
-                                                  Style="{StaticResource IN.CONTENT}"/>
+                        <Border x:Name="border" Style="{StaticResource ItemBorderStyle}">
+                            <Grid Style="{StaticResource ItemGridStyle}">
+                                <units:RepoTreeItemExpander x:Name="check"/>
+                                <ContentPresenter x:Name="content" Style="{StaticResource ItemContentPresenterStyle}"/>
                             </Grid>
                         </Border>
                         <ItemsPresenter x:Name="items"/>
