@@ -4,9 +4,6 @@
     xmlns:icons="clr-namespace:DevNcore.UI.Design.Controls;assembly=DevNcore.UI.Design"
     xmlns:units="clr-namespace:CommitLogView.UI.Units"
     xmlns:cnvts="clr-namespace:CommitLogView.Local.Converter">
-    <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/CommitLogView;component/Themes/Units/Geometries.xaml"/>
-    </ResourceDictionary.MergedDictionaries>
 
     <Style TargetType="{x:Type TextBlock}" x:Key="DayTextBlockStyle">
         <Setter Property="Text" Value="{Binding Name}"/>
