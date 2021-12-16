@@ -142,7 +142,7 @@
                             <TextBlock Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" Text="{Binding Commit.Id.Sha}" Margin="0 0 10 0" Foreground="#AAAAAA"/>
                             <units:CommitHashListBox Grid.Row="5" Grid.Column="1" VerticalAlignment="Center"/>
 
-                            <ListBox Style="{StaticResource LBX.FILES}"/>
+                            <units:CommitFileListBox/>
                         </Grid>
                     </Border>
                 </ControlTemplate>

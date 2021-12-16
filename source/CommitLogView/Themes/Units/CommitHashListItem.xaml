@@ -9,11 +9,6 @@
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/Geometries.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <LinearGradientBrush x:Key="LGB.HEADER" StartPoint="0.5,0" EndPoint="0.5,1">
-        <GradientStop Color="#26323d" Offset="0"/>
-        <GradientStop Color="#26323d" Offset="1"/>
-    </LinearGradientBrush>
-
     <Style TargetType="{x:Type units:CommitHashListItem}">
         <Setter Property="Template">
             <Setter.Value>

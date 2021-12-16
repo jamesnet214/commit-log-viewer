@@ -6,6 +6,8 @@
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/WindowCloseButton.xaml"/>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/CommitHashListItem.xaml"/>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/CommitHashListBox.xaml"/>
+        <ResourceDictionary Source="/CommitLogView;component/Themes/Units/CommitFileListItem.xaml"/>
+        <ResourceDictionary Source="/CommitLogView;component/Themes/Units/CommitFileListBox.xaml"/>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/CommitContent.xaml"/>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/RepoFileListItem.xaml"/>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/RepoFileListBox.xaml"/>
