@@ -49,13 +49,13 @@
         </Setter>
     </Style>
 
-    <Style TargetType="{x:Type units:NcoreListBox}" x:Key="LBX.PARENTS">
+    <Style TargetType="{x:Type units:ParentHashListBox}">
         <Setter Property="ItemsSource" Value="{Binding Commit.Parents}"/>
         <Setter Property="ItemContainerStyle" Value="{StaticResource LBI.PARENTS}"/>
         <Setter Property="ClickCommand" Value="{Binding ClickCommand}"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type units:NcoreListBox}">
+                <ControlTemplate TargetType="{x:Type units:ParentHashListBox}">
                     <ItemsPresenter/>
                 </ControlTemplate>
             </Setter.Value>
@@ -195,7 +195,7 @@
                             <TextBlock Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Text="{Binding Commit.MessageShort}" Margin="0 0 5 0" FontSize="12"/>
 
                             <TextBlock Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" Text="{Binding Commit.Id.Sha}" Margin="0 0 10 0" Foreground="#AAAAAA"/>
-                            <units:NcoreListBox Grid.Row="5" Grid.Column="1" VerticalAlignment="Center" Style="{StaticResource LBX.PARENTS}"/>
+                            <units:ParentHashListBox Grid.Row="5" Grid.Column="1" VerticalAlignment="Center"/>
 
                             <ListBox Style="{StaticResource LBX.FILES}"/>
                         </Grid>

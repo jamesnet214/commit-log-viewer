@@ -90,42 +90,15 @@
         </Grid>
     </DataTemplate>
 
-    <Style TargetType="{x:Type ListBoxItem}" x:Key="LBXI.MARKDOWN">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type ListBoxItem}">
-                    <Border Background="{TemplateBinding Background}">
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                            <icons:LanguageMarkdownOutlineIcon Margin="15 0 6 0"
-                                                               Fill="#AAFFFFFF" 
-                                                               Width="18" 
-                                                               Height="18"/>
-                            <TextBlock Text="{Binding FileName}" Margin="0 4 15 4"/>
-                        </StackPanel>
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#252525"/>
-                        </Trigger>
-                        <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Background" Value="#303030"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
-    <Style TargetType="{x:Type units:NcoreListBox}">
+    <Style TargetType="{x:Type units:RepoFileListBox}">
         <Setter Property="DoubleClickCommand" Value="{Binding RelativeSource={RelativeSource AncestorType=units:NcoreView}, Path=DataContext.MarkdownClickCommand}"/>
-        <Setter Property="ItemContainerStyle" Value="{StaticResource LBXI.MARKDOWN}"/>
         <Setter Property="ItemsSource" Value="{Binding Markdowns}"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="#FFFFFF"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type units:NcoreListBox}">
+                <ControlTemplate TargetType="{x:Type units:RepoFileListBox}">
                     <ScrollViewer Padding="1 1 0 1">
                         <ItemsPresenter/>
                     </ScrollViewer>

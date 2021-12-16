@@ -4,7 +4,8 @@
     xmlns:local="clr-namespace:CommitLogView">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/CommitView.xaml"/>
-        <ResourceDictionary Source="/CommitLogView;component/Themes/Units/NcoreListBox.xaml"/>
+        <ResourceDictionary Source="/CommitLogView;component/Themes/Units/RepoFileListItem.xaml"/>
+        <ResourceDictionary Source="/CommitLogView;component/Themes/Units/RepoFileListBox.xaml"/>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/RepoTreeItem.xaml"/>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/RepoTreeView.xaml"/>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/RepoView.xaml"/>

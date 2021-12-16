@@ -4,17 +4,18 @@ using System.Windows.Input;
 
 namespace CommitLogView.UI.Units
 {
-    public class NcoreListBox : ListBox
+    public class RepoFileListBox : ListBox
     {
         #region DefaultStyleKey
-        static NcoreListBox()
+
+        static RepoFileListBox()
         {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(NcoreListBox), new FrameworkPropertyMetadata(typeof(NcoreListBox)));
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(RepoFileListBox), new FrameworkPropertyMetadata(typeof(RepoFileListBox)));
         }
         #endregion
 
-        public static readonly DependencyProperty ClickCommandProperty = DependencyProperty.Register("ClickCommand", typeof(ICommand), typeof(NcoreListBox));
-        public static readonly DependencyProperty DoubleClickCommandProperty = DependencyProperty.Register("DoubleClickCommand", typeof(ICommand), typeof(NcoreListBox));
+        public static readonly DependencyProperty ClickCommandProperty = DependencyProperty.Register("ClickCommand", typeof(ICommand), typeof(RepoFileListBox));
+        public static readonly DependencyProperty DoubleClickCommandProperty = DependencyProperty.Register("DoubleClickCommand", typeof(ICommand), typeof(RepoFileListBox));
 
         public ICommand ClickCommand
         {
@@ -42,6 +43,11 @@ namespace CommitLogView.UI.Units
         {
             base.OnMouseDoubleClick(e);
             DoubleClickCommand?.Execute(SelectedItem);
+        }
+
+        protected override DependencyObject GetContainerForItemOverride()
+        {
+            return new RepoFileListItem();
         }
     }
 }

@@ -29,7 +29,7 @@
                                 <ItemsPresenter/>
                             </ScrollViewer>
                         </Border>
-                        <units:NcoreListBox/>
+                        <units:RepoFileListBox/>
                     </DockPanel>
                 </ControlTemplate>
             </Setter.Value>
