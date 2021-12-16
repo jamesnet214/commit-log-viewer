@@ -1,7 +1,6 @@
 <ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="clr-namespace:CommitLogView">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/WindowCloseButton.xaml"/>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/CommitHashListItem.xaml"/>
