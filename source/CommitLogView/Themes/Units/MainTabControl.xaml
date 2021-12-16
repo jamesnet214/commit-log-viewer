@@ -5,6 +5,7 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/Geometries.xaml"/>
     </ResourceDictionary.MergedDictionaries>
+    
     <Style TargetType="{x:Type Border}" x:Key="ContentBorderStyle">
         <Setter Property="KeyboardNavigation.TabNavigation" Value="Local"/>
         <Setter Property="KeyboardNavigation.TabIndex" Value="1"/>
@@ -12,10 +13,12 @@
         <Setter Property="KeyboardNavigation.DirectionalNavigation" Value="Contained"/>
         <Setter Property="Grid.Column" Value="0"/>
     </Style>
+    
     <Style TargetType="{x:Type ContentPresenter}" x:Key="ContentPresenterStyle">
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="Margin" Value="0"/>
     </Style>
+    
     <Style TargetType="{x:Type units:MainTabControl}">
         <Setter Property="ItemsSource" Value="{Binding Repositories}"/>
         <Setter Property="Background" Value="Transparent"/>
