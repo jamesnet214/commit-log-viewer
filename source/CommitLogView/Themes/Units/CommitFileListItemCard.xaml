@@ -1,0 +1,62 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:units="clr-namespace:CommitLogView.UI.Units"
+    xmlns:cnvts="clr-namespace:CommitLogView.Local.Converter">
+
+    <Style TargetType="{x:Type units:CommitFileListItemCard}">
+        <Setter Property="Foreground" Value="#FFFFFF"/>
+        <Setter Property="Grid.Row" Value="2"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Control}">
+                    <Border Padding="10">
+                        <Grid VerticalAlignment="Top">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="10"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Border CornerRadius="8" Width="50" Height="50" Margin="0 0 10 0" HorizontalAlignment="Right" Grid.RowSpan="3"
+                                    VerticalAlignment="Center" Background="#333333">
+                                <TextBlock Text="{Binding Commit.Author.Name, Converter={cnvts:UpperShortCutConverter}, ConverterParameter=2}"
+                                           VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="26" Foreground="#FFFFFF" FontWeight="Bold"/>
+                            </Border>
+                            <Border CornerRadius="8" Width="50" Height="50" Margin="0 0 10 0" HorizontalAlignment="Right" Grid.RowSpan="3"
+                                    VerticalAlignment="Center">
+                                <Border.Background>
+                                    <ImageBrush ImageSource="{Binding Commit.Avatar}"/>
+                                </Border.Background>
+                            </Border>
+
+                            <TextBlock Grid.Row="4" Grid.Column="0" HorizontalAlignment="Right" Text="SHA" Margin="10 0 10 0" FontSize="12" Foreground="#666666"/>
+                            <TextBlock Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right" Text="PARENTS" Margin="10 0 10 0" FontSize="12" Foreground="#666666"/>
+                            <TextBlock Grid.Row="6" Grid.Column="0" HorizontalAlignment="Right" Text="CHANGED FILES" Margin="10 11 10 0" FontSize="12" Foreground="#666666"/>
+
+                            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                                <TextBlock Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Text="{Binding Commit.Author.Name}" Margin="0 0 5 0" Foreground="#FFFFFF"/>
+                                <TextBlock Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Text="{Binding Commit.Author.Email}" Margin="0 0 5 0" Foreground="#AAAAAA"/>
+                            </StackPanel>
+                            <TextBlock Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Text="{Binding Commit.When.DateTime}" Margin="0 0 5 0" Foreground="#ccabd4"/>
+                            <TextBlock Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Text="{Binding Commit.MessageShort}" Margin="0 0 5 0" FontSize="12"/>
+
+                            <TextBlock Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" Text="{Binding Commit.Id.Sha}" Margin="0 0 10 0" Foreground="#AAAAAA"/>
+                            <units:CommitHashListBox Grid.Row="5" Grid.Column="1" VerticalAlignment="Center"/>
+
+                            <units:CommitFileListBox/>
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>
