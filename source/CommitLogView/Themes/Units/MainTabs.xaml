@@ -2,9 +2,6 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:units="clr-namespace:CommitLogView.UI.Units">
-    <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/CommitLogView;component/Themes/Units/Geometries.xaml"/>
-    </ResourceDictionary.MergedDictionaries>
 
     <Style TargetType="{x:Type Border}" x:Key="ContentBorderStyle">
         <Setter Property="Grid.Row" Value="1"/>
@@ -23,13 +20,13 @@
         <Setter Property="KeyboardNavigation.TabNavigation" Value="Local"/>
         <Setter Property="Background" Value="#1c191d"/>
     </Style>
-    
+
     <Style TargetType="{x:Type TabPanel}" x:Key="TabPanelStyle">
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Grid.Column" Value="0"/>
-        <Setter Property="IsItemsHost" Value="true"/>
-        <Setter Property="Margin" Value="0"/>
         <Setter Property="Grid.Row" Value="0"/>
+        <Setter Property="Grid.Column" Value="0"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="IsItemsHost" Value="true"/>
         <Setter Property="KeyboardNavigation.TabIndex" Value="1"/>
         <Setter Property="Panel.ZIndex" Value="1"/>
     </Style>
@@ -43,8 +40,6 @@
     
     <Style TargetType="{x:Type units:MainTabs}">
         <Setter Property="ItemsSource" Value="{Binding Repositories}"/>
-        <Setter Property="SnapsToDevicePixels" Value="True"/>
-        <Setter Property="Padding" Value="0"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type units:MainTabs}">
@@ -57,8 +52,8 @@
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <TabPanel x:Name="headerPanel" Style="{StaticResource TabPanelStyle}"/>
-                        <Border x:Name="contentPanel" Style="{StaticResource ContentBorderStyle}"/>
+                        <TabPanel Style="{StaticResource TabPanelStyle}"/>
+                        <Border Style="{StaticResource ContentBorderStyle}"/>
                         <ContentPresenter x:Name="PART_SelectedContentHost" Style="{StaticResource ContentPresenterStyle}"/>
                     </Grid>
                 </ControlTemplate>
