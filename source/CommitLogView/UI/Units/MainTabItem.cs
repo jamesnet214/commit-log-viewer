@@ -15,12 +15,12 @@ using System.Windows.Shapes;
 
 namespace CommitLogView.UI.Units
 {
-    public class RepoTabItem : TabItem
+    public class MainTabItem : TabItem
     {
         #region DefaultStyleKey
-        static RepoTabItem()
+        static MainTabItem()
         {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(RepoTabItem), new FrameworkPropertyMetadata(typeof(RepoTabItem)));
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(MainTabItem), new FrameworkPropertyMetadata(typeof(MainTabItem)));
         }
         #endregion
     }

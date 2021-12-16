@@ -3,22 +3,22 @@ using System.Windows.Controls;
 
 namespace CommitLogView.UI.Units
 {
-    public class RepoTabControl : TabControl
+    public class MainTabControl : TabControl
     {
         #region DefaultStyleKey
 
-        static RepoTabControl()
+        static MainTabControl()
         {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(RepoTabControl), new FrameworkPropertyMetadata(typeof(RepoTabControl)));
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(MainTabControl), new FrameworkPropertyMetadata(typeof(MainTabControl)));
         }
         #endregion
 
-        public RepoTabControl()
+        public MainTabControl()
         {
         }
         protected override DependencyObject GetContainerForItemOverride()
         {
-            return new RepoTabItem();
+            return new MainTabItem();
         }
     }
 }

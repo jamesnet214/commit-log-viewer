@@ -87,7 +87,7 @@
                             <TextBlock Style="{StaticResource HashTextBlock}"/>
                         </StackPanel>
                         <Button x:Name="PART_Close" Style="{StaticResource CloseButton}"/>
-                        <units:RepoTabControl Grid.Row="1"/>
+                        <units:MainTabControl Grid.Row="1"/>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>

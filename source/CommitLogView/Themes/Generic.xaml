@@ -5,14 +5,14 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/CommitHashListItem.xaml"/>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/CommitHashListBox.xaml"/>
-        <ResourceDictionary Source="/CommitLogView;component/Themes/Units/CommitView.xaml"/>
+        <ResourceDictionary Source="/CommitLogView;component/Themes/Units/CommitContent.xaml"/>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/RepoFileListItem.xaml"/>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/RepoFileListBox.xaml"/>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/RepoTreeItem.xaml"/>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/RepoTreeView.xaml"/>
-        <ResourceDictionary Source="/CommitLogView;component/Themes/Units/RepoView.xaml"/>
-        <ResourceDictionary Source="/CommitLogView;component/Themes/Units/RepoTabControl.xaml"/>
-        <ResourceDictionary Source="/CommitLogView;component/Themes/Units/RepoTabItem.xaml"/>
+        <ResourceDictionary Source="/CommitLogView;component/Themes/Units/RepoContent.xaml"/>
+        <ResourceDictionary Source="/CommitLogView;component/Themes/Units/MainTabItem.xaml"/>
+        <ResourceDictionary Source="/CommitLogView;component/Themes/Units/MainTabControl.xaml"/>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/MainContent.xaml"/>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Views/MainWindow.xaml"/>
     </ResourceDictionary.MergedDictionaries>

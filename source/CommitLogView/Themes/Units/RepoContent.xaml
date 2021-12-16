@@ -7,10 +7,10 @@
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/Geometries.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <Style TargetType="{x:Type units:RepoView}">
+    <Style TargetType="{x:Type units:RepoContent}">
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type units:RepoView}">
+                <ControlTemplate TargetType="{x:Type units:RepoContent}">
                     <units:RepoTreeView/>
                 </ControlTemplate>
             </Setter.Value>

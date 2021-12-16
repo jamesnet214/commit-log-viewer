@@ -32,11 +32,11 @@
         <Setter Property="Grid.Column" Value="1"/>
     </Style>
     
-    <Style TargetType="{x:Type units:RepoTabItem}">
+    <Style TargetType="{x:Type units:MainTabItem}">
         <Setter Property="Foreground" Value="#AAAAAA"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type units:RepoTabItem}">
+                <ControlTemplate TargetType="{x:Type units:MainTabItem}">
                     <Border x:Name="border" Style="{StaticResource HeaderBorderStyle}">
                         <Grid>
                             <Grid.ColumnDefinitions>
