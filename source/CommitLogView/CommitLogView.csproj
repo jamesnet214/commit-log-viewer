@@ -13,10 +13,21 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DevNcore.UI.Design.Geometry\DevNcore.UI.Design.Geometry.csproj" />
-    <ProjectReference Include="..\DevNcore.UI.Design\DevNcore.UI.Design.csproj" />
-    <ProjectReference Include="..\DevNcore.UI.Foundation\DevNcore.UI.Foundation.csproj" />
-    <ProjectReference Include="..\DevNcore.WPF\DevNcore.WPF.csproj" />
+    <Reference Include="DevNcore.UI.Design">
+      <HintPath>..\DevNcore.UI.Design\bin\Debug\net6.0-windows\DevNcore.UI.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="DevNcore.UI.Design.Converter">
+      <HintPath>..\DevNcore.UI.Design.Converter\bin\Debug\net6.0-windows\DevNcore.UI.Design.Converter.dll</HintPath>
+    </Reference>
+    <Reference Include="DevNcore.UI.Design.Geometry">
+      <HintPath>..\DevNcore.UI.Design.Geometry\bin\Debug\net6.0-windows\DevNcore.UI.Design.Geometry.dll</HintPath>
+    </Reference>
+    <Reference Include="DevNcore.UI.Foundation">
+      <HintPath>..\DevNcore.UI.Foundation\bin\Debug\net6.0-windows\DevNcore.UI.Foundation.dll</HintPath>
+    </Reference>
+    <Reference Include="DevNcore.WPF">
+      <HintPath>..\DevNcore.WPF\bin\Debug\net6.0-windows\DevNcore.WPF.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>
