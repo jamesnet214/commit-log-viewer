@@ -14,12 +14,12 @@
         <GradientStop Color="#26323d" Offset="1"/>
     </LinearGradientBrush>
 
-    <Style TargetType="{x:Type units:ParentHashListBox}">
+    <Style TargetType="{x:Type units:CommitHashListBox}">
         <Setter Property="ItemsSource" Value="{Binding Commit.Parents}"/>
         <Setter Property="ClickCommand" Value="{Binding ClickCommand}"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type units:ParentHashListBox}">
+                <ControlTemplate TargetType="{x:Type units:CommitHashListBox}">
                     <ItemsPresenter/>
                 </ControlTemplate>
             </Setter.Value>
@@ -159,7 +159,7 @@
                             <TextBlock Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Text="{Binding Commit.MessageShort}" Margin="0 0 5 0" FontSize="12"/>
 
                             <TextBlock Grid.Row="4" Grid.Column="1" VerticalAlignment="Center" Text="{Binding Commit.Id.Sha}" Margin="0 0 10 0" Foreground="#AAAAAA"/>
-                            <units:ParentHashListBox Grid.Row="5" Grid.Column="1" VerticalAlignment="Center"/>
+                            <units:CommitHashListBox Grid.Row="5" Grid.Column="1" VerticalAlignment="Center"/>
 
                             <ListBox Style="{StaticResource LBX.FILES}"/>
                         </Grid>

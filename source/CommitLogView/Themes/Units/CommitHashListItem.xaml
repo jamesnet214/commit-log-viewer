@@ -14,10 +14,10 @@
         <GradientStop Color="#26323d" Offset="1"/>
     </LinearGradientBrush>
 
-    <Style TargetType="{x:Type units:ParentHashListItem}">
+    <Style TargetType="{x:Type units:CommitHashListItem}">
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type units:ParentHashListItem}">
+                <ControlTemplate TargetType="{x:Type units:CommitHashListItem}">
                     <ControlTemplate.Resources>
                         <Style TargetType="{x:Type TextBlock}" x:Key="IN.SHA">
                             <Setter Property="Text" Value="{Binding Id.Sha, Converter={cnvts:SubStringConverter}, ConverterParameter=7}"/>

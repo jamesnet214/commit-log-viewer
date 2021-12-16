@@ -20,11 +20,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Page Update="Themes\Units\ParentHashListItem.xaml">
+    <Page Update="Themes\Units\CommitHashListItem.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Themes\Units\ParentHashListBox.xaml">
+    <Page Update="Themes\Units\CommitHashListBox.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
