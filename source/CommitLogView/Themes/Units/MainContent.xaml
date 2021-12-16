@@ -56,7 +56,7 @@
                             <TextBlock Style="{StaticResource HashTextBlockStyle}"/>
                         </StackPanel>
                         <units:WindowCloseButton x:Name="PART_Close"/>
-                        <units:MainTabControl Grid.Row="1"/>
+                        <units:MainTabs Grid.Row="1"/>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>

@@ -336,10 +336,10 @@
     </Style>
 
 
-    <Style TargetType="{x:Type units:CommitView}">
+    <Style TargetType="{x:Type units:CommitContent}">
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type units:CommitView}">
+                <ControlTemplate TargetType="{x:Type units:CommitContent}">
                     <ListBox Style="{StaticResource LBX.GIT}"/>
                 </ControlTemplate>
             </Setter.Value>

@@ -31,11 +31,11 @@
         <Setter Property="Grid.Column" Value="1"/>
     </Style>
     
-    <Style TargetType="{x:Type units:MainTabItem}">
+    <Style TargetType="{x:Type units:MainTabsItem}">
         <Setter Property="Foreground" Value="#AAAAAA"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type units:MainTabItem}">
+                <ControlTemplate TargetType="{x:Type units:MainTabsItem}">
                     <Border x:Name="border" Style="{StaticResource HeaderBorderStyle}">
                         <Grid>
                             <Grid.ColumnDefinitions>

@@ -3,9 +3,9 @@ using DevNcore.UI.Foundation.Mvvm;
 
 namespace CommitLogView.UI.Units
 {
-    public class NcoreLayer : UserControl
+    public class NcoreContent : ContentControl
     {
-        public NcoreLayer()
+        public NcoreContent()
         {
             Loaded += NcoreLayer_Loaded;
         }

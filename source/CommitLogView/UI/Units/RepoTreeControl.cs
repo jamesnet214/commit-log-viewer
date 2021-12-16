@@ -14,11 +14,6 @@ namespace CommitLogView.UI.Units
         }
         #endregion
 
-        public RepoTreeControl()
-        { 
-        
-        }
-
         public static readonly DependencyProperty CommandProperty = DependencyProperty.Register("Command", typeof(ICommand), typeof(RepoTreeControl));
         public static readonly DependencyProperty DoubleClickCommandProperty = DependencyProperty.Register("DoubleClickCommand", typeof(ICommand), typeof(RepoTreeControl));
 

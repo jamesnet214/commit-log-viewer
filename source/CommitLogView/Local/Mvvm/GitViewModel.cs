@@ -10,17 +10,17 @@ namespace CommitLogView.Local.Mvvm
 {
     internal class GitViewModel : ObservableObject
     {
-        private readonly Dictionary<string, NcoreLayer> LayerItems;
-        public ObservableCollection<MainTabItem> Repositories { get; private set; }
+        private readonly Dictionary<string, NcoreContent> LayerItems;
+        public ObservableCollection<MainTabsItem> Repositories { get; private set; }
 
         public ICommand MarkdownClickCommand { get; set; }
 
         public GitViewModel()
         {
-            LayerItems = new Dictionary<string, NcoreLayer>();
-            Repositories = new ObservableCollection<MainTabItem>
+            LayerItems = new Dictionary<string, NcoreContent>();
+            Repositories = new ObservableCollection<MainTabsItem>
             {
-                new MainTabItem { Header = "New", Tag = "REPOSITORY", Content = new RepoContent() }
+                new MainTabsItem { Header = "New", Tag = "REPOSITORY", Content = new RepoContent() }
             };
         }
 
@@ -29,8 +29,8 @@ namespace CommitLogView.Local.Mvvm
             if (!LayerItems.ContainsKey(dir))
             {
                 var name = Path.GetFileNameWithoutExtension(dir);
-                var layer = new CommitView { Tag = dir };
-                var tabItem = new MainTabItem { Header = name, Content = layer };
+                var layer = new CommitContent { Tag = dir };
+                var tabItem = new MainTabsItem { Header = name, Content = layer };
 
                 LayerItems.Add(dir, layer);
                 Repositories.Add(tabItem);
