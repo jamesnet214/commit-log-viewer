@@ -14,61 +14,6 @@
         <GradientStop Color="#26323d" Offset="1"/>
     </LinearGradientBrush>
 
-    <Style TargetType="{x:Type ListBoxItem}" x:Key="LBI.PARENTS">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type ListBoxItem}">
-                    <ControlTemplate.Resources>
-                        <Style TargetType="{x:Type TextBlock}" x:Key="IN.SHA">
-                            <Setter Property="Text" Value="{Binding Id.Sha, Converter={cnvts:SubStringConverter}, ConverterParameter=7}"/>
-                            <Setter Property="ToolTip" Value="{Binding Id.Sha}"/>
-                            <Setter Property="Foreground" Value="#5E98F8"/>
-                            <Setter Property="Opacity" Value="1"/>
-                            <Setter Property="Margin" Value="0 0 5 0"/>
-                        </Style>
-                    </ControlTemplate.Resources>
-                    <Border Background="Transparent">
-                        <TextBlock x:Name="sha" Style="{StaticResource IN.SHA}"/>
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Cursor" Value="Hand"/>
-                        </Trigger>
-                        <DataTrigger Binding="{Binding Line}" Value="0">
-                            <Setter TargetName="sha" Property="Foreground" Value="#4f91ff"/>
-                        </DataTrigger>
-                        <DataTrigger Binding="{Binding Line}" Value="1">
-                            <Setter TargetName="sha" Property="Foreground" Value="#cf6568"/>
-                        </DataTrigger>
-                        <DataTrigger Binding="{Binding Line}" Value="2">
-                            <Setter TargetName="sha" Property="Foreground" Value="#e2cb70"/>
-                        </DataTrigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
-    <Style TargetType="{x:Type units:ParentHashListBox}">
-        <Setter Property="ItemsSource" Value="{Binding Commit.Parents}"/>
-        <Setter Property="ItemContainerStyle" Value="{StaticResource LBI.PARENTS}"/>
-        <Setter Property="ClickCommand" Value="{Binding ClickCommand}"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type units:ParentHashListBox}">
-                    <ItemsPresenter/>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-        <Setter Property="ItemsPanel">
-            <Setter.Value>
-                <ItemsPanelTemplate>
-                    <StackPanel Orientation="Horizontal"/>
-                </ItemsPanelTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
     <Style TargetType="{x:Type ListBoxItem}" x:Key="LBXI.FILES">
         <Setter Property="Template">
             <Setter.Value>

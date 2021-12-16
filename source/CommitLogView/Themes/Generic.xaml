@@ -3,6 +3,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:CommitLogView">
     <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/CommitLogView;component/Themes/Units/ParentHashListItem.xaml"/>
+        <ResourceDictionary Source="/CommitLogView;component/Themes/Units/ParentHashListBox.xaml"/>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/CommitView.xaml"/>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/RepoFileListItem.xaml"/>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/RepoFileListBox.xaml"/>

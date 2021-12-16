@@ -9,11 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevNcore.UI.Foundation", "D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DevNcore", "DevNcore", "{9133EC1E-8275-436E-ACB5-160F69CECE81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevNcore.UI.Design", "DevNcore.UI.Design\DevNcore.UI.Design.csproj", "{417C1C22-6E77-4255-82C2-B48A163AB0B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevNcore.UI.Design", "DevNcore.UI.Design\DevNcore.UI.Design.csproj", "{417C1C22-6E77-4255-82C2-B48A163AB0B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevNcore.WPF", "DevNcore.WPF\DevNcore.WPF.csproj", "{EC7742CD-CCC7-4951-B2C8-B77FB8BD6454}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevNcore.WPF", "DevNcore.WPF\DevNcore.WPF.csproj", "{EC7742CD-CCC7-4951-B2C8-B77FB8BD6454}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevNcore.UI.Design.Geometry", "DevNcore.UI.Design.Geometry\DevNcore.UI.Design.Geometry.csproj", "{1C34ED22-A175-463F-AC83-24614886D987}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DevNcore.UI.Design.Geometry", "DevNcore.UI.Design.Geometry\DevNcore.UI.Design.Geometry.csproj", "{1C34ED22-A175-463F-AC83-24614886D987}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevNcore.UI.Design.Converter", "DevNcore.UI.Design.Converter\DevNcore.UI.Design.Converter.csproj", "{82B88A63-9442-436A-8F74-43AE39FED90A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,10 @@ Global
 		{1C34ED22-A175-463F-AC83-24614886D987}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1C34ED22-A175-463F-AC83-24614886D987}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1C34ED22-A175-463F-AC83-24614886D987}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82B88A63-9442-436A-8F74-43AE39FED90A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82B88A63-9442-436A-8F74-43AE39FED90A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82B88A63-9442-436A-8F74-43AE39FED90A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82B88A63-9442-436A-8F74-43AE39FED90A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,6 +56,7 @@ Global
 		{417C1C22-6E77-4255-82C2-B48A163AB0B1} = {9133EC1E-8275-436E-ACB5-160F69CECE81}
 		{EC7742CD-CCC7-4951-B2C8-B77FB8BD6454} = {9133EC1E-8275-436E-ACB5-160F69CECE81}
 		{1C34ED22-A175-463F-AC83-24614886D987} = {9133EC1E-8275-436E-ACB5-160F69CECE81}
+		{82B88A63-9442-436A-8F74-43AE39FED90A} = {9133EC1E-8275-436E-ACB5-160F69CECE81}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {97ACB2E7-847C-44D5-B040-2EE4295C52F9}

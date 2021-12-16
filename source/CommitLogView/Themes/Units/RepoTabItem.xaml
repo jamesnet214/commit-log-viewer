@@ -3,15 +3,18 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:icons="clr-namespace:DevNcore.UI.Design.Controls;assembly=DevNcore.UI.Design"
     xmlns:units="clr-namespace:CommitLogView.UI.Units">
+    
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/Geometries.xaml"/>
     </ResourceDictionary.MergedDictionaries>
+    
     <Style TargetType="{x:Type icons:GitHubIcon}" x:Key="GitHubIconStyle">
         <Setter Property="Fill" Value="#AAAAAA"/>
         <Setter Property="Width" Value="14"/>
         <Setter Property="Height" Value="14"/>
         <Setter Property="Margin" Value="0 0 5 0"/>
     </Style>
+    
     <Style TargetType="{x:Type icons:CloseIcon}" x:Key="CloseIconStyle">
         <Setter Property="Grid.Column" Value="2"/>
         <Setter Property="Fill" Value="#30FFFFFF"/>
@@ -19,13 +22,16 @@
         <Setter Property="Height" Value="12"/>
         <Setter Property="Margin" Value="12 2 -4 0"/>
     </Style>
+    
     <Style TargetType="{x:Type Border}" x:Key="HeaderBorderStyle">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Padding" Value="14 6 14 6"/>
     </Style>
+    
     <Style TargetType="{x:Type ContentPresenter}" x:Key="ContentPresenterStyle">
         <Setter Property="Grid.Column" Value="1"/>
     </Style>
+    
     <Style TargetType="{x:Type units:RepoTabItem}">
         <Setter Property="Foreground" Value="#AAAAAA"/>
         <Setter Property="Template">
