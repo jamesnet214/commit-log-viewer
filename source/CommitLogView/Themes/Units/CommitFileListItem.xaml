@@ -4,26 +4,32 @@
     xmlns:icons="clr-namespace:DevNcore.UI.Design.Controls;assembly=DevNcore.UI.Design"
     xmlns:units="clr-namespace:CommitLogView.UI.Units">
 
+    <Style TargetType="{x:Type icons:AlphaABoxIcon}" x:Key="AlphaBoxIconStyle">
+        <Setter Property="ToolTip" Value="{Binding Status}"/>
+        <Setter Property="Width" Value="14"/>
+        <Setter Property="Height" Value="14"/>
+        <Setter Property="Fill" Value="#AAAAAA"/>
+    </Style>
+    
+    <Style TargetType="{x:Type TextBlock}" x:Key="PathTextBlockStyle">
+        <Setter Property="Grid.Column" Value="1"/>
+        <Setter Property="Text" Value="{Binding Path}"/>
+        <Setter Property="Margin" Value="5 2 0 2"/>
+    </Style> 
+
     <Style TargetType="{x:Type units:CommitFileListItem}">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type units:CommitFileListItem}">
                     <ControlTemplate.Resources>
                     </ControlTemplate.Resources>
-                    <Grid x:Name="grid" Background="Transparent" Opacity="1">
+                    <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <!--<TextBlock Grid.Column="0" Text="{Binding Status}" Margin="0 2 0 2"/>-->
-                        <icons:AlphaABoxIcon x:Name="icon" 
-                                             ToolTip="{Binding Status}"
-                                             Width="14" 
-                                             Height="14" 
-                                             Fill="#AAAAAA"/>
-                        <TextBlock Grid.Column="1" 
-                                   Text="{Binding Path}" 
-                                   Margin="5 2 0 2"/>
+                        <icons:AlphaABoxIcon x:Name="icon" Style="{StaticResource AlphaBoxIconStyle}"/>
+                        <TextBlock Style="{StaticResource PathTextBlockStyle}"/>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsSelected" Value="True">
