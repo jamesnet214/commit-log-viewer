@@ -21,7 +21,7 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <!--<TextBlock Grid.Column="0" Text="{Binding Status}" Margin="0 2 0 2"/>-->
+                        <TextBlock Grid.Column="0" Text="{Binding Status}" Margin="0 2 0 2"/>
                         <icons:AlphaABoxIcon x:Name="icon" 
                                              ToolTip="{Binding Status}"
                                              Width="14" 

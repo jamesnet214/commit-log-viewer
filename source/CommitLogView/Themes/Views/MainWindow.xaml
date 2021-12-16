@@ -4,10 +4,6 @@
     xmlns:units="clr-namespace:CommitLogView.UI.Units"
     xmlns:views="clr-namespace:CommitLogView.UI.Views">
 
-    <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/CommitLogView;component/Themes/Units/Geometries.xaml"/>
-    </ResourceDictionary.MergedDictionaries>
-
     <Style TargetType="{x:Type views:MainWindow}">
         <Setter Property="Padding" Value="0 0 0 0"/>
         <Setter Property="Template">
