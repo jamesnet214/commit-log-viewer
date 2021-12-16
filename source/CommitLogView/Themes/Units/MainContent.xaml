@@ -6,42 +6,11 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/Geometries.xaml"/>
     </ResourceDictionary.MergedDictionaries>
-    
-    <Style TargetType="{x:Type icons:CloseIcon}" x:Key="CloseIcon">
-        <Setter Property="Fill" Value="#AAFFFFFF"/>
-        <Setter Property="Width" Value="15"/>
-        <Setter Property="Height" Value="15"/>
-    </Style>
-    <Style TargetType="{x:Type Border}" x:Key="CloseButtonBorder">
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Padding" Value="6"/>
-    </Style>
-    <Style TargetType="{x:Type Button}" x:Key="CloseButton">
-        <Setter Property="HorizontalAlignment" Value="Right"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="Foreground" Value="#33FFFFFF"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <ControlTemplate.Resources>
-                    </ControlTemplate.Resources>
-                    <Border Style="{StaticResource CloseButtonBorder}">
-                        <icons:CloseIcon x:Name="icon" Style="{StaticResource CloseIcon}"/>
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="icon" Property="Fill" Value="#FFFFFF"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-    <Style TargetType="{x:Type Border}" x:Key="EdgeBoarder">
+    <Style TargetType="{x:Type Border}" x:Key="EdgeBoarderStyle">
         <Setter Property="BorderBrush" Value="#000000"/>
         <Setter Property="BorderThickness" Value="1"/>
     </Style>
-    <Style TargetType="{x:Type StackPanel}" x:Key="TasklineGrid">
+    <Style TargetType="{x:Type StackPanel}" x:Key="TasklineGridStyle">
         <Setter Property="Orientation" Value="Horizontal"/>
         <Setter Property="UseLayoutRounding" Value="True"/>
         <Setter Property="Background" Value="#CC000000"/>
@@ -49,7 +18,7 @@
         <Setter Property="Margin" Value="0 0 0 0"/>
         <Setter Property="Height" Value="28"/>
     </Style>    
-    <Style TargetType="{x:Type TextBlock}" x:Key="HeaderTextblock">
+    <Style TargetType="{x:Type TextBlock}" x:Key="HeaderTextblockStyle">
         <Setter Property="Grid.Column" Value="1"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="Foreground" Value="#FFFFFF"/>
@@ -57,7 +26,7 @@
         <Setter Property="Margin" Value="10 0 0 0"/>
         <Setter Property="Text" Value="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=Title}"/>
     </Style>
-    <Style TargetType="{x:Type TextBlock}" x:Key="HashTextBlock">
+    <Style TargetType="{x:Type TextBlock}" x:Key="HashTextBlockStyle">
         <Setter Property="Grid.Column" Value="2"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="Foreground" Value="#33FFFFFF"/>
@@ -80,13 +49,13 @@
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <Border Style="{StaticResource EdgeBoarder}"/>
-                        <StackPanel x:Name="PART_Taskline" Style="{StaticResource TasklineGrid}">
+                        <Border Style="{StaticResource EdgeBoarderStyle}"/>
+                        <StackPanel x:Name="PART_Taskline" Style="{StaticResource TasklineGridStyle}">
                             <icons:GitHubIcon Margin="10 0 0 0"/>
-                            <TextBlock x:Name="PART_WindowHeader" Style="{StaticResource HeaderTextblock}"/>
-                            <TextBlock Style="{StaticResource HashTextBlock}"/>
+                            <TextBlock x:Name="PART_WindowHeader" Style="{StaticResource HeaderTextblockStyle}"/>
+                            <TextBlock Style="{StaticResource HashTextBlockStyle}"/>
                         </StackPanel>
-                        <Button x:Name="PART_Close" Style="{StaticResource CloseButton}"/>
+                        <units:WindowCloseButton x:Name="PART_Close"/>
                         <units:MainTabControl Grid.Row="1"/>
                     </Grid>
                 </ControlTemplate>

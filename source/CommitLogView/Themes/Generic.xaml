@@ -3,6 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:CommitLogView">
     <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/CommitLogView;component/Themes/Units/WindowCloseButton.xaml"/>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/CommitHashListItem.xaml"/>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/CommitHashListBox.xaml"/>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/CommitContent.xaml"/>

@@ -22,14 +22,6 @@ namespace CommitLogView.UI.Units
             Loaded += GitView_Loaded;
         }
 
-        public static readonly DependencyProperty SeqProperty = DependencyProperty.Register("Seq", typeof(int), typeof(MainContent), new PropertyMetadata(0));
-
-        public int Seq
-        {
-            get { return (int)this.GetValue(SeqProperty); }
-            set { this.SetValue(SeqProperty, value); }
-        }
-
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
@@ -37,6 +29,10 @@ namespace CommitLogView.UI.Units
             if (GetTemplateChild("PART_Taskline") is StackPanel taskBar)
             {
                 taskBar.MouseLeftButtonDown += TaskBar_MouseLeftButtonDown;
+            }
+            if (GetTemplateChild("PART_Close") is Button button)
+            {
+                button.Click += (s, e) => Window.GetWindow(this).Close();
             }
         }
 
