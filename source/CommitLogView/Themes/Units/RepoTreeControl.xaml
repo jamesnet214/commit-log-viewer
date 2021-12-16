@@ -8,23 +8,24 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/Geometries.xaml"/>
     </ResourceDictionary.MergedDictionaries>
+    
+    <Style TargetType="{x:Type Border}" x:Key="EdgeBorderStyle">
+        <Setter Property="DockPanel.Dock" Value="Left"/>
+        <Setter Property="BorderThickness" Value="0 0 1 0"/>
+        <Setter Property="BorderBrush" Value="#292929"/>
+    </Style>
 
-    <Style TargetType="{x:Type units:RepoTreeView}">
+    <Style TargetType="{x:Type units:RepoTreeControl}">
         <Setter Property="ItemsSource" Value="{Binding Repositories}"/>
         <Setter Property="DoubleClickCommand" Value="{Binding RepoDoubleClickCommand}"/>
         <Setter Property="Command" Value="{Binding RepoClickCommand}"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type units:RepoTreeView}">
+                <ControlTemplate TargetType="{x:Type units:RepoTreeControl}">
                     <ControlTemplate.Resources>
-                        <Style TargetType="{x:Type Border}" x:Key="IN.BORDER">
-                            <Setter Property="DockPanel.Dock" Value="Left"/>
-                            <Setter Property="BorderThickness" Value="0 0 1 0"/>
-                            <Setter Property="BorderBrush" Value="#292929"/>
-                        </Style>
                     </ControlTemplate.Resources>
                     <DockPanel>
-                        <Border Style="{StaticResource IN.BORDER}">
+                        <Border Style="{StaticResource EdgeBorderStyle}">
                             <ScrollViewer>
                                 <ItemsPresenter/>
                             </ScrollViewer>

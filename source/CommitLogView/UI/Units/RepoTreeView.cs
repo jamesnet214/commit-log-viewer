@@ -4,23 +4,23 @@ using System.Windows.Input;
 
 namespace CommitLogView.UI.Units
 {
-    public class RepoTreeView : TreeView
+    public class RepoTreeControl : TreeView
     {
         #region DefaultStyleKey
 
-        static RepoTreeView()
+        static RepoTreeControl()
         {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(RepoTreeView), new FrameworkPropertyMetadata(typeof(RepoTreeView)));
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(RepoTreeControl), new FrameworkPropertyMetadata(typeof(RepoTreeControl)));
         }
         #endregion
 
-        public RepoTreeView()
+        public RepoTreeControl()
         { 
         
         }
 
-        public static readonly DependencyProperty CommandProperty = DependencyProperty.Register("Command", typeof(ICommand), typeof(RepoTreeView));
-        public static readonly DependencyProperty DoubleClickCommandProperty = DependencyProperty.Register("DoubleClickCommand", typeof(ICommand), typeof(RepoTreeView));
+        public static readonly DependencyProperty CommandProperty = DependencyProperty.Register("Command", typeof(ICommand), typeof(RepoTreeControl));
+        public static readonly DependencyProperty DoubleClickCommandProperty = DependencyProperty.Register("DoubleClickCommand", typeof(ICommand), typeof(RepoTreeControl));
 
         public ICommand Command
         {

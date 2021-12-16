@@ -12,7 +12,7 @@
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/RepoFileListItem.xaml"/>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/RepoFileListBox.xaml"/>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/RepoTreeItem.xaml"/>
-        <ResourceDictionary Source="/CommitLogView;component/Themes/Units/RepoTreeView.xaml"/>
+        <ResourceDictionary Source="/CommitLogView;component/Themes/Units/RepoTreeControl.xaml"/>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/RepoContent.xaml"/>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/MainTabItem.xaml"/>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/MainTabControl.xaml"/>
