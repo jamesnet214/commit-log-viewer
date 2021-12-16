@@ -9,6 +9,41 @@
         <GradientStop Color="#26323d" Offset="1"/>
     </LinearGradientBrush>
 
+    <Style TargetType="{x:Type Label}" x:Key="IN.LABEL">
+        <Setter Property="Foreground" Value="#FFFFFF"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Background" Value="{StaticResource GradientBackgroundStyle}"/>
+        <Setter Property="BorderBrush" Value="#444444"/>
+        <Setter Property="BorderThickness" Value="0 0 1 1"/>
+    </Style>
+
+    <Style TargetType="{x:Type Label}" x:Key="IN.GRAPH" BasedOn="{StaticResource IN.LABEL}">
+        <Setter Property="Grid.Column" Value="0"/>
+        <Setter Property="Content" Value="Graph"/>
+    </Style>
+
+    <Style TargetType="{x:Type Label}" x:Key="IN.DESC" BasedOn="{StaticResource IN.LABEL}">
+        <Setter Property="Grid.Column" Value="1"/>
+        <Setter Property="Content" Value="Description"/>
+    </Style>
+
+    <Style TargetType="{x:Type Label}" x:Key="IN.DATE" BasedOn="{StaticResource IN.LABEL}">
+        <Setter Property="Grid.Column" Value="2"/>
+        <Setter Property="Content" Value="Author"/>
+    </Style>
+
+    <Style TargetType="{x:Type Label}" x:Key="IN.AUTHOR" BasedOn="{StaticResource IN.LABEL}">
+        <Setter Property="Grid.Column" Value="3"/>
+        <Setter Property="Content" Value="Date"/>
+    </Style>
+
+    <Style TargetType="{x:Type Label}" x:Key="IN.COMMIT" BasedOn="{StaticResource IN.LABEL}">
+        <Setter Property="Grid.Column" Value="4"/>
+        <Setter Property="Content" Value="Commit"/>
+        <Setter Property="BorderThickness" Value="0 0 0 1"/>
+    </Style>
+    
     <Style TargetType="{x:Type units:CommitListBox}">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="FontSize" Value="11"/>
@@ -23,42 +58,6 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type units:CommitListBox}">
-                    <ControlTemplate.Resources>
-                        <Style TargetType="{x:Type Label}" x:Key="IN.LABEL">
-                            <Setter Property="Foreground" Value="#FFFFFF"/>
-                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-                            <Setter Property="VerticalContentAlignment" Value="Center"/>
-                            <Setter Property="Background" Value="{StaticResource GradientBackgroundStyle}"/>
-                            <Setter Property="BorderBrush" Value="#444444"/>
-                            <Setter Property="BorderThickness" Value="0 0 1 1"/>
-                        </Style>
-
-                        <Style TargetType="{x:Type Label}" x:Key="IN.GRAPH" BasedOn="{StaticResource IN.LABEL}">
-                            <Setter Property="Grid.Column" Value="0"/>
-                            <Setter Property="Content" Value="Graph"/>
-                        </Style>
-
-                        <Style TargetType="{x:Type Label}" x:Key="IN.DESC" BasedOn="{StaticResource IN.LABEL}">
-                            <Setter Property="Grid.Column" Value="1"/>
-                            <Setter Property="Content" Value="Description"/>
-                        </Style>
-
-                        <Style TargetType="{x:Type Label}" x:Key="IN.DATE" BasedOn="{StaticResource IN.LABEL}">
-                            <Setter Property="Grid.Column" Value="2"/>
-                            <Setter Property="Content" Value="Author"/>
-                        </Style>
-
-                        <Style TargetType="{x:Type Label}" x:Key="IN.AUTHOR" BasedOn="{StaticResource IN.LABEL}">
-                            <Setter Property="Grid.Column" Value="3"/>
-                            <Setter Property="Content" Value="Date"/>
-                        </Style>
-
-                        <Style TargetType="{x:Type Label}" x:Key="IN.COMMIT" BasedOn="{StaticResource IN.LABEL}">
-                            <Setter Property="Grid.Column" Value="4"/>
-                            <Setter Property="Content" Value="Commit"/>
-                            <Setter Property="BorderThickness" Value="0 0 0 1"/>
-                        </Style>
-                    </ControlTemplate.Resources>
                     <Grid Background="{TemplateBinding Background}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
