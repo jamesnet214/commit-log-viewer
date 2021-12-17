@@ -6,18 +6,18 @@ namespace CommitLogView.UI.Units.DataTemplateSelectors
 {
     public class MainTabsSelector : DataTemplateSelector
     {
-        public DataTemplate RepositoryTemplate { get; set; }
-        public DataTemplate CommitTemplate { get; set; }
+        public DataTemplate Repo { get; set; }
+        public DataTemplate Commit { get; set; }
 
         public override DataTemplate SelectTemplate(object item, DependencyObject container)
         {
             if (item is RepoViewModel)
             {
-                return RepositoryTemplate;
+                return Repo;
             }
             else if (item is CommitViewModel)
             {
-                return CommitTemplate;
+                return Commit;
             }
             return base.SelectTemplate(item, container);
         }
