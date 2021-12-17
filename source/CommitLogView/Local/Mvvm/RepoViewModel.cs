@@ -34,10 +34,10 @@ namespace CommitLogView.Local.Mvvm
         public string Header { get; internal set; }
         public string Tag { get; internal set; }
 
-        public RepoViewModel(string header, Action<string> add)
+        public RepoViewModel(Action<string> add)
          {
             Add = add;
-            Header = header;
+            Header = "Find Repository";
             RepoClickCommand = new RelayCommand<object>(RepoClick);
             RepoDoubleClickCommand = new RelayCommand<object>(RepoDoubleClick);
             Repositories = new ObservableCollection<RepoHistoricalModel>();
@@ -66,7 +66,7 @@ namespace CommitLogView.Local.Mvvm
 
             foreach (var dir in files)
             {
-                if (View.Parent is FrameworkElement fe && fe.DataContext is MainContentViewModel)
+                if (View.Parent is FrameworkElement fe && fe.DataContext is MainViewModel)
                 {
                     RepositoryConfig.Access.Add(dir);
                 }
