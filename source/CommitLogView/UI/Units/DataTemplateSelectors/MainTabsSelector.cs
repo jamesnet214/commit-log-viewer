@@ -4,7 +4,7 @@ using System.Windows.Controls;
 
 namespace CommitLogView.UI.Units.DataTemplateSelectors
 {
-    public class MainTabsSelector : DataTemplateSelector
+    public class MainTabsRoute : DataTemplateSelector
     {
         public DataTemplate Repos { get; set; }
         public DataTemplate Commit { get; set; }
