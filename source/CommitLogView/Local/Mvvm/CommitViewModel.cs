@@ -35,6 +35,7 @@ namespace CommitLogView.Local.Mvvm
         }
 
         public string Tag { get; internal set; }
+        public string Header { get; internal set; }
 
         public CommitViewModel()
         {

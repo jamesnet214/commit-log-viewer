@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using CommitLogView.Local.Mvvm;
 
 namespace CommitLogView.UI.Units
 {
@@ -12,10 +11,5 @@ namespace CommitLogView.UI.Units
             DefaultStyleKeyProperty.OverrideMetadata(typeof(CommitContent), new FrameworkPropertyMetadata(typeof(CommitContent)));
         }
         #endregion
-
-        public CommitContent()
-        {
-            //DataContext = new CommitViewModel();
-        }
     }
 }

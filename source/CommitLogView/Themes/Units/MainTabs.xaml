@@ -2,8 +2,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:units="clr-namespace:CommitLogView.UI.Units"
-    xmlns:datas="clr-namespace:CommitLogView.Local.Data"
-    xmlns:selectors="clr-namespace:CommitLogView.UI.Units.Selectors">
+    xmlns:route="clr-namespace:CommitLogView.UI.Units.DataTemplateSelectors">
 
     <Style TargetType="{x:Type Border}" x:Key="ContentBorderStyle">
         <Setter Property="Grid.Row" Value="1"/>
@@ -33,27 +32,27 @@
         <Setter Property="Panel.ZIndex" Value="1"/>
     </Style>
 
+    <DataTemplate x:Key="RepoContentTemplate">
+        <units:RepoContent/>
+    </DataTemplate>
+
+    <DataTemplate x:Key="CommitContentTemplate">
+        <units:CommitContent/>
+    </DataTemplate>
+
     <Style TargetType="{x:Type ContentPresenter}" x:Key="ContentPresenterStyle">
         <Setter Property="Grid.Row" Value="1"/>
         <Setter Property="Grid.Column" Value="0"/>
         <Setter Property="Margin" Value="0 4 0 0"/>
     </Style>
 
-    <DataTemplate x:Key="RepoContentDataTemplate"> 
-        <units:RepoContent/>
-    </DataTemplate>
-
-    <DataTemplate x:Key="CommitContentDataTemplate">
-        <units:CommitContent DataContext="{Binding Content}"/>
-    </DataTemplate>
-
-    <selectors:MainTabsDataTemplateSelector x:Key="MainTabsDataTemplateSelector"
-                                            RepositoryTemplate="{StaticResource RepoContentDataTemplate}"
-                                            CommitTemplate="{StaticResource CommitContentDataTemplate}"/>
+    <route:MainTabsSelector x:Key="MainTabsSelector"
+                            RepositoryTemplate="{StaticResource RepoContentTemplate}"
+                            CommitTemplate="{StaticResource CommitContentTemplate}"/>
 
     <Style TargetType="{x:Type units:MainTabs}">
-        <Setter Property="ItemsSource" Value="{Binding Repositories2}"/>
-        <Setter Property="ContentTemplateSelector" Value="{StaticResource MainTabsDataTemplateSelector}"/>
+        <Setter Property="ItemsSource" Value="{Binding Repositories}"/>
+        <Setter Property="ContentTemplateSelector" Value="{StaticResource MainTabsSelector}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type units:MainTabs}">
@@ -68,9 +67,8 @@
                         </Grid.RowDefinitions>
                         <TabPanel Style="{StaticResource TabPanelStyle}"/>
                         <Border Style="{StaticResource ContentBorderStyle}"/>
-                        <ContentPresenter x:Name="PART_SelectedContentHost" 
-                                          ContentSource="SelectedContent"
-                                          Style="{StaticResource ContentPresenterStyle}"/>
+                        <ContentPresenter Style="{StaticResource ContentPresenterStyle}"
+                                          ContentSource="SelectedContent"/>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>

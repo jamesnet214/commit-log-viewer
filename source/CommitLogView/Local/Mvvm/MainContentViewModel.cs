@@ -1,40 +1,25 @@
 ﻿using System.IO;
-using System.Linq;
 using System.Windows.Input;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using CommitLogView.UI.Units;
 using DevNcore.UI.Foundation.Mvvm;
-using CommitLogView.Local.Data;
 
 namespace CommitLogView.Local.Mvvm
 {
     public class MainContentViewModel : ObservableObject
     {
-        public static MainContentViewModel vm;
-
-        private readonly Dictionary<string, NcoreContent> LayerItems;
-        
-        public ObservableCollection<MainTabsItem> Repositories { get; private set; }
-        public ObservableCollection<IRepo> Repositories2 { get; private set; }
+        public ObservableCollection<ObservableObject> Repositories { get; } = new();
 
         public ICommand MarkdownClickCommand { get; set; }
 
         public MainContentViewModel()
         {
-            vm = this;
-            LayerItems = new Dictionary<string, NcoreContent>();
-            Repositories = new ObservableCollection<MainTabsItem>
-            {
-                new MainTabsItem { Header = "New1111", Tag = "REPOSITORY", Content = new RepoContent() }
-            };
-            Repositories2 = new ObservableCollection<IRepo>();
-            Repositories2.Add(new RepoTabContentItem { Title = "James", ViewModel = new RepoViewModel() });
+            Repositories.Add(new RepoViewModel("New", Add));
         }
 
         internal void Add(string dir)
         {
-            if (!LayerItems.ContainsKey(dir))
+            if (true)
             {
                 var name = Path.GetFileNameWithoutExtension(dir);
                 var layer = new CommitContent { Tag = dir };
@@ -42,13 +27,12 @@ namespace CommitLogView.Local.Mvvm
 
                 var data = new CommitViewModel();
                 data.Tag = dir;
-                LayerItems.Add(dir, layer);
-                Repositories2.Add(new CommitTabContentItem { Title = "Repo", Content = data });
+                Repositories.Add(new CommitViewModel { Tag = dir, Header = name });
                 tabItem.IsSelected = true;
             }
             else
             {
-                Repositories.Single(x => x.Content.Equals(LayerItems[dir])).IsSelected = true;
+                //Repositories2.Single(x => x.ViewModel.Equals(LayerItems[dir])).IsSelected = true;
             }
         }
 

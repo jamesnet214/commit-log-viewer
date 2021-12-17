@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using CommitLogView.Local.Data;
 using DevNcore.UI.Foundation.Mvvm;
+using System;
 
 namespace CommitLogView.Local.Mvvm
 {
@@ -29,8 +30,14 @@ namespace CommitLogView.Local.Mvvm
             set { _markdowns = value; OnPropertyChanged(); }
         }
 
-        public RepoViewModel()
+        public Action<string> Add { get; }
+        public string Header { get; internal set; }
+        public string Tag { get; internal set; }
+
+        public RepoViewModel(string header, Action<string> add)
          {
+            Add = add;
+            Header = header;
             RepoClickCommand = new RelayCommand<object>(RepoClick);
             RepoDoubleClickCommand = new RelayCommand<object>(RepoDoubleClick);
             Repositories = new ObservableCollection<RepoHistoricalModel>();
@@ -92,7 +99,7 @@ namespace CommitLogView.Local.Mvvm
             {
                 //if (View.Parent is FrameworkElement fe && fe.DataContext is MainContentViewModel vm)
                 {
-                    MainContentViewModel.vm.Add(repo.RepositoryPath);
+                    Add(repo.RepositoryPath);
                     RepositoryConfig.Access.Visit(repo.RepositoryPath);
                     RepositoryConfig.Access.Save();
                     LoadRepositories();
