@@ -3,6 +3,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using CommitLogView.Local.Mvvm;
 using DevNcore.UI.Foundation.Mvvm;
+using DevNcore.WPF.Controls;
 
 namespace CommitLogView.UI.Units
 {
