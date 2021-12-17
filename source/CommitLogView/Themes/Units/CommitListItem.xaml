@@ -9,39 +9,43 @@
         <GradientStop Color="#26323d" Offset="1"/>
     </LinearGradientBrush>
 
-    <Style TargetType="{x:Type TextBlock}" x:Key="IN.TEXT">
+    <Style TargetType="{x:Type TextBlock}" x:Key="TextBlockStyle">
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
         <Setter Property="TextWrapping" Value="NoWrap"/>
         <Setter Property="Margin" Value="8 0 8 0"/>
     </Style>
 
-    <Style  TargetType="{x:Type TextBlock}" x:Key="IN.LINE" BasedOn="{StaticResource IN.TEXT}">
-        <Setter Property="Grid.Column" Value="0"/>
-        <Setter Property="Text" Value="{Binding Line}"/>
-    </Style>
-
-    <Style  TargetType="{x:Type TextBlock}" x:Key="IN.MESSAGE" BasedOn="{StaticResource IN.TEXT}">
+    <Style  TargetType="{x:Type TextBlock}" x:Key="MessageTextBlockStyle" BasedOn="{StaticResource TextBlockStyle}">
         <Setter Property="Grid.Column" Value="1"/>
         <Setter Property="Text" Value="{Binding MessageShort}"/>
     </Style>
 
-    <Style TargetType="{x:Type TextBlock}" x:Key="IN.NAME" BasedOn="{StaticResource IN.TEXT}">
+    <Style TargetType="{x:Type TextBlock}" x:Key="NameTextBlockStyle" BasedOn="{StaticResource TextBlockStyle}">
         <Setter Property="Grid.Column" Value="2"/>
         <Setter Property="Text" Value="{Binding Author.Name}"/>
     </Style>
 
-    <Style TargetType="{x:Type TextBlock}" x:Key="IN.DATE" BasedOn="{StaticResource IN.TEXT}">
+    <Style TargetType="{x:Type TextBlock}" x:Key="DateTextBlockStyle" BasedOn="{StaticResource TextBlockStyle}">
         <Setter Property="Grid.Column" Value="3"/>
         <Setter Property="Text" Value="{Binding When.DateTime, StringFormat={}{0:yyyy-MM-dd HH:mm}}"/>
     </Style>
 
-    <Style TargetType="{x:Type TextBlock}" x:Key="IN.SHA" BasedOn="{StaticResource IN.TEXT}">
+    <Style TargetType="{x:Type TextBlock}" x:Key="ShaTextBlockStyle" BasedOn="{StaticResource TextBlockStyle}">
         <Setter Property="Grid.Column" Value="4"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="Text" Value="{Binding Sha, Converter={cnvts:SubStringConverter}, ConverterParameter=7}"/>
     </Style>
 
+    <Style TargetType="{x:Type Rectangle}" x:Key="RevisionRectangleStyle">
+        <Setter Property="Width" Value="2"/>
+        <Setter Property="Height" Value="24"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Margin" Value="13 0 0 0"/>
+        <Setter Property="Fill" Value="#0066f0"/>
+        <Setter Property="Opacity" Value="0.2"/>
+    </Style>
+    
     <Style TargetType="{x:Type units:CommitListItem}">
         <Setter Property="Foreground" Value="#CFDFDF"/>
         <Setter Property="Height" Value="24"/>
@@ -58,15 +62,15 @@
                                 <ColumnDefinition Width="Auto" SharedSizeGroup="D"/>
                             </Grid.ColumnDefinitions>
 
-                            <Rectangle x:Name="rect0" Width="2" Height="24" HorizontalAlignment="Left" Margin="13 0 0 0" Fill="#0066f0" Opacity="0.2"/>
+                            <Rectangle x:Name="rect0" Style="{StaticResource RevisionReactangleStyle}"/>
                             <Rectangle x:Name="rect1" Width="2" Height="24" HorizontalAlignment="Left" Margin="33 0 0 0" Fill="#cf6568" Opacity="0.2"/>
                             <Rectangle x:Name="rect2" Width="2" Height="24" HorizontalAlignment="Left" Margin="53 0 0 0" Fill="#f0d700" Opacity="0.2"/>
-                            <Ellipse x:Name="circle" Grid.Column="0" VerticalAlignment="Center" Width="8" Height="8" HorizontalAlignment="Left" Stroke="Transparent"/>
+                            <Ellipse x:Name="circle" Width="8" Height="8" HorizontalAlignment="Left" VerticalAlignment="Center" Stroke="Transparent"/>
 
-                            <TextBlock Style="{StaticResource IN.MESSAGE}"/>
-                            <TextBlock Style="{StaticResource IN.NAME}"/>
-                            <TextBlock Style="{StaticResource IN.DATE}"/>
-                            <TextBlock Style="{StaticResource IN.SHA}"/>
+                            <TextBlock Style="{StaticResource MessageTextBlockStyle}"/>
+                            <TextBlock Style="{StaticResource NameTextBlockStyle}"/>
+                            <TextBlock Style="{StaticResource DateTextBlockStyle}"/>
+                            <TextBlock Style="{StaticResource ShaTextBlockStyle}"/>
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
@@ -99,105 +103,6 @@
                             <Setter TargetName="circle" Property="StrokeThickness" Value="1"/>
                         </DataTrigger>
                     </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
-    <Style TargetType="{x:Type ListBox}" x:Key="LBX.GIT">
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="FontSize" Value="11"/>
-        <Setter Property="VirtualizingPanel.IsVirtualizing" Value="True"/>
-        <Setter Property="VirtualizingPanel.VirtualizationMode" Value="Recycling"/>
-        <Setter Property="Foreground" Value="#FFFFFF"/>
-        <Setter Property="AlternationCount" Value="2"/>
-        <Setter Property="Grid.IsSharedSizeScope" Value="True"/>
-        <Setter Property="ItemContainerStyle" Value="{StaticResource LBXI.GIT}"/>
-        <Setter Property="ItemsSource" Value="{Binding Commits}"/>
-        <Setter Property="SelectedItem" Value="{Binding Commit}"/>
-        <Setter Property="IsSynchronizedWithCurrentItem" Value="True"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type ListBox}">
-                    <ControlTemplate.Resources>
-                        <Style TargetType="{x:Type Label}" x:Key="IN.LABEL">
-                            <Setter Property="Foreground" Value="#FFFFFF"/>
-                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
-                            <Setter Property="VerticalContentAlignment" Value="Center"/>
-                            <Setter Property="Background" Value="{StaticResource LGB.HEADER}"/>
-                            <Setter Property="BorderBrush" Value="#444444"/>
-                            <Setter Property="BorderThickness" Value="0 0 1 1"/>
-                        </Style>
-
-                        <Style TargetType="{x:Type Label}" x:Key="IN.GRAPH" BasedOn="{StaticResource IN.LABEL}">
-                            <Setter Property="Grid.Column" Value="0"/>
-                            <Setter Property="Content" Value="Graph"/>
-                        </Style>
-
-                        <Style TargetType="{x:Type Label}" x:Key="IN.DESC" BasedOn="{StaticResource IN.LABEL}">
-                            <Setter Property="Grid.Column" Value="1"/>
-                            <Setter Property="Content" Value="Description"/>
-                        </Style>
-
-                        <Style TargetType="{x:Type Label}" x:Key="IN.DATE" BasedOn="{StaticResource IN.LABEL}">
-                            <Setter Property="Grid.Column" Value="2"/>
-                            <Setter Property="Content" Value="Author"/>
-                        </Style>
-
-                        <Style TargetType="{x:Type Label}" x:Key="IN.AUTHOR" BasedOn="{StaticResource IN.LABEL}">
-                            <Setter Property="Grid.Column" Value="3"/>
-                            <Setter Property="Content" Value="Date"/>
-                        </Style>
-
-                        <Style TargetType="{x:Type Label}" x:Key="IN.COMMIT" BasedOn="{StaticResource IN.LABEL}">
-                            <Setter Property="Grid.Column" Value="4"/>
-                            <Setter Property="Content" Value="Commit"/>
-                            <Setter Property="BorderThickness" Value="0 0 0 1"/>
-                        </Style>
-                    </ControlTemplate.Resources>
-                    <Grid Background="{TemplateBinding Background}">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="Auto"/>
-                        </Grid.RowDefinitions>
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="100" SharedSizeGroup="A"/>
-                                <ColumnDefinition  Width="*"/>
-                                <ColumnDefinition Width="70" SharedSizeGroup="B"/>
-                                <ColumnDefinition Width="90" SharedSizeGroup="C"/>
-                                <ColumnDefinition Width="80" SharedSizeGroup="D"/>
-                            </Grid.ColumnDefinitions>
-                            <Label Style="{StaticResource IN.GRAPH}"/>
-                            <Label Style="{StaticResource IN.DESC}"/>
-                            <Label Style="{StaticResource IN.AUTHOR}"/>
-                            <Label Style="{StaticResource IN.DATE}"/>
-                            <Label Style="{StaticResource IN.COMMIT}"/>
-                        </Grid>
-                        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled">
-                            <ItemsPresenter/>
-                        </ScrollViewer>
-                        <units:CommitFileListItemCard/>
-                    </Grid>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-        <Setter Property="ItemsPanel">
-            <Setter.Value>
-                <ItemsPanelTemplate>
-                    <StackPanel/>
-                </ItemsPanelTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
-
-    <Style TargetType="{x:Type units:CommitContent}">
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type units:CommitContent}">
-                    <ListBox Style="{StaticResource LBX.GIT}"/>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

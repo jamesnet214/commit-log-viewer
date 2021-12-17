@@ -9,52 +9,57 @@
         <GradientStop Color="#26323d" Offset="1"/>
     </LinearGradientBrush>
 
-    <Style TargetType="{x:Type Label}" x:Key="IN.LABEL">
-        <Setter Property="Foreground" Value="#FFFFFF"/>
+    <Style TargetType="{x:Type Label}" x:Key="LabelBaseStyle">
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Background" Value="{StaticResource GradientBackgroundStyle}"/>
+        <Setter Property="Foreground" Value="#FFFFFF"/>
         <Setter Property="BorderBrush" Value="#444444"/>
         <Setter Property="BorderThickness" Value="0 0 1 1"/>
     </Style>
 
-    <Style TargetType="{x:Type Label}" x:Key="IN.GRAPH" BasedOn="{StaticResource IN.LABEL}">
+    <Style TargetType="{x:Type Label}" x:Key="GraphLabelStyle" BasedOn="{StaticResource LabelBaseStyle}">
         <Setter Property="Grid.Column" Value="0"/>
         <Setter Property="Content" Value="Graph"/>
     </Style>
 
-    <Style TargetType="{x:Type Label}" x:Key="IN.DESC" BasedOn="{StaticResource IN.LABEL}">
+    <Style TargetType="{x:Type Label}" x:Key="DescLabelStyle" BasedOn="{StaticResource LabelBaseStyle}">
         <Setter Property="Grid.Column" Value="1"/>
         <Setter Property="Content" Value="Description"/>
     </Style>
 
-    <Style TargetType="{x:Type Label}" x:Key="IN.DATE" BasedOn="{StaticResource IN.LABEL}">
+    <Style TargetType="{x:Type Label}" x:Key="DateLabelStyle" BasedOn="{StaticResource LabelBaseStyle}">
         <Setter Property="Grid.Column" Value="2"/>
         <Setter Property="Content" Value="Author"/>
     </Style>
 
-    <Style TargetType="{x:Type Label}" x:Key="IN.AUTHOR" BasedOn="{StaticResource IN.LABEL}">
+    <Style TargetType="{x:Type Label}" x:Key="AuthorLabelStyle" BasedOn="{StaticResource LabelBaseStyle}">
         <Setter Property="Grid.Column" Value="3"/>
         <Setter Property="Content" Value="Date"/>
     </Style>
 
-    <Style TargetType="{x:Type Label}" x:Key="IN.COMMIT" BasedOn="{StaticResource IN.LABEL}">
+    <Style TargetType="{x:Type Label}" x:Key="CommitLabelStyle" BasedOn="{StaticResource LabelBaseStyle}">
         <Setter Property="Grid.Column" Value="4"/>
         <Setter Property="Content" Value="Commit"/>
         <Setter Property="BorderThickness" Value="0 0 0 1"/>
     </Style>
-    
+
+    <Style TargetType="{x:Type ScrollViewer}" x:Key="ScrollViewerStyle">
+        <Setter Property="Grid.Row" Value="1"/>
+        <Setter Property="HorizontalScrollBarVisibility" Value="Disabled"/>
+    </Style>
+
     <Style TargetType="{x:Type units:CommitListBox}">
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="FontSize" Value="11"/>
         <Setter Property="VirtualizingPanel.IsVirtualizing" Value="True"/>
         <Setter Property="VirtualizingPanel.VirtualizationMode" Value="Recycling"/>
-        <Setter Property="Foreground" Value="#FFFFFF"/>
-        <Setter Property="AlternationCount" Value="2"/>
+        <Setter Property="IsSynchronizedWithCurrentItem" Value="True"/>
         <Setter Property="Grid.IsSharedSizeScope" Value="True"/>
+        <Setter Property="AlternationCount" Value="2"/>
         <Setter Property="ItemsSource" Value="{Binding Commits}"/>
         <Setter Property="SelectedItem" Value="{Binding Commit}"/>
-        <Setter Property="IsSynchronizedWithCurrentItem" Value="True"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="#FFFFFF"/>
+        <Setter Property="FontSize" Value="11"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type units:CommitListBox}">
@@ -72,13 +77,13 @@
                                 <ColumnDefinition Width="90" SharedSizeGroup="C"/>
                                 <ColumnDefinition Width="80" SharedSizeGroup="D"/>
                             </Grid.ColumnDefinitions>
-                            <Label Style="{StaticResource IN.GRAPH}"/>
-                            <Label Style="{StaticResource IN.DESC}"/>
-                            <Label Style="{StaticResource IN.AUTHOR}"/>
-                            <Label Style="{StaticResource IN.DATE}"/>
-                            <Label Style="{StaticResource IN.COMMIT}"/>
+                            <Label Style="{StaticResource GraphLabelStyle}"/>
+                            <Label Style="{StaticResource DescLabelStyle}"/>
+                            <Label Style="{StaticResource AuthorLabelStyle}"/>
+                            <Label Style="{StaticResource DateLabelStyle}"/>
+                            <Label Style="{StaticResource CommitLabelStyle}"/>
                         </Grid>
-                        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled">
+                        <ScrollViewer Style="{StaticResource ScrollViewerStyle}">
                             <ItemsPresenter/>
                         </ScrollViewer>
                         <units:CommitFileListItemCard/>
