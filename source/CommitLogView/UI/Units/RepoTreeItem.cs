@@ -5,7 +5,7 @@ namespace CommitLogView.UI.Units
 {
     public class RepoTreeItem : TreeViewItem
     {
-        #region RepoTreeItem
+        #region DefaultStyleKey
 
         static RepoTreeItem()
         {
@@ -13,9 +13,12 @@ namespace CommitLogView.UI.Units
         }
         #endregion
 
+        #region GetContainerForItemOverride
+
         protected override DependencyObject GetContainerForItemOverride()
         {
             return new RepoTreeItem();
         }
+        #endregion
     }
 }

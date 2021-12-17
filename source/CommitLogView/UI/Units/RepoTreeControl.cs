@@ -14,6 +14,14 @@ namespace CommitLogView.UI.Units
         }
         #endregion
 
+        #region GetContainerForItemOverride
+        
+        protected override DependencyObject GetContainerForItemOverride()
+        {
+            return new RepoTreeItem();
+        }
+        #endregion
+
         public static readonly DependencyProperty CommandProperty = DependencyProperty.Register("Command", typeof(ICommand), typeof(RepoTreeControl));
         public static readonly DependencyProperty DoubleClickCommandProperty = DependencyProperty.Register("DoubleClickCommand", typeof(ICommand), typeof(RepoTreeControl));
 
@@ -43,11 +51,6 @@ namespace CommitLogView.UI.Units
             {
                 DoubleClickCommand?.Execute(SelectedItem);
             }
-        }
-
-        protected override DependencyObject GetContainerForItemOverride()
-        {
-            return new RepoTreeItem();
         }
     }
 }

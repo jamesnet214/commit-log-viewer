@@ -13,13 +13,12 @@ namespace CommitLogView.UI.Units
         }
         #endregion
 
-        public MainTabs()
-        {
-        }
+        #region GetContainerForItemOverride
 
         protected override DependencyObject GetContainerForItemOverride()
         {
             return new MainTabsItem();
         }
+        #endregion
     }
 }

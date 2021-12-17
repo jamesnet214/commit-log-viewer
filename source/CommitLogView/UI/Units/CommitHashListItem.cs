@@ -3,7 +3,7 @@ using System.Windows.Controls;
 
 namespace CommitLogView.UI.Units
 {
-    internal class CommitHashListItem : ListBoxItem
+    public class CommitHashListItem : ListBoxItem
     {
         #region DefaultStyleKey
 

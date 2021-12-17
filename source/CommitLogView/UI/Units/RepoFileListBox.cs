@@ -14,6 +14,14 @@ namespace CommitLogView.UI.Units
         }
         #endregion
 
+        #region GetContainerForItemOverride
+
+        protected override DependencyObject GetContainerForItemOverride()
+        {
+            return new RepoFileListItem();
+        }
+        #endregion
+
         public static readonly DependencyProperty ClickCommandProperty = DependencyProperty.Register("ClickCommand", typeof(ICommand), typeof(RepoFileListBox));
         public static readonly DependencyProperty DoubleClickCommandProperty = DependencyProperty.Register("DoubleClickCommand", typeof(ICommand), typeof(RepoFileListBox));
 
@@ -43,11 +51,6 @@ namespace CommitLogView.UI.Units
         {
             base.OnMouseDoubleClick(e);
             DoubleClickCommand?.Execute(SelectedItem);
-        }
-
-        protected override DependencyObject GetContainerForItemOverride()
-        {
-            return new RepoFileListItem();
         }
     }
 }

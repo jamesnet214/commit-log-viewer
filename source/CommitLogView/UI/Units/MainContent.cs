@@ -6,7 +6,7 @@ using DevNcore.UI.Foundation.Mvvm;
 
 namespace CommitLogView.UI.Units
 {
-    public class MainContent : NcoreView
+    public class MainContent : NcoreContent
     {
         #region DefaultStyleKey
 

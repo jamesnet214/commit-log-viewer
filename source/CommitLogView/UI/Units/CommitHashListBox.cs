@@ -12,9 +12,12 @@ namespace CommitLogView.UI.Units
         }
         #endregion
 
+        #region GetContainerForItemOverride
+
         protected override DependencyObject GetContainerForItemOverride()
         {
             return new CommitHashListItem();
         }
+        #endregion
     }
 }

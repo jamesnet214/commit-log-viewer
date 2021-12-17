@@ -5,7 +5,7 @@ namespace CommitLogView.UI.Units
 {
     public class RepoContent : NcoreContent
     {
-        #region RepoContent
+        #region DefaultStyleKey
 
         static RepoContent()
         {
