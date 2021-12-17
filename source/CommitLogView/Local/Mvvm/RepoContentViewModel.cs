@@ -10,7 +10,7 @@ using System;
 
 namespace CommitLogView.Local.Mvvm
 {
-    public class RepoViewModel : ObservableObject
+    public class RepoContentViewModel : ObservableObject
     {
         private ObservableCollection<RepoHistoricalModel> _repositories;
         private List<RevisionFileInfo> _markdowns;
@@ -30,13 +30,13 @@ namespace CommitLogView.Local.Mvvm
             set { _markdowns = value; OnPropertyChanged(); }
         }
 
-        public Action<string> Add { get; }
+        public Action<IsolateGitRepositoryItem> RepoOpenLoadEvent;
         public string Header { get; internal set; }
         public string Tag { get; internal set; }
 
-        public RepoViewModel(Action<string> add)
+        public RepoContentViewModel(Action<IsolateGitRepositoryItem> repoOpenLoad)
          {
-            Add = add;
+            RepoOpenLoadEvent = repoOpenLoad;
             Header = "Find Repository";
             RepoClickCommand = new RelayCommand<object>(RepoClick);
             RepoDoubleClickCommand = new RelayCommand<object>(RepoDoubleClick);
@@ -66,7 +66,7 @@ namespace CommitLogView.Local.Mvvm
 
             foreach (var dir in files)
             {
-                if (View.Parent is FrameworkElement fe && fe.DataContext is MainViewModel)
+                if (View.Parent is FrameworkElement fe && fe.DataContext is MainContentViewModel)
                 {
                     RepositoryConfig.Access.Add(dir);
                 }
@@ -97,13 +97,10 @@ namespace CommitLogView.Local.Mvvm
         {
             if (obj is IsolateGitRepositoryItem repo)
             {
-                //if (View.Parent is FrameworkElement fe && fe.DataContext is MainContentViewModel vm)
-                {
-                    Add(repo.RepositoryPath);
-                    RepositoryConfig.Access.Visit(repo.RepositoryPath);
-                    RepositoryConfig.Access.Save();
-                    LoadRepositories();
-                }
+                RepoOpenLoadEvent.Invoke(repo);
+                RepositoryConfig.Access.Visit(repo.RepositoryPath);
+                RepositoryConfig.Access.Save();
+                LoadRepositories();
             }
         }
 

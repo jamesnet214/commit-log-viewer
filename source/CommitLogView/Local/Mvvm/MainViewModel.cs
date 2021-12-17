@@ -1,33 +1,28 @@
-﻿using System.IO;
-using System.Windows.Input;
-using System.Collections.ObjectModel;
-using CommitLogView.UI.Units;
+﻿using System.Collections.ObjectModel;
 using DevNcore.UI.Foundation.Mvvm;
+using CommitLogView.Local.Data;
+using System.Collections.Generic;
 
 namespace CommitLogView.Local.Mvvm
 {
-    public class MainViewModel : ObservableObject
+    public class MainContentViewModel : ObservableObject
     {
-        private RepoViewModel RepoExplorer = null;
+        private RepoContentViewModel RepoExplorer = null;
+        private List<CommitContentViewModel> Repositories = null; 
         public ObservableCollection<ObservableObject> TabsContents { get; }
 
-        public MainViewModel()
+        public MainContentViewModel()
         {
+            Repositories = new();
             RepoExplorer = new(RepoOpenLoad);
             TabsContents = new() { RepoExplorer };
         }
 
-        internal void RepoOpenLoad(string dir)
+        internal void RepoOpenLoad(IsolateGitRepositoryItem repo)
         {
-            if (true)
-            {
-                var name = Path.GetFileNameWithoutExtension(dir);
-                TabsContents.Add(new CommitViewModel { Tag = dir, Header = name });
-            }
-            else
-            {
-                //Repositories2.Single(x => x.ViewModel.Equals(LayerItems[dir])).IsSelected = true;
-            }
+            CommitContentViewModel newContent = new(repo);
+            Repositories.Add(newContent);
+            TabsContents.Add(newContent);
         }
     }
 }
