@@ -52,10 +52,6 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type units:MainTabs}">
                     <Grid x:Name="templateRoot" Style="{StaticResource MainGridStyle}">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition Width="0"/>
-                        </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="*"/>
@@ -64,7 +60,6 @@
                         <Border Style="{StaticResource ContentBorderStyle}">
                             <ContentPresenter ContentSource="SelectedContent"/>
                         </Border>
-                        
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
