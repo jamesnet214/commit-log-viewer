@@ -51,8 +51,8 @@
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
                             <Setter TargetName="border" Property="Background" Value="#1F4084"/>
-                            <Setter Property="Foreground" Value="#FFFFFF"/>
                             <Setter TargetName="close" Property="Fill" Value="#FFFFFF"/>
+                            <Setter Property="Foreground" Value="#FFFFFF"/>
                         </Trigger>
                         <Trigger Property="Tag" Value="REPOSITORY">
                             <Setter TargetName="icon" Property="Data" Value="{DynamicResource ShapeCirclePlus}"/>

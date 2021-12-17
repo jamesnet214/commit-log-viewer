@@ -18,7 +18,7 @@ namespace CommitLogView.UI.Units
 
         public MainContent()
         {
-            DataContext = new GitViewModel();
+            DataContext = new MainContentViewModel();
             Loaded += GitView_Loaded;
         }
 

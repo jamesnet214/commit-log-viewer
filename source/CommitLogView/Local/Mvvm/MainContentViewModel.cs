@@ -8,19 +8,20 @@ using DevNcore.UI.Foundation.Mvvm;
 
 namespace CommitLogView.Local.Mvvm
 {
-    internal class GitViewModel : ObservableObject
+    internal class MainContentViewModel : ObservableObject
     {
         private readonly Dictionary<string, NcoreContent> LayerItems;
+        
         public ObservableCollection<MainTabsItem> Repositories { get; private set; }
 
         public ICommand MarkdownClickCommand { get; set; }
 
-        public GitViewModel()
+        public MainContentViewModel()
         {
             LayerItems = new Dictionary<string, NcoreContent>();
             Repositories = new ObservableCollection<MainTabsItem>
             {
-                new MainTabsItem { Header = "New", Tag = "REPOSITORY", Content = new RepoContent() }
+                new MainTabsItem { Header = "New1111", Tag = "REPOSITORY", Content = new RepoContent() }
             };
         }
 

@@ -4,12 +4,16 @@
     xmlns:units="clr-namespace:CommitLogView.UI.Units"
     xmlns:views="clr-namespace:CommitLogView.UI.Views">
 
+    <DataTemplate x:Key="MainContentDataTemplate">
+        <units:MainContent/>
+    </DataTemplate>
+    
     <Style TargetType="{x:Type views:MainWindow}">
         <Setter Property="Padding" Value="0 0 0 0"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate>
-                    <units:MainContent/>
+                <ControlTemplate TargetType="{x:Type views:MainWindow}">
+                    <ContentPresenter ContentTemplate="{StaticResource MainContentDataTemplate}"/>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

@@ -45,16 +45,7 @@
         <Setter Property="Fill" Value="#0066f0"/>
         <Setter Property="Opacity" Value="0.2"/>
     </Style>
-
-    <Style TargetType="{x:Type Rectangle}" x:Key="RevisionReactangleStyleA">
-        <Setter Property="Width" Value="2"/>
-        <Setter Property="Height" Value="24"/>
-        <Setter Property="HorizontalAlignment" Value="Left"/>
-        <Setter Property="Margin" Value="13 0 0 0"/>
-        <Setter Property="Fill" Value="#0066f0"/>
-        <Setter Property="Opacity" Value="0.2"/>
-    </Style>
-
+    
     <Style TargetType="{x:Type Rectangle}" x:Key="RevisionReactangleStyleB">
         <Setter Property="Width" Value="2"/>
         <Setter Property="Height" Value="24"/>
@@ -73,7 +64,7 @@
         <Setter Property="Opacity" Value="0.2"/>
     </Style>
 
-    <Style TargetType="{x:Type Rectangle}" x:Key="RevisionCircleEllipseStyle">
+    <Style TargetType="{x:Type Ellipse}" x:Key="RevisionCircleEllipseStyle">
         <Setter Property="Width" Value="8"/>
         <Setter Property="Height" Value="8"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>

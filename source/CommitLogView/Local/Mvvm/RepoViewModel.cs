@@ -59,7 +59,7 @@ namespace CommitLogView.Local.Mvvm
 
             foreach (var dir in files)
             {
-                if (View.Parent is FrameworkElement fe && fe.DataContext is GitViewModel)
+                if (View.Parent is FrameworkElement fe && fe.DataContext is MainContentViewModel)
                 {
                     RepositoryConfig.Access.Add(dir);
                 }
@@ -90,7 +90,7 @@ namespace CommitLogView.Local.Mvvm
         {
             if (obj is IsolateGitRepositoryItem repo)
             {
-                if (View.Parent is FrameworkElement fe && fe.DataContext is GitViewModel vm)
+                if (View.Parent is FrameworkElement fe && fe.DataContext is MainContentViewModel vm)
                 {
                     vm.Add(repo.RepositoryPath);
                     RepositoryConfig.Access.Visit(repo.RepositoryPath);
