@@ -1,7 +1,7 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using DevNcore.UI.Foundation.Mvvm;
 using CommitLogView.Local.Data;
-using System.Collections.Generic;
 
 namespace CommitLogView.Local.Mvvm
 {
