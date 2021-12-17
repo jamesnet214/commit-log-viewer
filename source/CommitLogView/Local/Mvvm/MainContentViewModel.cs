@@ -8,13 +8,13 @@ namespace CommitLogView.Local.Mvvm
 {
     public class MainContentViewModel : ObservableObject
     {
-        public ObservableCollection<ObservableObject> Repositories { get; } = new();
+        public ObservableCollection<ObservableObject> TabsContents { get; } = new();
 
         public ICommand MarkdownClickCommand { get; set; }
 
         public MainContentViewModel()
         {
-            Repositories.Add(new RepoViewModel("New", Add));
+            TabsContents.Add(new RepoViewModel("New", Add));
         }
 
         internal void Add(string dir)
@@ -22,13 +22,7 @@ namespace CommitLogView.Local.Mvvm
             if (true)
             {
                 var name = Path.GetFileNameWithoutExtension(dir);
-                var layer = new CommitContent { Tag = dir };
-                var tabItem = new MainTabsItem { Header = name, Content = layer };
-
-                var data = new CommitViewModel();
-                data.Tag = dir;
-                Repositories.Add(new CommitViewModel { Tag = dir, Header = name });
-                tabItem.IsSelected = true;
+                TabsContents.Add(new CommitViewModel { Tag = dir, Header = name });
             }
             else
             {

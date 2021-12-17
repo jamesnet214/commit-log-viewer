@@ -41,7 +41,7 @@
     </DataTemplate>
 
     <Style TargetType="{x:Type units:MainTabs}">
-        <Setter Property="ItemsSource" Value="{Binding Repositories}"/>
+        <Setter Property="ItemsSource" Value="{Binding TabsContents}"/>
         <Setter Property="ContentTemplateSelector">
             <Setter.Value>
                 <route:MainTabsRoute Commit="{StaticResource CommitContentTemplate}"
@@ -51,7 +51,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type units:MainTabs}">
-                    <Grid x:Name="templateRoot" Style="{StaticResource MainGridStyle}">
+                    <Grid Style="{StaticResource MainGridStyle}">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="*"/>

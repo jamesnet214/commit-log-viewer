@@ -21,5 +21,21 @@ namespace CommitLogView.UI.Units
             return new RepoFileListItem();
         }
         #endregion
+
+        protected override void OnPreviewMouseUp(MouseButtonEventArgs e)
+        {
+            base.OnPreviewMouseUp(e);
+
+            if (e.OriginalSource is FrameworkElement fe && fe.DataContext.Equals(SelectedItem))
+            {
+                ClickCommand?.Execute(SelectedItem);
+            }
+        }
+
+        protected override void OnMouseDoubleClick(MouseButtonEventArgs e)
+        {
+            base.OnMouseDoubleClick(e);
+            DoubleClickCommand?.Execute(SelectedItem);
+        }
     }
 }

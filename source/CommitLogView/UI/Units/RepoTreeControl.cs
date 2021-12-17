@@ -31,5 +31,11 @@ namespace CommitLogView.UI.Units
             }
             base.OnMouseDoubleClick(e);
         }
+
+        protected override void OnSelectedItemChanged(RoutedPropertyChangedEventArgs<object> e)
+        {
+            base.OnSelectedItemChanged(e);
+            Command?.Execute(e.NewValue);
+        }
     }
 }
