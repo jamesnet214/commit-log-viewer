@@ -45,7 +45,7 @@
         <Setter Property="ContentTemplateSelector">
             <Setter.Value>
                 <route:MainTabsSelector Commit="{StaticResource CommitContentTemplate}"
-                                        Repo="{StaticResource RepoContentTemplate}"/>
+                                        Repos="{StaticResource RepoContentTemplate}"/>
             </Setter.Value>
         </Setter>
         <Setter Property="Template">
