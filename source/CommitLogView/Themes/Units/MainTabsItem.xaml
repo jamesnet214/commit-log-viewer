@@ -29,6 +29,7 @@
     </Style>
     
     <Style TargetType="{x:Type units:MainTabsItem}">
+        <Setter Property="Header" Value="{Binding Title}"/>
         <Setter Property="Foreground" Value="#AAAAAA"/>
         <Setter Property="Template">
             <Setter.Value>

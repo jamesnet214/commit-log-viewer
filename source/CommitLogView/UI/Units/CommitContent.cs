@@ -15,7 +15,7 @@ namespace CommitLogView.UI.Units
 
         public CommitContent()
         {
-            DataContext = new CommitViewModel();
+            //DataContext = new CommitViewModel();
         }
     }
 }

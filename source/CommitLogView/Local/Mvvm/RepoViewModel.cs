@@ -90,9 +90,9 @@ namespace CommitLogView.Local.Mvvm
         {
             if (obj is IsolateGitRepositoryItem repo)
             {
-                if (View.Parent is FrameworkElement fe && fe.DataContext is MainContentViewModel vm)
+                //if (View.Parent is FrameworkElement fe && fe.DataContext is MainContentViewModel vm)
                 {
-                    vm.Add(repo.RepositoryPath);
+                    MainContentViewModel.vm.Add(repo.RepositoryPath);
                     RepositoryConfig.Access.Visit(repo.RepositoryPath);
                     RepositoryConfig.Access.Save();
                     LoadRepositories();

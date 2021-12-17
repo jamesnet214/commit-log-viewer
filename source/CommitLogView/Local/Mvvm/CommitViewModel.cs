@@ -34,6 +34,8 @@ namespace CommitLogView.Local.Mvvm
             set { _changedFiles = value; OnPropertyChanged(); }
         }
 
+        public string Tag { get; internal set; }
+
         public CommitViewModel()
         {
             ClickCommand = new RelayCommand<ParentInfo>(RevisionClick);
@@ -42,13 +44,13 @@ namespace CommitLogView.Local.Mvvm
         protected override void OnInitializedComponent()
         {
             Load();
-            RepositoryConfig.Access.Visit(View.Tag.ToString());
+            RepositoryConfig.Access.Visit(Tag);
         }
 
         private async void Load()
         {
             await Task.Delay(1000);
-            var repo = new Repository(View.Tag.ToString());
+            var repo = new Repository(Tag);
             var branches = repo.Branches.Count();
 
             var query = from c in repo.Commits.Take(1000).AsQueryable()
@@ -154,7 +156,7 @@ namespace CommitLogView.Local.Mvvm
                 value.Parents.ForEach(x => x.Line = Commits.Single(s => s.Sha == x.Id.Sha).Line);
             }
 
-            var repo = new Repository(View.Tag.ToString());
+            var repo = new Repository(Tag.ToString());
             var source = new List<RevisionFileInfo>();
 
             Tree commitTree = repo.Commits.Single(x => x.Sha == value.Sha).Tree; // Main Tree
