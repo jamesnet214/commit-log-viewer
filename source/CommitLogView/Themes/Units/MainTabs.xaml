@@ -33,7 +33,7 @@
         <Setter Property="Margin" Value="0"/>
     </Style>
 
-    <DataTemplate x:Key="StartedTempalte">
+    <!--<DataTemplate x:Key="StartedTempalte">
         <StackPanel Margin="20">
             <TextBlock Text="Getting Started." 
                    FontSize="50" 
@@ -48,22 +48,22 @@
                            Text="https://github.com/devncore/commit-log-viewer"/>
             </StackPanel>
         </StackPanel>
-    </DataTemplate>
+    </DataTemplate>-->
 
-    <DataTemplate x:Key="RepositoryTemplate">
+    <!--<DataTemplate x:Key="RepositoryTemplate">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" MinWidth="200"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <units:RepoFileListBox Grid.Column="0"/>
+            <units:RootTreeControl Grid.Column="0"/>
             <units:CommitContent Grid.Column="1" DataContext="{Binding CommitContentData}"/>
         </Grid>
-    </DataTemplate>
+    </DataTemplate>-->
 
-    <route:MainTabsRoute x:Key="MainTabsRoute" 
+    <!--<route:MainTabsRoute x:Key="MainTabsRoute" 
                          Start="{StaticResource StartedTempalte}"
-                         Repos="{StaticResource RepositoryTemplate}"/>
+                         Repos="{StaticResource RepositoryTemplate}"/>-->
 
     <Style TargetType="{x:Type units:MainTabs}">
         <Setter Property="ItemsSource" Value="{Binding TabsContents}"/>

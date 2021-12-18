@@ -80,7 +80,7 @@
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Themes\Units\RepoFileListItem.xaml">
+    <Page Update="Themes\Units\RootTreeItem.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
@@ -100,15 +100,11 @@
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Themes\Units\RepoFileListBox.xaml">
+    <Page Update="Themes\Units\RootTreeControl.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Themes\Units\MainTreeItem.xaml">
-      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Themes\Units\RepoContent.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
       <SubType>Designer</SubType>
     </Page>

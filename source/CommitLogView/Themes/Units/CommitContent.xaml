@@ -9,10 +9,10 @@
                 <ControlTemplate TargetType="{x:Type units:CommitContent}">
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" MinWidth="200"/>
+                            <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <units:RepoFileListBox Grid.Column="0"/>
+                        <units:RootTreeControl Grid.Column="0"/>
                         <units:CommitListBox Grid.Column="1"/>
                     </Grid>
                 </ControlTemplate>

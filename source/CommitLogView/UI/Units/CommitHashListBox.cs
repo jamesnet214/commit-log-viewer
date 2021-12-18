@@ -1,8 +1,9 @@
-﻿using System.Windows;
+﻿using DevNcore.WPF.Controls;
+using System.Windows;
 
 namespace CommitLogView.UI.Units
 {
-    public class CommitHashListBox : RepoFileListBox
+    public class CommitHashListBox : NcoreListControl
     {
         #region DefaultStyleKey
 

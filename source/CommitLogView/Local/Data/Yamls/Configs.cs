@@ -2,8 +2,9 @@
 
 namespace CommitLogView.Local.Data.Yamls
 {
-    public class SettingsConfig
+    public class Configs
     {
         public List<RepositoryGroup> RepositoryGroup { get; set; }
+        public IgnoreFields Ignore { get; set; }
     }
 }

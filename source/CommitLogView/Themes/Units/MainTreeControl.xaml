@@ -10,7 +10,6 @@
     </Style>
 
     <Style TargetType="{x:Type units:MainTreeControl}">
-        <Setter Property="DataContext" Value="{Binding Workspace}"/>
         <Setter Property="ItemsSource" Value="{Binding Repositories}"/>
         <Setter Property="DoubleClickCommand" Value="{Binding RepoDoubleClickCommand}"/>
         <Setter Property="Command" Value="{Binding RepoClickCommand}"/>

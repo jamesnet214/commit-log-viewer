@@ -1,3 +1,6 @@
+ignore:
+  root: [.git, .vs, bin, obj, node_modules]
+
 repositoryGroup:
   - name: DevNcore
     repositories:

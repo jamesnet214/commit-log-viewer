@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using DevNcore.UI.Foundation.Mvvm;
 using CommitLogView.Local.Data;
 using CommitLogView.Local.Data.Yamls;
+using CommitLogView.Local.Builder;
 
 namespace CommitLogView.Local.Mvvm
 {
@@ -43,20 +44,10 @@ namespace CommitLogView.Local.Mvvm
         {
             Tag = repo.Path;
             ClickCommand = new RelayCommand<ParentInfo>(RevisionClick);
-            List<RevisionFileInfo> markdowns = new();
-            RecrusiveSearchMarkdown(repo.Path, markdowns);
-            Markdowns = markdowns;
+            Markdowns = StorageBuilder.Build().Repositories(repo.Path);
             Load();
         }
 
-        private void RecrusiveSearchMarkdown(string repositoryPath, List<RevisionFileInfo> markdowns)
-        {
-            var dirs = Directory.GetDirectories(repositoryPath).ToList();
-            var files = Directory.GetFiles(repositoryPath, "*.md");
-            markdowns.AddRange(files.Select(x => new RevisionFileInfo(x)));
-
-            dirs.ForEach(x => RecrusiveSearchMarkdown(x, markdowns));
-        }
         protected override void OnInitializedComponent()
         {
             //Load();

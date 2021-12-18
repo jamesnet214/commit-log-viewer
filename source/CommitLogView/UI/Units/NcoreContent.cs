@@ -1,3 +1,0 @@
-﻿namespace CommitLogView.UI.Units
-{
-}

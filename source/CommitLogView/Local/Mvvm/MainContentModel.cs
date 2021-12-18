@@ -1,41 +1,55 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
+using System.Windows.Input;
 using DevNcore.UI.Foundation.Mvvm;
 using CommitLogView.Local.Data.Yamls;
 using CommitLogView.Local.Data.MainTabs;
-using System.Linq;
+using CommitLogView.Local.Builder;
+using System;
 
 namespace CommitLogView.Local.Mvvm
 {
     public class MainContentModel : ObservableObject
     {
         private readonly List<TabsRepository> RepoItems;
+
+        public ICommand RepoClickCommand { get; }
         public TabsStarted StartPage { get; }
-        public RepoContentModel Workspace { get; }
         public ObservableCollection<TabsItemBasedModel> TabsContents { get; }
-        public RepoContentModel Repository { get; }
+        public List<RepositoryGroup> Repositories { get; }
 
         public MainContentModel()
         {
             RepoItems = new();
-            Workspace = new(TabsItemLoad);
-            StartPage = new("Getting Started.");
-            
+            StartPage = new("Getting Started.");            
             TabsContents = new() { StartPage };
+            Repositories = SettingsBuilder.Build().Repositories();
+
+            RepoClickCommand = new RelayCommand<object>(RepoClick);
         }
 
-        internal void TabsItemLoad(RepositoryItem repo)
+        private void RepoClick(object obj)
         {
-            if (RepoItems.FirstOrDefault(x => x.Equals(repo)) is TabsRepository tabsItem)
+            if (obj is RepositoryItem repo)
             {
-                tabsItem.Select();
+                TabsItemLoad(repo);
             }
-            else
+        }
+
+        private void TabsItemLoad(RepositoryItem repo)
+        {
+            switch (RepoItems.FirstOrDefault(x => x.Equals(repo)))
             {
-                TabsRepository newContent = new(repo);
-                RepoItems.Add(newContent);
-                TabsContents.Add(newContent);
-                newContent.Select();
+                case TabsRepository tabsItem:
+                    tabsItem.Select();
+                    break;
+                default:
+                    TabsRepository newContent = new(repo);
+                    RepoItems.Add(newContent);
+                    TabsContents.Add(newContent);
+                    newContent.Select();
+                    break;
             }
         }
     }

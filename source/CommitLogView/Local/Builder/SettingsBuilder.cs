@@ -5,25 +5,30 @@ using System.Reflection;
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 
-namespace CommitLogView.Local.Settings
+namespace CommitLogView.Local.Builder
 {
-    public class RepositoryListBuilder
+    public class SettingsBuilder
     {
-        private SettingsConfig Settings { get; }
+        private Configs Settings { get; }
 
-        private RepositoryListBuilder()
+        private SettingsBuilder()
         {
             string ymlContents = FindAssemblyInfo("CommitLogView.App.settings.yml");
             var deserializer = new DeserializerBuilder()
               .WithNamingConvention(CamelCaseNamingConvention.Instance)
               .Build();
 
-            Settings = deserializer.Deserialize<SettingsConfig>(ymlContents);
+            Settings = deserializer.Deserialize<Configs>(ymlContents);
         }
 
-        public static RepositoryListBuilder Build()
+        public static SettingsBuilder Build()
         {
-            return new RepositoryListBuilder();
+            return new SettingsBuilder();
+        }
+
+        public IgnoreFields Ignore()
+        {
+            return Settings.Ignore;
         }
 
         public List<RepositoryGroup> Repositories()
