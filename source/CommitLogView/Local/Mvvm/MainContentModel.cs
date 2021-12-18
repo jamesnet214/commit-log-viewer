@@ -9,7 +9,7 @@ namespace CommitLogView.Local.Mvvm
 {
     public class MainContentModel : ObservableObject
     {
-        private readonly List<TabsRepository> TabsItems;
+        private readonly List<TabsRepository> RepoItems;
         public TabsStarted StartPage { get; }
         public RepoContentModel Workspace { get; }
         public ObservableCollection<TabsItemBasedModel> TabsContents { get; }
@@ -17,7 +17,7 @@ namespace CommitLogView.Local.Mvvm
 
         public MainContentModel()
         {
-            TabsItems = new();
+            RepoItems = new();
             Workspace = new(TabsItemLoad);
             StartPage = new("Getting Started.");
             
@@ -26,15 +26,16 @@ namespace CommitLogView.Local.Mvvm
 
         internal void TabsItemLoad(RepositoryItem repo)
         {
-            if (TabsItems.FirstOrDefault(x => x.Equals(repo)) is TabsRepository tabsItem)
+            if (RepoItems.FirstOrDefault(x => x.Equals(repo)) is TabsRepository tabsItem)
             {
                 tabsItem.Select();
             }
             else
             {
                 TabsRepository newContent = new(repo);
-                TabsItems.Add(newContent);
+                RepoItems.Add(newContent);
                 TabsContents.Add(newContent);
+                newContent.Select();
             }
         }
     }

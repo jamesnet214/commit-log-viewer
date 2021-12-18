@@ -28,14 +28,14 @@ namespace CommitLogView.Local.Mvvm
         {
             if (obj is RepositoryItem repo)
             {
-                TabsItemLoadEvent.Invoke(repo);
             }
         }
 
         private void RepoClick(object obj)
         {
-            if (obj is RepositoryItem)
+            if (obj is RepositoryItem repo)
             {
+                TabsItemLoadEvent.Invoke(repo);
             }
         }
     }

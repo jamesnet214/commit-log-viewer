@@ -18,8 +18,9 @@ namespace CommitLogView.Local.Data.MainTabs
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
-
+        public string TabsItemType { get; set; }
         public string Header { get; protected set; }
+        public object Content { get; protected set; }
 
         public bool IsSelected
         {

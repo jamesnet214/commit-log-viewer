@@ -67,7 +67,7 @@
 
     <Style TargetType="{x:Type units:MainTabs}">
         <Setter Property="ItemsSource" Value="{Binding TabsContents}"/>
-        <Setter Property="ContentTemplateSelector" Value="{StaticResource MainTabsRoute}"/>
+        <!--<Setter Property="ContentTemplateSelector" Value="{StaticResource MainTabsRoute}"/>-->
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type units:MainTabs}">

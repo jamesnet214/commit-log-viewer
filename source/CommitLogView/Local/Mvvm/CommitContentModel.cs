@@ -1,7 +1,7 @@
 ﻿using LibGit2Sharp;
+using System.IO;
 using System.Linq;
 using System.Windows.Input;
-using System.Threading.Tasks;
 using System.Collections.Generic;
 using DevNcore.UI.Foundation.Mvvm;
 using CommitLogView.Local.Data;
@@ -35,15 +35,28 @@ namespace CommitLogView.Local.Mvvm
             set { _changedFiles = value; OnPropertyChanged(); }
         }
 
+        public List<RevisionFileInfo> Markdowns { get; }
+
         private readonly string Tag;
 
         public CommitContentModel(RepositoryItem repo)
         {
             Tag = repo.Path;
             ClickCommand = new RelayCommand<ParentInfo>(RevisionClick);
+            List<RevisionFileInfo> markdowns = new();
+            RecrusiveSearchMarkdown(repo.Path, markdowns);
+            Markdowns = markdowns;
             Load();
         }
 
+        private void RecrusiveSearchMarkdown(string repositoryPath, List<RevisionFileInfo> markdowns)
+        {
+            var dirs = Directory.GetDirectories(repositoryPath).ToList();
+            var files = Directory.GetFiles(repositoryPath, "*.md");
+            markdowns.AddRange(files.Select(x => new RevisionFileInfo(x)));
+
+            dirs.ForEach(x => RecrusiveSearchMarkdown(x, markdowns));
+        }
         protected override void OnInitializedComponent()
         {
             //Load();
@@ -52,7 +65,6 @@ namespace CommitLogView.Local.Mvvm
 
         private async void Load()
         {
-            await Task.Delay(1000);
             var repo = new Repository(Tag);
             var branches = repo.Branches.Count();
 
