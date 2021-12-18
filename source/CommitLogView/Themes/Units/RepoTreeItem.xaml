@@ -90,7 +90,7 @@
 
     <Style TargetType="{x:Type units:RepoTreeItem}">
         <Setter Property="IsExpanded" Value="True"/>
-        <Setter Property="ItemsSource" Value="{Binding Children}"/>
+        <Setter Property="ItemsSource" Value="{Binding Repositories}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type units:RepoTreeItem}">

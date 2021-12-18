@@ -2,25 +2,32 @@
 using System.Collections.ObjectModel;
 using DevNcore.UI.Foundation.Mvvm;
 using CommitLogView.Local.Data;
+using CommitLogView.Local.Settings;
+using CommitLogView.Local.Data.Yamls;
+using CommitLogView.Local.Data.MainTabs;
 
 namespace CommitLogView.Local.Mvvm
 {
     public class MainContentModel : ObservableObject
     {
-        private RepoContentModel Workspace = null;
-        private List<CommitContentModel> TabsItems = null; 
-        public ObservableCollection<ObservableObject> TabsContents { get; }
+        private List<TabsRepository> TabsItems = null;
+        public TabsStarted StartPage { get; }
+        public RepoContentModel Workspace { get; }
+        public ObservableCollection<ITabsItemBase> TabsContents { get; }
+        public RepoContentModel Repository { get; }
 
         public MainContentModel()
         {
             TabsItems = new();
             Workspace = new(TabsItemLoad);
-            TabsContents = new() { Workspace };
+            StartPage = new("Getting Started");
+            
+            TabsContents = new() { StartPage };
         }
 
-        internal void TabsItemLoad(IsolateGitRepositoryItem repo)
+        internal void TabsItemLoad(RepositoryItem repo)
         {
-            CommitContentModel newContent = new(repo);
+            TabsRepository newContent = new(repo);
             TabsItems.Add(newContent);
             TabsContents.Add(newContent);
         }

@@ -32,20 +32,25 @@
         <Setter Property="Margin" Value="0"/>
     </Style>
 
-    <DataTemplate x:Key="RepoContentTemplate">
-        <units:RepoContent/>
+    <DataTemplate x:Key="StartedTempalte">
+        <TextBlock Text="Getting Started." 
+                   Margin="20"
+                   FontSize="50" 
+                   FontWeight="Bold"
+                   Foreground="#FFFFFF"/>
     </DataTemplate>
 
-    <DataTemplate x:Key="CommitContentTemplate">
-        <units:CommitContent/>
+    <DataTemplate x:Key="RepositoryTemplate">
+        <units:CommitContent DataContext="{Binding CommitContentData}"/>
     </DataTemplate>
 
     <route:MainTabsRoute x:Key="MainTabsRoute" 
-                         Commit="{StaticResource CommitContentTemplate}"
-                         Repos="{StaticResource RepoContentTemplate}"/>
+                         Start="{StaticResource StartedTempalte}"
+                         Repos="{StaticResource RepositoryTemplate}"/>
 
     <Style TargetType="{x:Type units:MainTabs}">
         <Setter Property="ItemsSource" Value="{Binding TabsContents}"/>
+        <Setter Property="ContentTemplateSelector" Value="{StaticResource MainTabsRoute}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type units:MainTabs}">

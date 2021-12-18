@@ -1,4 +1,5 @@
-﻿using CommitLogView.Local.Mvvm;
+﻿using CommitLogView.Local.Data.MainTabs;
+using CommitLogView.Local.Mvvm;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -6,18 +7,18 @@ namespace CommitLogView.UI.Units.DataTemplateSelectors
 {
     public class MainTabsRoute : DataTemplateSelector
     {
+        public DataTemplate Start { get; set; }
         public DataTemplate Repos { get; set; }
-        public DataTemplate Commit { get; set; }
 
         public override DataTemplate SelectTemplate(object item, DependencyObject container)
         {
-            if (item is RepoContentModel)
+            if (item is TabsStarted)
+            {
+                return Start;
+            }
+            else if (item is TabsRepository)
             {
                 return Repos;
-            }
-            else if (item is CommitContentModel)
-            {
-                return Commit;
             }
             return base.SelectTemplate(item, container);
         }

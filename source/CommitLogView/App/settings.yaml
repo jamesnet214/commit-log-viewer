@@ -1,0 +1,21 @@
+repositoryGroup:
+  - name: DevNcore
+    repositories:
+    - name: CommitLogView
+      path: C:\devncore\commit-log-viewer
+    - name: cbt
+      path: C:\devncore\cbt
+    - name: Ncore API
+      path: C:\devncore\ncore-api
+    - name: League of Legends
+      path: C:\devncore\leagueoflegends
+  - name: GitHub
+    repositories:
+    - name: CommitLogView
+      path: C:\devncore\commit-log-viewer
+    - name: cbt
+      path: C:\devncore\cbt
+    - name: Ncore API
+      path: C:\devncore\ncore-api
+    - name: League of Legends
+      path: C:\devncore\leagueoflegends

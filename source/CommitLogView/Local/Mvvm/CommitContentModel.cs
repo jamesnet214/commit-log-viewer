@@ -7,6 +7,7 @@ using DevNcore.UI.Foundation.Mvvm;
 using CommitLogView.Local.Data;
 using System.IO;
 using CommitLogView.UI.Units;
+using CommitLogView.Local.Data.Yamls;
 
 namespace CommitLogView.Local.Mvvm
 {
@@ -36,16 +37,11 @@ namespace CommitLogView.Local.Mvvm
             set { _changedFiles = value; OnPropertyChanged(); }
         }
 
-        public string Tag { get; internal set; }
-        public CommitContent Content { get; private set; }
-        public string Header { get; internal set; }
+        private string Tag;
 
-        public CommitContentModel(IsolateGitRepositoryItem repo)
+        public CommitContentModel(RepositoryItem repo)
         {
-            Tag = repo.RepositoryPath;
-            Content = new();
-            Content.DataContext = this;
-            Header = Path.GetFileNameWithoutExtension(repo.RepositoryPath);
+            Tag = repo.Path;
             ClickCommand = new RelayCommand<ParentInfo>(RevisionClick);
         }
 

@@ -67,7 +67,7 @@ namespace CommitLogView.Local.Data
 
         internal void Visit(string v)
         {
-            Config.Repositories.FirstOrDefault(x => x.RepositoryPath == v).LastAccessTime = DateTime.Now;
+            //Config.Repositories.FirstOrDefault(x => x.RepositoryPath == v).LastAccessTime = DateTime.Now;
         }
     }
 }
