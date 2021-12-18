@@ -1,5 +1,4 @@
 ﻿using CommitLogView.Local.Data.MainTabs;
-using CommitLogView.Local.Mvvm;
 using System.Windows;
 using System.Windows.Controls;
 

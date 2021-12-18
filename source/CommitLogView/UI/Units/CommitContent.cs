@@ -1,5 +1,4 @@
-﻿using CommitLogView.Local.Mvvm;
-using DevNcore.WPF.Controls;
+﻿using DevNcore.WPF.Controls;
 using System.Windows;
 
 namespace CommitLogView.UI.Units

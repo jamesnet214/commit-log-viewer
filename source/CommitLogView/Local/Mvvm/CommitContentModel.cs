@@ -5,8 +5,6 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using DevNcore.UI.Foundation.Mvvm;
 using CommitLogView.Local.Data;
-using System.IO;
-using CommitLogView.UI.Units;
 using CommitLogView.Local.Data.Yamls;
 
 namespace CommitLogView.Local.Mvvm
