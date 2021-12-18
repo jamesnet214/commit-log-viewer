@@ -3,3 +3,21 @@
 ```
 C:\Users\james\AppData\Roaming\DevFlow\Configs
 ```
+
+
+temp-backup
+```
+private void View_Drop(object sender, DragEventArgs e)
+{
+    string[] files = (string[])e.Data.GetData(DataFormats.FileDrop, false);
+
+    foreach (var dir in files)
+    {
+        if (View.Parent is FrameworkElement fe && fe.DataContext is MainContentModel)
+        {
+            RepositoryConfig.Access.Add(dir);
+        }
+    }
+    RepositoryConfig.Access.Save();
+}
+```
