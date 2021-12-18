@@ -12,13 +12,13 @@
         <Setter Property="Margin" Value="8 0 0 0"/>
     </Style>
 
-    <Style TargetType="{x:Type units:RepoTreeItemExpander}">
+    <Style TargetType="{x:Type units:MainTreeItemExpander}">
         <Setter Property="IsChecked" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsExpanded}"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type units:RepoTreeItemExpander}">
+                <ControlTemplate TargetType="{x:Type units:MainTreeItemExpander}">
                     <icons:MenuRightIcon x:Name="icon" Style="{StaticResource MenuRightIconStyle}"/>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="True">

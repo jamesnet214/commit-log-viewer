@@ -7,7 +7,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type units:RepoContent}">
-                    <units:RepoTreeControl/>
+                    <units:MainTreeControl/>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

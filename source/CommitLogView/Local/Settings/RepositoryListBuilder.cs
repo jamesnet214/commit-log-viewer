@@ -13,7 +13,7 @@ namespace CommitLogView.Local.Settings
 
         private RepositoryListBuilder()
         {
-            string ymlContents = FindAssemblyInfo("CommitLogView.App.settings.yaml");
+            string ymlContents = FindAssemblyInfo("CommitLogView.App.settings.yml");
             var deserializer = new DeserializerBuilder()
               .WithNamingConvention(CamelCaseNamingConvention.Instance)
               .Build();

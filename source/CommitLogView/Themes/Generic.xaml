@@ -14,9 +14,9 @@
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/CommitContent.xaml"/>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/RepoFileListItem.xaml"/>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/RepoFileListBox.xaml"/>
-        <ResourceDictionary Source="/CommitLogView;component/Themes/Units/RepoTreeItemExpander.xaml"/>
-        <ResourceDictionary Source="/CommitLogView;component/Themes/Units/RepoTreeItem.xaml"/>
-        <ResourceDictionary Source="/CommitLogView;component/Themes/Units/RepoTreeControl.xaml"/>
+        <ResourceDictionary Source="/CommitLogView;component/Themes/Units/MainTreeItemExpander.xaml"/>
+        <ResourceDictionary Source="/CommitLogView;component/Themes/Units/MainTreeItem.xaml"/>
+        <ResourceDictionary Source="/CommitLogView;component/Themes/Units/MainTreeControl.xaml"/>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/RepoContent.xaml"/>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/MainTabsItem.xaml"/>
         <ResourceDictionary Source="/CommitLogView;component/Themes/Units/MainTabs.xaml"/>

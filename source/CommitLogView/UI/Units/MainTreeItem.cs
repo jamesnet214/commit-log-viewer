@@ -3,13 +3,13 @@ using System.Windows.Controls;
 
 namespace CommitLogView.UI.Units
 {
-    public class RepoTreeItem : TreeViewItem
+    public class MainTreeItem : TreeViewItem
     {
         #region DefaultStyleKey
 
-        static RepoTreeItem()
+        static MainTreeItem()
         {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(RepoTreeItem), new FrameworkPropertyMetadata(typeof(RepoTreeItem)));
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(MainTreeItem), new FrameworkPropertyMetadata(typeof(MainTreeItem)));
         }
         #endregion
 
@@ -17,7 +17,7 @@ namespace CommitLogView.UI.Units
 
         protected override DependencyObject GetContainerForItemOverride()
         {
-            return new RepoTreeItem();
+            return new MainTreeItem();
         }
         #endregion
     }

@@ -84,20 +84,20 @@
 
     <Style TargetType="{x:Type ContentPresenter}" x:Key="ItemContentPresenterStyle">
         <Setter Property="ContentTemplate" Value="{StaticResource RepositoryStyleDataTemplate}"/>
-        <Setter Property="Content" Value="{Binding RelativeSource={RelativeSource AncestorType=units:RepoTreeItem}, Path=Header}"/>
+        <Setter Property="Content" Value="{Binding RelativeSource={RelativeSource AncestorType=units:MainTreeItem}, Path=Header}"/>
         <Setter Property="Margin" Value="26 0 0 0"/>
     </Style>
 
-    <Style TargetType="{x:Type units:RepoTreeItem}">
-        <Setter Property="IsExpanded" Value="True"/>
+    <Style TargetType="{x:Type units:MainTreeItem}">
         <Setter Property="ItemsSource" Value="{Binding Repositories}"/>
+        <Setter Property="IsExpanded" Value="True"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type units:RepoTreeItem}">
+                <ControlTemplate TargetType="{x:Type units:MainTreeItem}">
                     <StackPanel>
                         <Border x:Name="border" Style="{StaticResource ItemBorderStyle}">
                             <Grid Style="{StaticResource ItemGridStyle}">
-                                <units:RepoTreeItemExpander x:Name="check"/>
+                                <units:MainTreeItemExpander x:Name="check"/>
                                 <ContentPresenter x:Name="content" Style="{StaticResource ItemContentPresenterStyle}"/>
                             </Grid>
                         </Border>

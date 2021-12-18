@@ -20,7 +20,7 @@ namespace CommitLogView.Local.Converter
             {
                 DependencyObject parent = VisualTreeHelper.GetParent(d);
 
-                while (parent is not RepoTreeControl)
+                while (parent is not MainTreeControl)
                 {
                     if (parent is TreeViewItem)
                     {

@@ -12,8 +12,9 @@
         <Setter Property="BorderBrush" Value="#000000"/>
         <Setter Property="BorderThickness" Value="1"/>
     </Style>
-    
+
     <Style TargetType="{x:Type StackPanel}" x:Key="TasklineGridStyle">
+        <Setter Property="Grid.ColumnSpan" Value="2"/>
         <Setter Property="Orientation" Value="Horizontal"/>
         <Setter Property="UseLayoutRounding" Value="True"/>
         <Setter Property="Background" Value="#CC000000"/>
@@ -60,13 +61,13 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Border Style="{StaticResource EdgeBoarderStyle}"/>
-                        <StackPanel x:Name="PART_Taskline" Style="{StaticResource TasklineGridStyle}" Grid.ColumnSpan="2">
+                        <StackPanel x:Name="PART_Taskline" Style="{StaticResource TasklineGridStyle}">
                             <icons:GitHubIcon Style="{StaticResource GitHubIconStyle}"/>
                             <TextBlock x:Name="PART_WindowHeader" Style="{StaticResource HeaderTextblockStyle}"/>
                             <TextBlock Style="{StaticResource HashTextBlockStyle}"/>
                         </StackPanel>
                         <units:WindowCloseButton x:Name="PART_Close" Grid.Column="1"/>
-                        <units:RepoTreeControl Grid.Row="1" DataContext="{Binding Workspace}"/>
+                        <units:MainTreeControl Grid.Row="1"/>
                         <units:MainTabs Grid.Row="1" Grid.Column="2"/>
                     </Grid>
                 </ControlTemplate>

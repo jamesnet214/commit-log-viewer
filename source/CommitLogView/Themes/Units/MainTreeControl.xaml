@@ -9,13 +9,14 @@
         <Setter Property="BorderBrush" Value="#292929"/>
     </Style>
 
-    <Style TargetType="{x:Type units:RepoTreeControl}">
+    <Style TargetType="{x:Type units:MainTreeControl}">
+        <Setter Property="DataContext" Value="{Binding Workspace}"/>
         <Setter Property="ItemsSource" Value="{Binding Repositories}"/>
         <Setter Property="DoubleClickCommand" Value="{Binding RepoDoubleClickCommand}"/>
         <Setter Property="Command" Value="{Binding RepoClickCommand}"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type units:RepoTreeControl}">
+                <ControlTemplate TargetType="{x:Type units:MainTreeControl}">
                     <Border Style="{StaticResource EdgeBorderStyle}">
                         <ScrollViewer>
                             <ItemsPresenter/>
