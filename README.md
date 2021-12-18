@@ -20,4 +20,18 @@ private void View_Drop(object sender, DragEventArgs e)
     }
     RepositoryConfig.Access.Save();
 }
+
+
+
+        private void View_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                e.Effects = DragDropEffects.Copy;
+            }
+            else
+            {
+                e.Effects = DragDropEffects.None;
+            }
+        }
 ```
