@@ -11,11 +11,11 @@ namespace CommitLogView.UI.Units.DataTemplateSelectors
 
         public override DataTemplate SelectTemplate(object item, DependencyObject container)
         {
-            if (item is RepoContentViewModel)
+            if (item is RepoContentModel)
             {
                 return Repos;
             }
-            else if (item is CommitContentViewModel)
+            else if (item is CommitContentModel)
             {
                 return Commit;
             }

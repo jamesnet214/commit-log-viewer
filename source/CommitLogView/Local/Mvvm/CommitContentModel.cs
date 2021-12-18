@@ -6,10 +6,11 @@ using System.Collections.Generic;
 using DevNcore.UI.Foundation.Mvvm;
 using CommitLogView.Local.Data;
 using System.IO;
+using CommitLogView.UI.Units;
 
 namespace CommitLogView.Local.Mvvm
 {
-    public class CommitContentViewModel : ObservableObject
+    public class CommitContentModel : ObservableObject
     {
         private RevisionInfo _commit;
         private List<RevisionInfo> _commits;
@@ -36,11 +37,14 @@ namespace CommitLogView.Local.Mvvm
         }
 
         public string Tag { get; internal set; }
+        public CommitContent Content { get; private set; }
         public string Header { get; internal set; }
 
-        public CommitContentViewModel(IsolateGitRepositoryItem repo)
+        public CommitContentModel(IsolateGitRepositoryItem repo)
         {
             Tag = repo.RepositoryPath;
+            Content = new();
+            Content.DataContext = this;
             Header = Path.GetFileNameWithoutExtension(repo.RepositoryPath);
             ClickCommand = new RelayCommand<ParentInfo>(RevisionClick);
         }

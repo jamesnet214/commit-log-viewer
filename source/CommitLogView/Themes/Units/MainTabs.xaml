@@ -40,14 +40,12 @@
         <units:CommitContent/>
     </DataTemplate>
 
+    <route:MainTabsRoute x:Key="MainTabsRoute" 
+                         Commit="{StaticResource CommitContentTemplate}"
+                         Repos="{StaticResource RepoContentTemplate}"/>
+
     <Style TargetType="{x:Type units:MainTabs}">
         <Setter Property="ItemsSource" Value="{Binding TabsContents}"/>
-        <Setter Property="ContentTemplateSelector">
-            <Setter.Value>
-                <route:MainTabsRoute Commit="{StaticResource CommitContentTemplate}"
-                                     Repos="{StaticResource RepoContentTemplate}"/>
-            </Setter.Value>
-        </Setter>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type units:MainTabs}">
