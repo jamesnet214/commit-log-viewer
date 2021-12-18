@@ -10,10 +10,15 @@
     
     <Style TargetType="{x:Type views:MainWindow}">
         <Setter Property="Padding" Value="0 0 0 0"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="#292929"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type views:MainWindow}">
-                    <ContentPresenter ContentTemplate="{StaticResource MainContentDataTemplate}"/>
+                    <Border BorderThickness="{TemplateBinding BorderThickness}"
+                            BorderBrush="{TemplateBinding BorderBrush}">
+                        <ContentPresenter ContentTemplate="{StaticResource MainContentDataTemplate}"/>
+                    </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

@@ -9,9 +9,16 @@ namespace CommitLogView.Local.Settings
 {
     public class RepositoryListBuilder
     {
+        private SettingsConfig Settings { get; }
+
         private RepositoryListBuilder()
-        { 
-        
+        {
+            string ymlContents = FindAssemblyInfo("CommitLogView.App.settings.yaml");
+            var deserializer = new DeserializerBuilder()
+              .WithNamingConvention(CamelCaseNamingConvention.Instance)
+              .Build();
+
+            Settings = deserializer.Deserialize<SettingsConfig>(ymlContents);
         }
 
         public static RepositoryListBuilder Build()
@@ -21,27 +28,18 @@ namespace CommitLogView.Local.Settings
 
         public List<RepositoryGroup> Repositories()
         {
-            string ymlContents = FindAssemblyInfo("CommitLogView.App.settings.yaml");
-            var deserializer = new DeserializerBuilder()
-              .WithNamingConvention(CamelCaseNamingConvention.Instance)
-              .Build();
-
-            var settings = deserializer.Deserialize<SettingsConfig>(ymlContents);
-            return settings.RepositoryGroup;
+            return Settings.RepositoryGroup;
         }
 
-
         // 이 부분은 나중에 Assembly 관련 프레임워크로 이동합니다...
-        private string FindAssemblyInfo(string resourceName)
+        private static string FindAssemblyInfo(string resourceName)
         {
             var assembly = Assembly.GetExecutingAssembly();
 
-            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
-            using (StreamReader reader = new StreamReader(stream))
-            {
-                string result = reader.ReadToEnd();
-                return result;
-            }
+            using Stream stream = assembly.GetManifestResourceStream(resourceName);
+            using StreamReader reader = new(stream);
+            string result = reader.ReadToEnd();
+            return result;
         }
     }
 }

@@ -9,7 +9,7 @@ namespace CommitLogView.Local.Converter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return value.ToString().Substring(0, int.Parse(parameter.ToString()));
+            return value.ToString()[..int.Parse(parameter.ToString())];
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

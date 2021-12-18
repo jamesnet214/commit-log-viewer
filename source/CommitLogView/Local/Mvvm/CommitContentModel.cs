@@ -35,18 +35,19 @@ namespace CommitLogView.Local.Mvvm
             set { _changedFiles = value; OnPropertyChanged(); }
         }
 
-        private string Tag;
+        private readonly string Tag;
 
         public CommitContentModel(RepositoryItem repo)
         {
             Tag = repo.Path;
             ClickCommand = new RelayCommand<ParentInfo>(RevisionClick);
+            Load();
         }
 
         protected override void OnInitializedComponent()
         {
-            Load();
-            RepositoryConfig.Access.Visit(Tag);
+            //Load();
+            //RepositoryConfig.Visit(Tag);
         }
 
         private async void Load()

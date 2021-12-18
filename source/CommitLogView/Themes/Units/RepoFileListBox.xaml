@@ -11,15 +11,21 @@
     <Style TargetType="{x:Type units:RepoFileListBox}">
         <Setter Property="DoubleClickCommand" Value="{Binding RelativeSource={RelativeSource AncestorType=ctrls:NcoreListControl}, Path=DataContext.MarkdownClickCommand}"/>
         <Setter Property="ItemsSource" Value="{Binding Markdowns}"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="UseLayoutRounding" Value="True"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="#FFFFFF"/>
-        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="BorderThickness" Value="0 0 1 0"/>
+        <Setter Property="BorderBrush" Value="#292929"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type units:RepoFileListBox}">
-                    <ScrollViewer Style="{StaticResource ScrollViewerStyle}">
-                        <ItemsPresenter/>
-                    </ScrollViewer>
+                    <Border BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <ScrollViewer Style="{StaticResource ScrollViewerStyle}">
+                            <ItemsPresenter/>
+                        </ScrollViewer>
+                    </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

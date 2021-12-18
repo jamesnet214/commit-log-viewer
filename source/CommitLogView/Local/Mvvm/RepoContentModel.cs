@@ -9,7 +9,7 @@ namespace CommitLogView.Local.Mvvm
 {
     public class RepoContentModel : ObservableObject
     {
-        private Action<RepositoryItem> TabsItemLoadEvent;
+        private readonly Action<RepositoryItem> TabsItemLoadEvent;
 
         public ICommand RepoClickCommand { get; }
         public ICommand RepoDoubleClickCommand { get; }
@@ -34,7 +34,7 @@ namespace CommitLogView.Local.Mvvm
 
         private void RepoClick(object obj)
         {
-            if (obj is RepositoryItem repo)
+            if (obj is RepositoryItem)
             {
             }
         }

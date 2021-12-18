@@ -64,8 +64,12 @@ namespace CommitLogView.Local.Data
             File.WriteAllText(GIT_PATH, json);
         }
 
-        internal void Visit(string v)
+        internal static void Visit(string v)
         {
+            if (v is null)
+            {
+                throw new ArgumentNullException(nameof(v));
+            }
             //Config.Repositories.FirstOrDefault(x => x.RepositoryPath == v).LastAccessTime = DateTime.Now;
         }
     }
