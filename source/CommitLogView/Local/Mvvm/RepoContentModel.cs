@@ -15,45 +15,19 @@ namespace CommitLogView.Local.Mvvm
 {
     public class RepoContentModel : ObservableObject
     {
-        private ObservableCollection<RepositoryGroup> _repositories;
-        private List<RevisionFileInfo> _markdowns;
-
-        public ICommand RepoClickCommand { get; set; }
-        public ICommand RepoDoubleClickCommand { get; set; }
-
-        public ObservableCollection<RepositoryGroup> Repositories
-        {
-            get => _repositories;
-            set { _repositories = value; OnPropertyChanged(); }
-        }
-
-        public List<RevisionFileInfo> Markdowns
-        {
-            get => _markdowns;
-            set { _markdowns = value; OnPropertyChanged(); }
-        }
-
-        public RepoContent Content { get; }
-
-        public Action<RepositoryItem> TabsItemLoadEvent;
-        public string Header { get; internal set; }
-        public string Tag { get; internal set; }
+        public ICommand RepoClickCommand { get; }
+        public ICommand RepoDoubleClickCommand { get; }
+        public ObservableCollection<RepositoryGroup> Repositories { get; }
+        private Action<RepositoryItem> TabsItemLoadEvent;
 
         public RepoContentModel(Action<RepositoryItem> tabsItemLoad)
          {
-            Content = new();
-            Content.DataContext = this;
             TabsItemLoadEvent = tabsItemLoad;
-            Header = "Find Repository";
             RepoClickCommand = new RelayCommand<object>(RepoClick);
             RepoDoubleClickCommand = new RelayCommand<object>(RepoDoubleClick);
 
             var source = RepositoryListBuilder.Build().Repositories();
             Repositories = new(source);
-        }
-
-        protected override void OnInitializedComponent()
-        {
         }
 
         private void View_DragEnter(object sender, DragEventArgs e)
@@ -80,19 +54,8 @@ namespace CommitLogView.Local.Mvvm
         {
             if (obj is RepositoryItem repo)
             {
-                List<RevisionFileInfo> markdowns = new();
-                RecrusiveSearchMarkdown(repo.Path, markdowns);
-                Markdowns = markdowns;
+                //TabsItemLoadEvent.Invoke(repo);
             }
-        }
-
-        private void RecrusiveSearchMarkdown(string repositoryPath, List<RevisionFileInfo> markdowns)
-        {
-            var dirs = Directory.GetDirectories(repositoryPath);
-            var files = Directory.GetFiles(repositoryPath, "*.md");
-            markdowns.AddRange(files.Select(x => new RevisionFileInfo(x)));
-
-            dirs.ToList().ForEach(x => RecrusiveSearchMarkdown(x, markdowns));
         }
     }
 }

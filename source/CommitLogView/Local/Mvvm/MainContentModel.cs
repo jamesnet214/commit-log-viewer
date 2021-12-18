@@ -5,6 +5,8 @@ using CommitLogView.Local.Data;
 using CommitLogView.Local.Settings;
 using CommitLogView.Local.Data.Yamls;
 using CommitLogView.Local.Data.MainTabs;
+using System.IO;
+using System.Linq;
 
 namespace CommitLogView.Local.Mvvm
 {

@@ -11,14 +11,29 @@ namespace CommitLogView.Local.Data.MainTabs
 {
     internal class TabsRepository : ITabsItemBase
     {
-        public string Header { get; set; }
-        public RepositoryItem Repository { get; set; }
-        public CommitContentModel CommitContentData { get; set; }
+        public string Header { get; }
+        public RepositoryItem Repository { get; }
+        public CommitContentModel CommitContentData { get; }
+        public List<RevisionFileInfo> Markdowns { get; }
+
         public TabsRepository(RepositoryItem repository)
         {
             Header = repository.Name;
             Repository = repository;
             CommitContentData = new(repository);
+
+            List<RevisionFileInfo> markdowns = new();
+            RecrusiveSearchMarkdown(repository.Path, markdowns);
+            Markdowns = markdowns;
+        }
+
+        private void RecrusiveSearchMarkdown(string repositoryPath, List<RevisionFileInfo> markdowns)
+        {
+            var dirs = Directory.GetDirectories(repositoryPath).ToList();
+            var files = Directory.GetFiles(repositoryPath, "*.md");
+            markdowns.AddRange(files.Select(x => new RevisionFileInfo(x)));
+
+            dirs.ForEach(x => RecrusiveSearchMarkdown(x, markdowns));
         }
     }
 }

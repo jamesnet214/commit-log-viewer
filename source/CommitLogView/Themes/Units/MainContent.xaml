@@ -45,8 +45,8 @@
         <Setter Property="UseLayoutRounding" Value="True"/>
         <Setter Property="Background" Value="#191919"/>
         <Setter Property="Padding" Value="0 0 0 0"/>
-        <Setter Property="Width" Value="800"/>
-        <Setter Property="Height" Value="600"/>
+        <Setter Property="Width" Value="1000"/>
+        <Setter Property="Height" Value="800"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type units:MainContent}">

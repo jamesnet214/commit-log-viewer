@@ -41,7 +41,14 @@
     </DataTemplate>
 
     <DataTemplate x:Key="RepositoryTemplate">
-        <units:CommitContent DataContext="{Binding CommitContentData}"/>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" MinWidth="200"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <units:RepoFileListBox Grid.Column="0"/>
+            <units:CommitContent Grid.Column="1" DataContext="{Binding CommitContentData}"/>
+        </Grid>
     </DataTemplate>
 
     <route:MainTabsRoute x:Key="MainTabsRoute" 

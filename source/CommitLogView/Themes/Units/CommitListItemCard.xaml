@@ -5,6 +5,7 @@
     xmlns:cnvts="clr-namespace:CommitLogView.Local.Converter">
 
     <Style TargetType="{x:Type units:CommitFileListItemCard}">
+        <Setter Property="Height" Value="250"/>
         <Setter Property="Foreground" Value="#FFFFFF"/>
         <Setter Property="Grid.Row" Value="2"/>
         <Setter Property="Template">
