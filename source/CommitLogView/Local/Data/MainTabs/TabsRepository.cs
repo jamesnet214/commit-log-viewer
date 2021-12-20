@@ -1,9 +1,5 @@
 ﻿using CommitLogView.Local.Data.Yamls;
-using System;
 using CommitLogView.UI.Units;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 
 namespace CommitLogView.Local.Data.MainTabs
 {

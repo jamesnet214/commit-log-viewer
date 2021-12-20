@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace CommitLogView.Local.Data.Yamls
+﻿namespace CommitLogView.Local.Data.Yamls
 {
     public class IgnoreFields
     {

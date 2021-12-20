@@ -24,13 +24,13 @@
                             <Setter Property="Cursor" Value="Hand"/>
                         </Trigger>
                         <DataTrigger Binding="{Binding Line}" Value="0">
-                            <Setter TargetName="sha" Property="Foreground" Value="#4f91ff"/>
+                            <Setter TargetName="sha" Property="Foreground" Value="#4F91FF"/>
                         </DataTrigger>
                         <DataTrigger Binding="{Binding Line}" Value="1">
-                            <Setter TargetName="sha" Property="Foreground" Value="#cf6568"/>
+                            <Setter TargetName="sha" Property="Foreground" Value="#CF6568"/>
                         </DataTrigger>
                         <DataTrigger Binding="{Binding Line}" Value="2">
-                            <Setter TargetName="sha" Property="Foreground" Value="#e2cb70"/>
+                            <Setter TargetName="sha" Property="Foreground" Value="#E2CB70"/>
                         </DataTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

@@ -1,5 +1,4 @@
 ﻿using LibGit2Sharp;
-using System.IO;
 using System.Linq;
 using System.Windows.Input;
 using System.Collections.Generic;

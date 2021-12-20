@@ -6,7 +6,6 @@ using DevNcore.UI.Foundation.Mvvm;
 using CommitLogView.Local.Data.Yamls;
 using CommitLogView.Local.Data.MainTabs;
 using CommitLogView.Local.Builder;
-using System;
 
 namespace CommitLogView.Local.Mvvm
 {
