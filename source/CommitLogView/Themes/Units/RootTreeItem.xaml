@@ -5,10 +5,10 @@
     xmlns:units="clr-namespace:CommitLogView.UI.Units"
     xmlns:cnvts="clr-namespace:CommitLogView.Local.Converter">
 
-    <Style TargetType="{x:Type icons:LanguageMarkdownOutlineIcon}" x:Key="MarkdownIconStyle">
+    <Style TargetType="{x:Type icons:FileIcon}" x:Key="FileIconStyle">
         <Setter Property="Grid.Column" Value="1"/>
         <Setter Property="Margin" Value="0 0 6 0"/>
-        <Setter Property="Fill" Value="#AAFFFFFF"/>
+        <Setter Property="Fill" Value="#FFFFFF"/>
         <Setter Property="Width" Value="18"/>
         <Setter Property="Height" Value="18"/>
     </Style>
@@ -41,7 +41,7 @@
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
                                     <units:MainTreeItemExpander x:Name="check" Margin="0 0 0 0" Grid.Column="0"/>
-                                    <icons:LanguageMarkdownOutlineIcon x:Name="icon" Style="{StaticResource MarkdownIconStyle}"/>
+                                    <icons:FileIcon x:Name="icon" Style="{StaticResource FileIconStyle}"/>
                                     <TextBlock Style="{StaticResource FileNameTextBlockStyle}"/>
                                 </Grid>
                             </Border>
@@ -57,6 +57,15 @@
                         </Trigger>
                         <DataTrigger Binding="{Binding IsDirectory}" Value="True">
                             <Setter TargetName="icon" Property="Data" Value="{DynamicResource Folder}"/>
+                            <Setter TargetName="icon" Property="Fill" Value="#FFEFB13A"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Extension}" Value=".ZIP">
+                            <Setter TargetName="icon" Property="Data" Value="{DynamicResource FileZip}"/>
+                            <Setter TargetName="icon" Property="Fill" Value="#FFFED484"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Extension}" Value=".MD">
+                            <Setter TargetName="icon" Property="Data" Value="{DynamicResource LanguageMarkdownOutline}"/>
+                            <Setter TargetName="icon" Property="Fill" Value="#FFFFFF"/>
                         </DataTrigger>
                         <Trigger Property="IsExpanded" Value="False">
                             <Setter TargetName="items" Property="Visibility" Value="Collapsed"/>

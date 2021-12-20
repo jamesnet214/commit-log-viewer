@@ -68,4 +68,10 @@
     <Style TargetType="{x:Type icons:HistoryIcon}" BasedOn="{StaticResource {x:Type prims:Icon}}">
         <Setter Property="Data" Value="{StaticResource History}"/>
     </Style>
+    <Style TargetType="{x:Type icons:FileIcon}" BasedOn="{StaticResource {x:Type prims:Icon}}">
+        <Setter Property="Data" Value="{StaticResource File}"/>
+    </Style>
+    <Style TargetType="{x:Type icons:FileZipIcon}" BasedOn="{StaticResource {x:Type prims:Icon}}">
+        <Setter Property="Data" Value="{StaticResource FileZip}"/>
+    </Style>
 </ResourceDictionary>

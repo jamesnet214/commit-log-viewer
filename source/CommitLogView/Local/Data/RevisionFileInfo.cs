@@ -15,6 +15,7 @@ namespace CommitLogView.Local.Data
             IsDirectory = isDirectory;
             Path = path;
             FileName = System.IO.Path.GetFileName(path);
+            Extension = !IsDirectory ? System.IO.Path.GetExtension(path).ToUpper() : "";
             Children = new();
         }
 
@@ -22,6 +23,8 @@ namespace CommitLogView.Local.Data
         public string Path { get; set; }
         public bool IsDirectory { get; set; }
         public string FileName { get; set; }
+        public string Extension { get; set; }
+
         public string Display => $"{Status}, {Path}";
 
         public List<RevisionFileInfo> Children { get; set; }

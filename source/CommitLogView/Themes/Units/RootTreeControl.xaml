@@ -11,7 +11,7 @@
     
     <Style TargetType="{x:Type units:RootTreeControl}">
         <Setter Property="DoubleClickCommand" Value="{Binding RelativeSource={RelativeSource AncestorType=ctrls:NcoreListControl}, Path=DataContext.MarkdownClickCommand}"/>
-        <Setter Property="ItemsSource" Value="{Binding Markdowns}"/>
+        <Setter Property="ItemsSource" Value="{Binding Roots}"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="UseLayoutRounding" Value="True"/>
         <Setter Property="Background" Value="Transparent"/>

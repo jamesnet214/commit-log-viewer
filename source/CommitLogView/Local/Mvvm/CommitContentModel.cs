@@ -35,7 +35,7 @@ namespace CommitLogView.Local.Mvvm
             set { _changedFiles = value; OnPropertyChanged(); }
         }
 
-        public List<RevisionFileInfo> Markdowns { get; }
+        public List<RevisionFileInfo> Roots { get; }
 
         private readonly string Tag;
 
@@ -43,7 +43,7 @@ namespace CommitLogView.Local.Mvvm
         {
             Tag = repo.Path;
             ClickCommand = new RelayCommand<ParentInfo>(RevisionClick);
-            Markdowns = StorageBuilder.Build().Repositories(repo.Path);
+            Roots = StorageBuilder.Build().Repositories(repo.Path);
             Load();
         }
 

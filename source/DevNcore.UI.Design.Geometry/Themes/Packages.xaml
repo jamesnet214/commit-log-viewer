@@ -6,6 +6,8 @@
         <ResourceDictionary Source="/DevNcore.UI.Design.Geometry;component/Themes/Geometries/AlphaRBox.xaml"/>
         <ResourceDictionary Source="/DevNcore.UI.Design.Geometry;component/Themes/Geometries/ALphaUBox.xaml"/>
         <ResourceDictionary Source="/DevNcore.UI.Design.Geometry;component/Themes/Geometries/Close.xaml"/>
+        <ResourceDictionary Source="/DevNcore.UI.Design.Geometry;component/Themes/Geometries/File.xaml"/>
+        <ResourceDictionary Source="/DevNcore.UI.Design.Geometry;component/Themes/Geometries/FileZip.xaml"/>
         <ResourceDictionary Source="/DevNcore.UI.Design.Geometry;component/Themes/Geometries/Folder.xaml"/>
         <ResourceDictionary Source="/DevNcore.UI.Design.Geometry;component/Themes/Geometries/Git.xaml"/>
         <ResourceDictionary Source="/DevNcore.UI.Design.Geometry;component/Themes/Geometries/GitHub.xaml"/>
