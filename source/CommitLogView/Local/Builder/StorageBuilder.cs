@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace CommitLogView.Local.Builder
 {
@@ -36,7 +37,7 @@ namespace CommitLogView.Local.Builder
                 var files = Directory.GetFiles(repositoryPath);
                 source.AddRange(dirs.Select(x => new RevisionFileInfo(x, true)));
                 source.AddRange(files.Select(x => new RevisionFileInfo(x, false)));
-                dirs.ForEach(x => RecrusiveSearchMarkdown(x, source.Single(y=>y.Path == x).Children));
+                dirs.ForEach(x => RecrusiveSearchMarkdown(x, source.Single(y => y.Path == x).Children));
             }
         }
     }

@@ -6,14 +6,16 @@
 
     <Style TargetType="{x:Type icons:GitHubIcon}" x:Key="GitHubIconStyle">
         <Setter Property="Margin" Value="10 0 0 0"/>
+        <Setter Property="Width" Value="20"/>
+        <Setter Property="Height" Value="20"/>
     </Style>
     
-    <Style TargetType="{x:Type Border}" x:Key="EdgeBoarderStyle">
+    <Style TargetType="{x:Type Border}" x:Key="EdgeBorderStyle">
         <Setter Property="BorderBrush" Value="#000000"/>
         <Setter Property="BorderThickness" Value="1"/>
     </Style>
 
-    <Style TargetType="{x:Type StackPanel}" x:Key="TasklineGridStyle">
+    <Style TargetType="{x:Type StackPanel}" x:Key="TaskLineGridStyle">
         <Setter Property="Grid.ColumnSpan" Value="2"/>
         <Setter Property="Orientation" Value="Horizontal"/>
         <Setter Property="UseLayoutRounding" Value="True"/>
@@ -23,12 +25,12 @@
         <Setter Property="Height" Value="28"/>
     </Style>    
     
-    <Style TargetType="{x:Type TextBlock}" x:Key="HeaderTextblockStyle">
+    <Style TargetType="{x:Type TextBlock}" x:Key="HeaderTextBlockStyle">
         <Setter Property="Grid.Column" Value="1"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="Foreground" Value="#FFFFFF"/>
-        <Setter Property="FontSize" Value="12"/>
-        <Setter Property="Margin" Value="10 0 0 0"/>
+        <Setter Property="FontSize" Value="13"/>
+        <Setter Property="Margin" Value="8 0 0 0"/>
         <Setter Property="Text" Value="{Binding RelativeSource={RelativeSource AncestorType=Window}, Path=Title}"/>
     </Style>
     
@@ -60,10 +62,10 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Border Style="{StaticResource EdgeBoarderStyle}"/>
-                        <StackPanel x:Name="PART_Taskline" Style="{StaticResource TasklineGridStyle}">
+                        <Border Style="{StaticResource EdgeBorderStyle}"/>
+                        <StackPanel x:Name="PART_Taskline" Style="{StaticResource TaskLineGridStyle}">
                             <icons:GitHubIcon Style="{StaticResource GitHubIconStyle}"/>
-                            <TextBlock x:Name="PART_WindowHeader" Style="{StaticResource HeaderTextblockStyle}"/>
+                            <TextBlock x:Name="PART_WindowHeader" Style="{StaticResource HeaderTextBlockStyle}"/>
                             <TextBlock Style="{StaticResource HashTextBlockStyle}"/>
                         </StackPanel>
                         <units:WindowCloseButton x:Name="PART_Close" Grid.Column="1"/>

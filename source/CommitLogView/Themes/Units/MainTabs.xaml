@@ -8,9 +8,6 @@
     <Style TargetType="{x:Type Border}" x:Key="ContentBorderStyle">
         <Setter Property="Grid.Row" Value="1"/>
         <Setter Property="Grid.Column" Value="0"/>
-        <Setter Property="KeyboardNavigation.TabIndex" Value="1"/>
-        <Setter Property="KeyboardNavigation.TabNavigation" Value="Local"/>
-        <Setter Property="KeyboardNavigation.DirectionalNavigation" Value="Contained"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="#1F4084"/>
         <Setter Property="BorderThickness" Value="0 4 0 0"/>
@@ -19,17 +16,14 @@
     <Style TargetType="{x:Type Grid}" x:Key="MainGridStyle">
         <Setter Property="ClipToBounds" Value="true"/>
         <Setter Property="SnapsToDevicePixels" Value="true"/>
-        <Setter Property="KeyboardNavigation.TabNavigation" Value="Local"/>
-        <Setter Property="Background" Value="#1c191d"/>
+        <Setter Property="Background" Value="#1C191D"/>
     </Style>
 
     <Style TargetType="{x:Type TabPanel}" x:Key="TabPanelStyle">
-        <Setter Property="KeyboardNavigation.TabIndex" Value="1"/>
         <Setter Property="Grid.Row" Value="0"/>
         <Setter Property="Grid.Column" Value="0"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="IsItemsHost" Value="true"/>
-        <Setter Property="Panel.ZIndex" Value="1"/>
         <Setter Property="Margin" Value="0"/>
     </Style>
 
