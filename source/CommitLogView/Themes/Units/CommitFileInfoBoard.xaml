@@ -39,19 +39,19 @@
                                     <TextBlock Text="{Binding Commit.Author.Name, Converter={cnvts:UpperShortCutConverter}, ConverterParameter=2}"
                                                VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="15" Foreground="#FFFFFF" FontWeight="Bold"/>
                                 </Border>
-                                <StackPanel Margin="10 0 8 0">
+                                <StackPanel Margin="8 0 8 0">
                                     <TextBlock>
                                         <Run Text="{Binding Commit.Author.Name, Mode=OneWay}" Foreground="#FFFFFF"/>
-                                        <Run Text=" "/>
+                                        <Run Text=""/>
                                         <Run Text="{Binding Commit.Author.Email, Mode=OneWay}" Foreground="#AAAAAA"/>
                                     </TextBlock>
                                     <TextBlock Text="{Binding Commit.When.DateTime}" Margin="-1 2 0 0" Foreground="#CCABD4"/>
                                 </StackPanel>
                             </StackPanel>
                             
-                            <StackPanel Grid.Row="1" Grid.Column="1" Margin="0 15 0 0" HorizontalAlignment="Left">
-                                <TextBlock Text="SHA" Margin="10 0 10 0" FontSize="12" Foreground="#666666" HorizontalAlignment="Right"/>
-                                <TextBlock Text="PARENTS" Margin="10 0 10 0" FontSize="12" Foreground="#666666" HorizontalAlignment="Right"/>
+                            <StackPanel Grid.Row="1" Grid.Column="1" Margin="-5 15 0 0" HorizontalAlignment="Left">
+                                <TextBlock Text="SHA" Margin="0 0 10 0" FontSize="12" Foreground="#666666" HorizontalAlignment="Right"/>
+                                <TextBlock Text="PARENTS" Margin="0 0 10 0" FontSize="12" Foreground="#666666" HorizontalAlignment="Right"/>
                             </StackPanel>
 
                             <StackPanel Grid.Row="1" Grid.Column="2" Margin="0 16 0 0">

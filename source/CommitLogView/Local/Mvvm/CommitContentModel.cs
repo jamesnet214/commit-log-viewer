@@ -152,6 +152,10 @@ namespace CommitLogView.Local.Mvvm
                 }
             }
             Commits = commits;
+            if (Commits.Any())
+            {
+                Commit = Commits.First();
+            }
         }
 
         private void CommitChanged(RevisionInfo value)
