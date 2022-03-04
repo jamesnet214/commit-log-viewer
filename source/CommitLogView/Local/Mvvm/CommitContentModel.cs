@@ -6,6 +6,7 @@ using DevNcore.UI.Foundation.Mvvm;
 using CommitLogView.Local.Data;
 using CommitLogView.Local.Data.Yamls;
 using CommitLogView.Local.Builder;
+using System.Windows;
 
 namespace CommitLogView.Local.Mvvm
 {
@@ -47,8 +48,9 @@ namespace CommitLogView.Local.Mvvm
             Load();
         }
 
-        protected override void OnInitializedComponent()
+        protected override void OnLoaded(object sender, RoutedEventArgs e)
         {
+            base.OnLoaded(sender, e);
             //Load();
             //RepositoryConfig.Visit(Tag);
         }

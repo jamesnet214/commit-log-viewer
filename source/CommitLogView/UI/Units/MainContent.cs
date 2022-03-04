@@ -7,7 +7,7 @@ using DevNcore.WPF.Controls;
 
 namespace CommitLogView.UI.Units
 {
-    public class MainContent : NcoreContent
+    public class MainContent : DevNcoreContent
     {
         #region DefaultStyleKey
 
@@ -46,7 +46,7 @@ namespace CommitLogView.UI.Units
         {
             if (DataContext is ObservableObject vm)
             {
-                vm.ForceViewLoaded(this);
+                vm.RegistElement(this);
             }
         }
     }
