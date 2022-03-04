@@ -5,7 +5,7 @@ using System.Windows;
 
 namespace CommitLogView.UI.Units
 {
-    public class CommitContent : NcoreContent
+    public class CommitContent : DevNcoreContent
     {
         #region DefaultStyleKey
 

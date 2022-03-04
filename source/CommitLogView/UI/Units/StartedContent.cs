@@ -3,7 +3,7 @@ using System.Windows;
 
 namespace CommitLogView.UI.Units
 {
-    public class StartedContent : NcoreContent
+    public class StartedContent : DevNcoreContent
     {
         static StartedContent()
         {
