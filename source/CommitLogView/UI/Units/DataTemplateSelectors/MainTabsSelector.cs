@@ -1,6 +1,6 @@
-﻿using CommitLogView.Local.Data.MainTabs;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
+using CommitLogView.Local.Data.MainTabs;
 
 namespace CommitLogView.UI.Units.DataTemplateSelectors
 {
