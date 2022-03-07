@@ -58,7 +58,6 @@
     <!--<route:MainTabsRoute x:Key="MainTabsRoute" 
                          Start="{StaticResource StartedTempalte}"
                          Repos="{StaticResource RepositoryTemplate}"/>-->
-
     <Style TargetType="{x:Type units:MainTabs}">
         <Setter Property="ItemsSource" Value="{Binding TabsContents}"/>
         <!--<Setter Property="ContentTemplateSelector" Value="{StaticResource MainTabsRoute}"/>-->
