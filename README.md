@@ -12,6 +12,8 @@
 
 Config 위치
 
+TBD...0
+
 ```
 C:\Users\james\AppData\Roaming\DevFlow\Configs
 ```
