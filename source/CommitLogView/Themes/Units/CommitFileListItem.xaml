@@ -2,16 +2,17 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:icons="clr-namespace:DevNcore.UI.Design.Controls;assembly=DevNcore.UI.Design"
-    xmlns:units="clr-namespace:CommitLogView.UI.Units">
+    xmlns:units="clr-namespace:CommitLogView.UI.Units"
+    xmlns:libGit2Sharp="clr-namespace:LibGit2Sharp;assembly=LibGit2Sharp">
 
-    <Style TargetType="{x:Type icons:AlphaABoxIcon}" x:Key="AlphaBoxIconStyle">
+    <Style TargetType="{x:Type icons:AlphaABoxIcon}" x:Key="ChangeKindType">
         <Setter Property="ToolTip" Value="{Binding Status}"/>
         <Setter Property="Width" Value="14"/>
         <Setter Property="Height" Value="14"/>
         <Setter Property="Fill" Value="#AAAAAA"/>
     </Style>
     
-    <Style TargetType="{x:Type TextBlock}" x:Key="PathTextBlockStyle">
+    <Style TargetType="{x:Type TextBlock}" x:Key="Location">
         <Setter Property="Grid.Column" Value="1"/>
         <Setter Property="Text" Value="{Binding Path}"/>
         <Setter Property="Margin" Value="5 2 0 2"/>
@@ -26,26 +27,26 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <icons:AlphaABoxIcon x:Name="icon" Style="{StaticResource AlphaBoxIconStyle}"/>
-                        <TextBlock Style="{StaticResource PathTextBlockStyle}"/>
+                        <icons:AlphaABoxIcon x:Name="icon" Style="{StaticResource ChangeKindType}"/>
+                        <TextBlock Style="{StaticResource Location}"/>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsSelected" Value="True">
                             <Setter Property="Foreground" Value="#B787C3"/>
                         </Trigger>
-                        <DataTrigger Binding="{Binding Status}" Value="Added">
+                        <DataTrigger Binding="{Binding Status}" Value="{x:Static libGit2Sharp:ChangeKind.Added}">
                             <Setter TargetName="icon" Property="Data" Value="{DynamicResource AlphaABox}"/>
                             <Setter TargetName="icon" Property="Fill" Value="#C1D9FF"/>
                         </DataTrigger>
-                        <DataTrigger Binding="{Binding Status}" Value="Modified">
+                        <DataTrigger Binding="{Binding Status}" Value="{x:Static libGit2Sharp:ChangeKind.Modified}">
                             <Setter TargetName="icon" Property="Data" Value="{DynamicResource AlphaUBox}"/>
                             <Setter TargetName="icon" Property="Fill" Value="#FFFFFF"/>
                         </DataTrigger>
-                        <DataTrigger Binding="{Binding Status}" Value="Renamed">
+                        <DataTrigger Binding="{Binding Status}" Value="{x:Static libGit2Sharp:ChangeKind.Renamed}">
                             <Setter TargetName="icon" Property="Data" Value="{DynamicResource AlphaRBox}"/>
                             <Setter TargetName="icon" Property="Fill" Value="#91BDAF"/>
                         </DataTrigger>
-                        <DataTrigger Binding="{Binding Status}" Value="Deleted">
+                        <DataTrigger Binding="{Binding Status}" Value="{x:Static libGit2Sharp:ChangeKind.Deleted}">
                             <Setter TargetName="icon" Property="Data" Value="{DynamicResource AlphaDBox}"/>
                             <Setter TargetName="icon" Property="Fill" Value="#D39E9E"/>
                         </DataTrigger>
