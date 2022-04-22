@@ -1,4 +1,4 @@
-## commit-log-viewer
+# Commit Log Viewer
 
 이 리포지토리는 commit-log-viewer에 대해 기술한 리포지토리입니다. <br />
 
@@ -10,9 +10,7 @@
 
 <br />
 
-Config 위치
-
-TBD...0
+## Config 위치
 
 ```
 C:\Users\james\AppData\Roaming\DevFlow\Configs
